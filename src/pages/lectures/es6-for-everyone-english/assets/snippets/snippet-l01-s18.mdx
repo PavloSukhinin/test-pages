@@ -1,6 +1,9 @@
 ```js
 0, '', null, undefined, NaN -> false
-if (12) { }
-Boolean(undefined) // false
-console.log(!!'text'); // true
+Boolean(null); // false
+!!null; // false
+true || null; // true
+true && null; // false
+
+if (12) { // will be executed }
 ```
