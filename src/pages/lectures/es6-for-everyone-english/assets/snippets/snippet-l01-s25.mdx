@@ -1,9 +1,11 @@
 ```js
-Array.prototype.customFunction = function() {};
-
-let weekends = ['Sat', 'Sun'];
-
-for (let i in weekends ) {
-  console.log(i); // 0, 1, "customFunction"
+const obj = {
+  prop1: "I'm a property 1",
+  prop2: "Property indeed!"
 }
+
+for (const prop in obj) {
+  console.log(prop); // prop1, prop2
+}
+Object.keys(obj).forEach(value => console.log(value)); // prop1, prop2
 ```
