@@ -126,7 +126,7 @@ import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
         </li>
       </ul>
       <p class="about">
-        Full-stack developer at Binary Studio. Works on development of corporate SPA framework, which generates complex visually-rich sites with just the simple declarative description in the few jsons. Likes to discover and experiment with the new web-platform features. <del>And doesn't like Safari for incompatibilities and obsolescence.</del>
+        Full-stack developer at Binary Studio. Works on development of a new SPA framework, which generates complex visually-rich sites with just the simple declarative description in the few jsons. Likes to discover and experiment with the new web-platform features. <del>And doesn't like Safari for incompatibilities and obsolescence.</del>
       </p>
     </div>
   </div>
@@ -229,7 +229,6 @@ So, there is no specification, but it seems that this time we are talking about 
 >
   <strong>Yeah, sure, I'm on it, let's go!</strong> I'm gonna target modern browsers and will start with the plain JavaScript using new ES6 features where necessary. Sometime in the future, when the project evolves, we'll use libraries like React or Vue.js, but for now, vanilla JavaScript will do the job just fine.
 </SlackMessage>
-
 <div id="table-of-contents" class="table-of-contents" style="margin-top: 1.5em;">
   <TimelineOfContents timeline={[{
     linkTo: "#basic-javascript",
@@ -253,17 +252,16 @@ So, there is no specification, but it seems that this time we are talking about 
   <li>
     <p><strong>Ready to try <a href="https://www.javascript.com/">JavaScript</a>?</strong></p>
     <p>To start with, here are <strong>the main points</strong> you should remember about JS:</p>
-    <p><span class="chip">Brendan Eich</span><span class="chip">EcmaScript</span><span class="chip">script language</span><span class="chip">dynamic language</span><span class="chip">dynamically typed</span><span class="chip">first-class functions</span><span class="chip">object-oriented</span><span class="chip">prototype-based</span><span class="chip">asynchronous</span><span class="chip">single-threaded</span></p>
+    <p><span class="chip">Brendan Eich</span><span class="chip">EcmaScript</span><span class="chip">script language</span><span class="chip">dynamic language</span><span class="chip">dynamically typed</span><span class="chip">first-class functions</span><span class="chip">object-oriented</span><span class="chip">prototype-based</span><span class="chip">single-threaded</span><span class="chip">asynchronous</span></p>
   </li>
+
   <li>
     <p><strong><a href="https://medium.freecodecamp.org/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83">Putting comments in code</a></strong></p>
     <p>The syntax of comments is the same as in C++ and in many other languages. Comments behave like white space and are discarded during script execution.</p>
-
-<SnippetL01S01 />
-
-<SnippetL01S02 />
-
+    <SnippetL01S01 />
+    <SnippetL01S02 />
   </li>
+
   <li>
     <p><strong>Declaring variables: <code>var</code>, <code>let</code> and <code>const</code></strong></p>
     <p>There are three kinds of declarations in JavaScript:</p>
@@ -273,36 +271,31 @@ So, there is no specification, but it seems that this time we are talking about 
         <label class="summary" for="accordion-3-1">
           <code>var</code> declares a variable, optionally initializing it to a value
         </label>
-  <div class="details-body">
-
-<SnippetL01S03 />
-
-  </div>
+        <div class="details-body">
+         <SnippetL01S03 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-2" />
         <label class="summary" for="accordion-3-2">
           <code>let</code> declares a block-scoped, local variable, optionally initializing it to a value
         </label>
-  <div class="details-body">
-
-<SnippetL01S04 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S04 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-3" />
         <label class="summary" for="accordion-3-3">
           <code>const</code> declares a block-scoped, read-only named constant
         </label>
-  <div class="details-body">
-
-<SnippetL01S05 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S05 />
+        </div>
       </li>
     </ul>
   </li>
+
   <li>
     <p><strong>Data Types</strong></p>
     <p>According to the <strong>ECMAScript</strong>, there are six primitive types and everything else is an Object type. Let’s run over those one by one.</p>
@@ -312,100 +305,79 @@ So, there is no specification, but it seems that this time we are talking about 
         <label class="summary" for="accordion-4-1">
           <strong>Boolean</strong>
         </label>
-  <div class="details-body">
-    <p>The boolean type has two values: <code>true</code> and <code>false</code>.</p>
-
-<SnippetL01S06 />
-
-  </div>
+        <div class="details-body">
+          <p>The boolean type has two values: <code>true</code> and <code>false</code>.</p>
+          <SnippetL01S06 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-4-2" />
         <label class="summary" for="accordion-4-2">
           <strong>Number</strong>
         </label>
-  <div class="details-body">
-    <p>An integer or floating point number.</p>
-
-<SnippetL01S07 />
-
-<SnippetL01S08 />
-
-The number type has three symbolic values: `+Infinity`, `-Infinity`, and `NaN` (not-a-number).
-
-<SnippetL01S09 />
-
-  </div>
+        <div class="details-body">
+          <p>An integer or floating point number.</p>
+          <SnippetL01S07 />
+          <SnippetL01S08 />
+          The number type has three symbolic values: `+Infinity`, `-Infinity`, and `NaN` (not-a-number).
+          <SnippetL01S09 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-4-3" />
         <label class="summary" for="accordion-4-3">
           <strong>String</strong>
         </label>
-  <div class="details-body">
-    <p>A sequence of characters that represent a text value. JavaScript <strong>strings are immutable</strong>.</p>
-
-<SnippetL01S10 />
-
-<SnippetL01S11 />
-
-  </div>
+        <div class="details-body">
+          <p>A sequence of characters that represent a text value. JavaScript <strong>strings are immutable</strong>.</p>
+          <SnippetL01S10 />
+          <SnippetL01S11 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-4-4" />
         <label class="summary" for="accordion-4-4">
           <strong>null</strong>
         </label>
-  <div class="details-body">
-    <p><code>null</code> is a special keyword denoting a null value.</p>
-
-<SnippetL01S12 />
-
-  </div>
+        <div class="details-body">
+          <p><code>null</code> is a special keyword denoting a null value.</p>
+          <SnippetL01S12 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-4-5" />
         <label class="summary" for="accordion-4-5">
           <strong>undefined</strong>
         </label>
-  <div class="details-body">
-    <p><code>undefined</code> is a top-level property whose value is not defined.</p>
-
-<SnippetL01S13 />
-
-  </div>
+        <div class="details-body">
+          <p><code>undefined</code> is a top-level property whose value is not defined.</p>
+           <SnippetL01S13 />
+       </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-4-6" />
         <label class="summary" for="accordion-4-6">
           <strong>Symbol</strong>
         </label>
-  <div class="details-body">
-    <p>A Symbol is a unique and immutable primitive value and may be used as the key of an Object property.</p>
-
-<SnippetL01S14 />
-
-  </div>
+        <div class="details-body">
+          <p>A Symbol is a unique and immutable primitive value and may be used as the key of an Object property.</p>
+          <SnippetL01S14 />
+        </div>
       </li>
     </ul>
   </li>
+
   <li>
     <p><strong><a href="https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839">Type coercion</a></strong></p>
     <p>JavaScript variables can be converted to a new variable and another data type either by the use of a JavaScript function or automatically by JavaScript itself:</p>
-
-Converting to **string**
-
-<SnippetL01S15 />
-
-Converting to **numbers**
-
-<SnippetL01S16 />
-
-Converting to **boolean**
-
-<SnippetL01S17 />
-
+    <p>Converting to <strong>string</strong>:</p>
+    <SnippetL01S15 />
+    <p>Converting to <strong>numbers</strong>:</p>
+    <SnippetL01S16 />
+    <p>Converting to <strong>boolean</strong>:</p>
+    <SnippetL01S17 />
   </li>
+
   <li>
     <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" title="Control flow"><strong>Control flow</strong></a></p>
     <ul>
@@ -418,27 +390,24 @@ Converting to **boolean**
             <label class="summary" for="accordion-6-1">
               <code>if...else</code> statement
             </label>
-  <div class="details-body">
-
-<SnippetL01S18 />
-
-  </div>
+            <div class="details-body">
+              <SnippetL01S18 />
+            </div>
           </li>
           <li class="details">
             <input type="checkbox" id="accordion-6-2" />
             <label class="summary" for="accordion-6-2">
               <code>switch</code> statement
             </label>
-  <div class="details-body">
-
-<SnippetL01S19 />
-
-  </div>
+            <div class="details-body">
+              <SnippetL01S19 />
+            </div>
           </li>
         </ul>
       </li>
     </ul>
   </li>
+
   <li>
     <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" title="Loops and iteration"><strong>Loops and iteration</strong></a></p>
     <p>Loops offer a quick and easy way to do something repeatedly. The statements for loops provided in JavaScript are:</p>
@@ -448,55 +417,45 @@ Converting to **boolean**
         <label class="summary" for="accordion-7-1">
           <code>for</code> statement, <code>break</code> statement, <code>continue</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL01S20 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S20 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-7-2" />
         <label class="summary" for="accordion-7-2">
           <code>while</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL01S21 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S21 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-7-3" />
         <label class="summary" for="accordion-7-3">
           <code>do...while</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL01S22 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S22 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-7-4" />
         <label class="summary" for="accordion-7-4">
           <code>for...of</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL01S23 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S23 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-7-5" />
         <label class="summary" for="accordion-7-5">
           <code>for...in</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL01S24 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL01S24 />
+        </div>
       </li>
     </ul>
   </li>
