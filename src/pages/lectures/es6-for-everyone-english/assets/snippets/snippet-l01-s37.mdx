@@ -1,0 +1,10 @@
+```js
+const foo = function () {
+  const bar = function () {
+    return "with a nested function";
+  }
+  console.log(`I'm not a hoisted function ${bar()}`); // "I'm not a hoisted function with a nested function"
+}
+
+foo(); // Must be accessed only after declaration
+```

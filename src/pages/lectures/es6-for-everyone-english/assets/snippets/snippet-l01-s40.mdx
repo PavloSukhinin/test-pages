@@ -1,0 +1,27 @@
+```js
+const obj = {
+  prop: 1,
+  func: () => {
+    console.log(this); // { Window }
+  },
+
+
+  functionNestedExpressions: function () {
+    const nestedExpression = function () {
+      console.log(this); // { Window }
+    }
+    nestedExpression();
+  },
+
+
+  functionNestedArrow: function () {
+    const nestedArrow = () => {
+        console.log(this); // { prop: 1, func: f, functionNestedExpressions: f, functionNestedArrow: f }
+    }
+    nestedArrow();
+  }
+}
+obj.func();
+obj.functionNestedExpressions();
+obj.functionNestedArrow();
+```

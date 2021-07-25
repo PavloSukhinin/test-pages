@@ -56,6 +56,12 @@ import SnippetL01S31 from "./assets/snippets/snippet-l01-s31.mdx";
 import SnippetL01S32 from "./assets/snippets/snippet-l01-s32.mdx";
 import SnippetL01S33 from "./assets/snippets/snippet-l01-s33.mdx";
 import SnippetL01S34 from "./assets/snippets/snippet-l01-s34.mdx";
+import SnippetL01S35 from "./assets/snippets/snippet-l01-s35.mdx";
+import SnippetL01S36 from "./assets/snippets/snippet-l01-s36.mdx";
+import SnippetL01S37 from "./assets/snippets/snippet-l01-s37.mdx";
+import SnippetL01S38 from "./assets/snippets/snippet-l01-s38.mdx";
+import SnippetL01S39 from "./assets/snippets/snippet-l01-s39.mdx";
+import SnippetL01S40 from "./assets/snippets/snippet-l01-s40.mdx";
 import SnippetL02S01 from "./assets/snippets/snippet-l02-s01.mdx";
 import SnippetL02S02 from "./assets/snippets/snippet-l02-s02.mdx";
 import SnippetL02S03 from "./assets/snippets/snippet-l02-s03.mdx";
@@ -525,12 +531,49 @@ So, there is no specification, but it seems that this time we are talking about 
   </li>
 
   <li>
-    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" title="Loops and iteration"><strong>Loops and iteration</strong></a></p>
-    <p>Loops offer a quick and easy way to do something repeatedly. The statements for loops provided in JavaScript are:</p>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" title="Functions"><strong>Functions</strong></a></p>
+    <p>Function is a "subprogram" that can be called by code external (or internal in the case of the recursion) to the function. <br/>A function is composed of a sequence of statements called the <strong>function body</strong>. Values can be passed to a function, and the function will return a value. In JavaScript, functions are <strong>first-class objects</strong>, because they <strong>can have properties and methods</strong> just like any other object. <br/> There are three ways to declare function in Javascript:</p>
     <ul>
       <li class="details">
         <input type="checkbox" id="accordion-8-1" />
         <label class="summary" for="accordion-8-1">
+          <strong>Function declaration</strong> - declares a function, hoisted, has a context
+        </label>
+         <div class="details-body">
+          <SnippetL01S35 />
+          <SnippetL01S36 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-8-2" />
+        <label class="summary" for="accordion-8-2">
+          <strong>Function expression</strong> - declares a function, not hoisted, has a context
+        </label>
+         <div class="details-body">
+          <SnippetL01S37 />
+          <SnippetL01S38 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-8-3" />
+        <label class="summary" for="accordion-8-3">
+          <strong>Arrow function</strong> - declares a function, not hoisted, doesn't have a context
+        </label>
+         <div class="details-body">
+          <SnippetL01S39 />
+          <SnippetL01S40 />
+        </div>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" title="Loops and iteration"><strong>Loops and iteration</strong></a></p>
+    <p>Loops offer a quick and easy way to do something repeatedly. The statements for loops provided in JavaScript are:</p>
+    <ul>
+      <li class="details">
+        <input type="checkbox" id="accordion-9-1" />
+        <label class="summary" for="accordion-9-1">
           <code>for</code> statement, <code>break</code> statement, <code>continue</code> statement
         </label>
         <div class="details-body">
@@ -538,8 +581,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-8-2" />
-        <label class="summary" for="accordion-8-2">
+        <input type="checkbox" id="accordion-9-2" />
+        <label class="summary" for="accordion-9-2">
           <code>while</code> statement
         </label>
         <div class="details-body">
@@ -547,8 +590,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-8-3" />
-        <label class="summary" for="accordion-8-3">
+        <input type="checkbox" id="accordion-9-3" />
+        <label class="summary" for="accordion-9-3">
           <code>do...while</code> statement
         </label>
         <div class="details-body">
@@ -556,8 +599,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-8-4" />
-        <label class="summary" for="accordion-8-4">
+        <input type="checkbox" id="accordion-9-4" />
+        <label class="summary" for="accordion-9-4">
           <code>for...of</code> statement
         </label>
         <div class="details-body">
@@ -565,8 +608,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-8-5" />
-        <label class="summary" for="accordion-8-5">
+        <input type="checkbox" id="accordion-9-5" />
+        <label class="summary" for="accordion-9-5">
           <code>for...in</code> statement
         </label>
         <div class="details-body">
