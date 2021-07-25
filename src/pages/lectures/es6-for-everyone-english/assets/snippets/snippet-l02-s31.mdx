@@ -1,4 +1,13 @@
-```js 
-const newFighters = [...fighters];
-newFighters.push({ name: 'Some new fighter' });
+```js
+const words = ['a', 'b'];
+const extendedWords = [...words, 'c']; // ["a", "b", "c"]
+
+const obj = {
+    a: true,
+    b: true
+};
+const extendedObj = {
+    ...obj,
+    c: true
+}; // { a: true, b: true, c: true }
 ```
