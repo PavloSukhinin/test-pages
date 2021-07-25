@@ -1049,58 +1049,49 @@ So, there is no specification, but it seems that this time we are talking about 
         <label class="summary" for="accordion-3-1-1">
           What's <code>__proto__</code>?
         </label>
-  <div class="details-body">
-
-<SnippetL03S01 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S01 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-1-2" />
         <label class="summary" for="accordion-3-1-2">
           And the <code>constructor</code>?
         </label>
-  <div class="details-body">
-
-<SnippetL03S02 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S02 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-1-3" />
         <label class="summary" for="accordion-3-1-3">
           How to create an instance?
         </label>
-  <div class="details-body">
-
-<SnippetL03S03 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S03 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-1-4" />
         <label class="summary" for="accordion-3-1-4">
           How to add a method?
         </label>
-  <div class="details-body">
-
-<SnippetL03S04 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S04 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-1-5" />
         <label class="summary" for="accordion-3-1-5">
           But how does inheritance works?
         </label>
-  <div class="details-body">
-
-<SnippetL03S05 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S05 />
+        </div>
       </li>
     </ul>
   </li>
+
   <li>
     <p>Let's learn more about the <strong>transpilers</strong> — tools that read source code written in one programming language, and produce the equivalent code in another language. The most popular one, <a href="https://babeljs.io/"><strong>Babel</strong></a>, is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments. Let's try it out:</p>
     <ul>
@@ -1112,38 +1103,28 @@ So, there is no specification, but it seems that this time we are talking about 
       </li>
       <li>
         Add <code>"scripts"</code> to the <strong>package.json</strong> file
-  <div>
-
-<SnippetL03S06 />
-
-  </div>
+        <div>
+          <SnippetL03S06 />
+        </div>
         and run <code>npm run build</code> in the terminal to see if it works
       </li>
       <li>
         Set up transpiling of ES2015+ code — <code>npm install @babel/preset-env --save-dev</code>, create a <strong>.babelrc</strong> in the root of your project, with the following content:
-  <div>
-
-<SnippetL03S07 />
-
-  </div>
+        <div>
+          <SnippetL03S07 />
+        </div>
       </li>
       <li>
         We need more nice things — <code>npm install @babel/plugin-proposal-class-properties --save-dev</code> and add that plugin to <strong>.babelrc</strong>:
-
-  <div>
-
-<SnippetL03S08 />
-
-  </div>
+        <div>
+          <SnippetL03S08 />
+        </div>
       </li>
       <li>
         Let's watch for changes by running <code>babel</code> with <code>-w</code> flag
-
-  <div>
-
-<SnippetL03S09 />
-
-  </div>
+        <div>
+          <SnippetL03S09 />
+        </div>
       </li>
     </ul>
   </li>
@@ -1155,22 +1136,18 @@ So, there is no specification, but it seems that this time we are talking about 
         <label class="summary" for="accordion-3-3-1">
           Export functions, objects, or primitive values from the module with <code>export</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL03S10 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S10 />
+        </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-3-2" />
         <label class="summary" for="accordion-3-3-2">
           👆Load that stuff with <code>import</code> statement
         </label>
-  <div class="details-body">
-
-<SnippetL03S11 />
-
-  </div>
+        <div class="details-body">
+          <SnippetL03S11 />
+        </div>
       </li>
     </ul>
   </li>
@@ -1179,11 +1156,9 @@ So, there is no specification, but it seems that this time we are talking about 
     <ul>
       <li>
         Install Webpack by running <code>npm install webpack webpack-cli --save-dev</code>, then create a file named <strong>webpack.config.js</strong> in the root of your project, with the following content:
-  <div>
-
-<SnippetL03S12 />
-
-  </div>
+        <div>
+          <SnippetL03S12 />
+        </div>
       </li>
       <li>
         Set <code>build</code> command in <strong>package.json</strong>'s <code>scripts</code> key to <code>"build": "webpack"</code>
@@ -1196,40 +1171,34 @@ So, there is no specification, but it seems that this time we are talking about 
             <label class="summary" for="accordion-3-4-1">
               Add <code>babel-loader</code> to transpile code, as was mentioned before
             </label>
-  <div class="details-body">
-
-<code>npm install babel-loader --save-dev</code> and edit <strong>webpack.config.js</strong> to include <code>module</code> key:
-
-<SnippetL03S13 />
-
-Rename **.babelrc** to **babel.config.js** and change it's content:
-
-<SnippetL03S14 />
-
-  </div>
+            <div class="details-body">
+              <code>npm install babel-loader --save-dev</code> and edit <strong>webpack.config.js</strong> to include <code>module</code> key:
+             <div>
+               <SnippetL03S13 />
+             </div>
+             Rename **.babelrc** to **babel.config.js** and change it's content:
+              <div>
+                <SnippetL03S14 />
+              </div>
+            </div>
           </li>
           <li class="details">
             <input type="checkbox" id="accordion-3-4-2" />
             <label class="summary" for="accordion-3-4-2">
               Add <code>style-loader</code> and <code>css-loader</code>, so that you could import styles in your JavaScript files with <code>import './src/styles/styles.css';</code>
             </label>
-  <div class="details-body">
-
-As usual, just `npm install css-loader style-loader --save-dev` and edit <strong>webpack.config.js</strong> to include new rules:
-
-<SnippetL03S15 />
-
-  </div>
+            <div class="details-body">
+              As usual, just `npm install css-loader style-loader --save-dev` and edit <strong>webpack.config.js</strong> to include new rules:
+              <SnippetL03S15 />
+            </div>
           </li>
         </ul>
       </li>
       <li>
         Add <a href="https://webpack.js.org/configuration/dev-server/"><strong>Webpack DevServer</strong></a> — <code>npm install webpack-dev-server --save-dev</code> and modify <strong>webpack.config.js</strong> to include <code>devServer</code> and <code>publicPath</code> keys:
-  <div>
-
-<SnippetL03S16 />
-
-  </div>
+        <div>
+          <SnippetL03S16 />
+        </div>
         <p>Add <code>"start": "webpack-dev-server"</code> to <strong>package.json</strong>'s <code>scripts</code> key</p>
       </li>
       <li>
