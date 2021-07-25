@@ -46,6 +46,7 @@ import SnippetL01S21 from "./assets/snippets/snippet-l01-s21.mdx";
 import SnippetL01S22 from "./assets/snippets/snippet-l01-s22.mdx";
 import SnippetL01S23 from "./assets/snippets/snippet-l01-s23.mdx";
 import SnippetL01S24 from "./assets/snippets/snippet-l01-s24.mdx";
+import SnippetL01S25 from "./assets/snippets/snippet-l01-s25.mdx";
 import SnippetL02S01 from "./assets/snippets/snippet-l02-s01.mdx";
 import SnippetL02S02 from "./assets/snippets/snippet-l02-s02.mdx";
 import SnippetL02S03 from "./assets/snippets/snippet-l02-s03.mdx";
@@ -263,6 +264,12 @@ So, there is no specification, but it seems that this time we are talking about 
   </li>
 
   <li>
+    <p><strong>Declaring block:</strong></p>
+    <p>A <strong>block statement</strong> (or <strong>compound statement</strong> in other languages) is used to group zero or more statements. The <strong>block</strong> is delimited by a pair of braces:</p>
+    <SnippetL01S03 />
+  </li>
+
+  <li>
     <p><strong>Declaring variables: <code>var</code>, <code>let</code> and <code>const</code></strong></p>
     <p>There are three kinds of declarations in JavaScript:</p>
     <ul>
@@ -272,7 +279,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>var</code> declares a variable, optionally initializing it to a value
         </label>
         <div class="details-body">
-         <SnippetL01S03 />
+         <SnippetL01S04 />
         </div>
       </li>
       <li class="details">
@@ -281,7 +288,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>let</code> declares a block-scoped, local variable, optionally initializing it to a value
         </label>
         <div class="details-body">
-          <SnippetL01S04 />
+          <SnippetL01S05 />
         </div>
       </li>
       <li class="details">
@@ -290,7 +297,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>const</code> declares a block-scoped, read-only named constant
         </label>
         <div class="details-body">
-          <SnippetL01S05 />
+          <SnippetL01S06 />
         </div>
       </li>
     </ul>
@@ -307,7 +314,7 @@ So, there is no specification, but it seems that this time we are talking about 
         </label>
         <div class="details-body">
           <p>The boolean type has two values: <code>true</code> and <code>false</code>.</p>
-          <SnippetL01S06 />
+          <SnippetL01S07 />
         </div>
       </li>
       <li class="details">
@@ -317,10 +324,10 @@ So, there is no specification, but it seems that this time we are talking about 
         </label>
         <div class="details-body">
           <p>An integer or floating point number.</p>
-          <SnippetL01S07 />
           <SnippetL01S08 />
-          The number type has three symbolic values: `+Infinity`, `-Infinity`, and `NaN` (not-a-number).
           <SnippetL01S09 />
+          The number type has three symbolic values: `+Infinity`, `-Infinity`, and `NaN` (not-a-number).
+          <SnippetL01S10 />
         </div>
       </li>
       <li class="details">
@@ -330,8 +337,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </label>
         <div class="details-body">
           <p>A sequence of characters that represent a text value. JavaScript <strong>strings are immutable</strong>.</p>
-          <SnippetL01S10 />
           <SnippetL01S11 />
+          <SnippetL01S12 />
         </div>
       </li>
       <li class="details">
@@ -341,7 +348,7 @@ So, there is no specification, but it seems that this time we are talking about 
         </label>
         <div class="details-body">
           <p><code>null</code> is a special keyword denoting a null value.</p>
-          <SnippetL01S12 />
+          <SnippetL01S13 />
         </div>
       </li>
       <li class="details">
@@ -351,7 +358,7 @@ So, there is no specification, but it seems that this time we are talking about 
         </label>
         <div class="details-body">
           <p><code>undefined</code> is a top-level property whose value is not defined.</p>
-           <SnippetL01S13 />
+           <SnippetL01S14 />
        </div>
       </li>
       <li class="details">
@@ -361,7 +368,7 @@ So, there is no specification, but it seems that this time we are talking about 
         </label>
         <div class="details-body">
           <p>A Symbol is a unique and immutable primitive value and may be used as the key of an Object property.</p>
-          <SnippetL01S14 />
+          <SnippetL01S15 />
         </div>
       </li>
     </ul>
@@ -371,11 +378,11 @@ So, there is no specification, but it seems that this time we are talking about 
     <p><strong><a href="https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839">Type coercion</a></strong></p>
     <p>JavaScript variables can be converted to a new variable and another data type either by the use of a JavaScript function or automatically by JavaScript itself:</p>
     <p>Converting to <strong>string</strong>:</p>
-    <SnippetL01S15 />
-    <p>Converting to <strong>numbers</strong>:</p>
     <SnippetL01S16 />
-    <p>Converting to <strong>boolean</strong>:</p>
+    <p>Converting to <strong>numbers</strong>:</p>
     <SnippetL01S17 />
+    <p>Converting to <strong>boolean</strong>:</p>
+    <SnippetL01S18 />
   </li>
 
   <li>
@@ -391,7 +398,7 @@ So, there is no specification, but it seems that this time we are talking about 
               <code>if...else</code> statement
             </label>
             <div class="details-body">
-              <SnippetL01S18 />
+              <SnippetL01S19 />
             </div>
           </li>
           <li class="details">
@@ -400,7 +407,7 @@ So, there is no specification, but it seems that this time we are talking about 
               <code>switch</code> statement
             </label>
             <div class="details-body">
-              <SnippetL01S19 />
+              <SnippetL01S20 />
             </div>
           </li>
         </ul>
@@ -418,7 +425,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>for</code> statement, <code>break</code> statement, <code>continue</code> statement
         </label>
         <div class="details-body">
-          <SnippetL01S20 />
+          <SnippetL01S21 />
         </div>
       </li>
       <li class="details">
@@ -427,7 +434,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>while</code> statement
         </label>
         <div class="details-body">
-          <SnippetL01S21 />
+          <SnippetL01S22 />
         </div>
       </li>
       <li class="details">
@@ -436,7 +443,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>do...while</code> statement
         </label>
         <div class="details-body">
-          <SnippetL01S22 />
+          <SnippetL01S23 />
         </div>
       </li>
       <li class="details">
@@ -445,7 +452,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>for...of</code> statement
         </label>
         <div class="details-body">
-          <SnippetL01S23 />
+          <SnippetL01S24 />
         </div>
       </li>
       <li class="details">
@@ -454,7 +461,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>for...in</code> statement
         </label>
         <div class="details-body">
-          <SnippetL01S24 />
+          <SnippetL01S25 />
         </div>
       </li>
     </ul>
