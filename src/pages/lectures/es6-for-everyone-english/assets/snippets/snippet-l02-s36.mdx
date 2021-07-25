@@ -1,16 +1,15 @@
 ```js
 class FighterService {
-  async getFighters() {
-    try {
-      const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
-      const apiResult = await callApi(endpoint, 'GET');
+ #endpoint = 'https://api.github.com/repos/sahanr/street-fighter/contents/fighters.json'
 
-      return JSON.parse(atob(apiResult.content));
-    } catch (error) {
-      throw error;
-    }
-  }
+ async getFighters() {
+   try {
+     const apiResult = await callApi(this.#endpoint, 'GET');
+     return JSON.parse(atob(apiResult.content));
+   } catch (error) {
+     throw error;
+   }
+ }
 }
-
 const fighterService = new FighterService();
 ```
