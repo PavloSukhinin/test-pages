@@ -1,11 +1,13 @@
 ```js
-let isAdmin = Symbol('isAdmin');
+const isAdmin = Symbol('isAdmin');
 
-let user = {
+const user = {
   name: 'John',
+  isAdmin: false,
   [isAdmin]: true
 }
 
-user.isAdmin; // undefined
-user[isAdmin]; // true
+console.log(user.isAdmin); // false
+console.log(user[isAdmin]); // true
+
 ```

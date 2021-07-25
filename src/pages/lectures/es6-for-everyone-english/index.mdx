@@ -47,6 +47,7 @@ import SnippetL01S22 from "./assets/snippets/snippet-l01-s22.mdx";
 import SnippetL01S23 from "./assets/snippets/snippet-l01-s23.mdx";
 import SnippetL01S24 from "./assets/snippets/snippet-l01-s24.mdx";
 import SnippetL01S25 from "./assets/snippets/snippet-l01-s25.mdx";
+import SnippetL01S26 from "./assets/snippets/snippet-l01-s26.mdx";
 import SnippetL02S01 from "./assets/snippets/snippet-l02-s01.mdx";
 import SnippetL02S02 from "./assets/snippets/snippet-l02-s02.mdx";
 import SnippetL02S03 from "./assets/snippets/snippet-l02-s03.mdx";
@@ -308,7 +309,7 @@ So, there is no specification, but it seems that this time we are talking about 
 
   <li>
     <p><strong>Data Types</strong></p>
-    <p>According to the <strong>ECMAScript</strong>, there are six primitive types and everything else is an Object type. Let’s run over those one by one.</p>
+    <p>According to the <strong>ECMAScript</strong>, there are seven primitive types and everything else is an <code>Object</code> type. Let’s run over those one by one:</p>
     <ul>
       <li class="details">
         <input type="checkbox" id="accordion-4-1" />
@@ -336,6 +337,16 @@ So, there is no specification, but it seems that this time we are talking about 
       <li class="details">
         <input type="checkbox" id="accordion-4-3" />
         <label class="summary" for="accordion-4-3">
+          <strong>BigInt</strong> <em>(added in ES2020)</em>
+        </label>
+        <div class="details-body">
+          <p>Represents who represent whole numbers larger than <code>2<sup>53</sup> - 1</code> which is larger than maximum value of <code>Number</code> type.</p>
+          <SnippetL01S26 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-4-4" />
+        <label class="summary" for="accordion-4-4">
           <strong>String</strong>
         </label>
         <div class="details-body">
@@ -345,18 +356,18 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-4-4" />
-        <label class="summary" for="accordion-4-4">
-          <strong>null</strong>
+        <input type="checkbox" id="accordion-4-5" />
+        <label class="summary" for="accordion-4-5">
+          <strong>Symbol</strong>
         </label>
         <div class="details-body">
-          <p><code>null</code> is a special keyword denoting a null value.</p>
-          <SnippetL01S13 />
+          <p>A Symbol is a unique and immutable primitive value and may be used as the key of an object property.</p>
+          <SnippetL01S15 />
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-4-5" />
-        <label class="summary" for="accordion-4-5">
+        <input type="checkbox" id="accordion-4-6" />
+        <label class="summary" for="accordion-4-6">
           <strong>undefined</strong>
         </label>
         <div class="details-body">
@@ -365,13 +376,13 @@ So, there is no specification, but it seems that this time we are talking about 
        </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-4-6" />
-        <label class="summary" for="accordion-4-6">
-          <strong>Symbol</strong>
+        <input type="checkbox" id="accordion-4-7" />
+        <label class="summary" for="accordion-4-7">
+          <strong>null</strong>
         </label>
         <div class="details-body">
-          <p>A Symbol is a unique and immutable primitive value and may be used as the key of an Object property.</p>
-          <SnippetL01S15 />
+          <p><code>null</code> is a keyword denoting a special empty <em>(null)</em> value.</p>
+          <SnippetL01S13 />
         </div>
       </li>
     </ul>
