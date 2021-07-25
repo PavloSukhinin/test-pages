@@ -1,20 +1,26 @@
-import { Lecture, SlackMessage, TimelineOfContents, Level, Flute, ThatsAllFolks, VideoWrapper, Accordion, RadarChart } from "../../../components";
+import {
+  Flute,
+  Lecture,
+  Level,
+  SlackMessage,
+  ThatsAllFolks,
+  TimelineOfContents,
+  VideoWrapper
+} from "../../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestionCircle } from "@fortawesome/pro-solid-svg-icons";
-import { faChevronRight } from "@fortawesome/pro-regular-svg-icons";
-import { faFacebookSquare, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { romanSahan2017Avatar } from "../../../assets/images/avatars/intro-rounded";
 import {
- ryuAvatar,
- youAvatar,
- alexandrTovmachAvatar,
- andriiKarunAvatar,
- artemManukianAvatar,
- olegChulanovskyiAvatar,
- oleksandrKovalovAvatar,
- yuriyStetsulaAvatar,
- alyonaRapovaAvatar,
- nikitaSemenistyiAvatar
+  alexandrTovmachAvatar,
+  alyonaRapovaAvatar,
+  andriiKarunAvatar,
+  artemManukianAvatar,
+  nikitaSemenistyiAvatar,
+  olegChulanovskyiAvatar,
+  oleksandrKovalovAvatar,
+  ryuAvatar,
+  youAvatar,
+  yuriyStetsulaAvatar
 } from "../../../assets/images/avatars/slack-squared";
 import SnippetL01S01 from "./assets/snippets/snippet-l01-s01.mdx";
 import SnippetL01S02 from "./assets/snippets/snippet-l01-s02.mdx";
@@ -101,13 +107,13 @@ import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
 <div><h1><strong>ES6 for everyone</strong></h1></div>
 
 <VideoWrapper duration="50 сек">
-  <iframe src="https://www.youtube.com/embed/YUgKHOaal8k" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+  <iframe src="https://www.youtube.com/embed/YUgKHOaal8k" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
 </VideoWrapper>
 
 <div>
   <div class="author">
     <div class="avatar-wrapper">
-      <object class="avatar-object" data={romanSahan2017Avatar} role="img" aria-label="Roman Sahan"></object>
+      <object class="avatar-object" data={romanSahan2017Avatar} role="img" aria-label="Roman Sahan"/>
     </div>
     <div class="profile">
       <h3 class="name">Oleksandr Danylchenko</h3>
@@ -137,7 +143,7 @@ import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
 </div>
 
 <div class="messages">
-  Студент все ще проходить випробувальний термін у своїй новій компанії і все ще використовує Slack для співпраці з іншими розробниками та комунікації з клієнтами. Одного теплого весняного вечора в чат пише Ryu — колишній клієнт <em>(returning customer, ya-a-a-ay!)</em>, для якого раніше було зроблене онлайн-резюме. Він повністю задоволений якістю нашої роботи і хоче довірити нам ще один проект &mdash;
+  The student is still on probation at his new company and is still using Slack to collaborate with other developers and communicate with customers. Ryu writes in the chat one warm spring evening - a former customer <em>(returning customer, ya-a-a-ay!)</em>, for whom an online resume was previously made. He is completely satisfied with the quality of our work and wants to entrust us with another project &mdash;
   <SlackMessage
     senderId="ryu"
     senderName="Ryu"
@@ -183,9 +189,7 @@ import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
     <p>For now I will go meditate. Let me know if you have any questions ― WiFi is a bit spotty up at the Mountain Temple, but I’ll check my email whenever I get the chance.</p>
   </SlackMessage>
 </div>
-
-Отже, жодної специфікації немає, але схоже на те, що цього разу мова йде про симулятор "вуличної бійки" — гру, в якій гравець вибирає двох бійців, які в свою чергу проводять поєдинок, луплячи один одного руками, ногами, своєю головою. У кого скорше "закінчиться життя", той і програв. Насправді ж вони не вмирають, бо вони віртуальні.
-
+So, there is no specification, but it seems that this time we are talking about a "street fight" simulator - a game in which the player chooses two fighters, who in turn fight, slapping each other with their hands, feet, and head. Whoever runs out of lives first - loses. In fact, they do not die because they are virtual.
 <SlackMessage
   senderId="ryu"
   senderName="Ryu"
@@ -204,9 +208,7 @@ import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
 >
   Who isn't real? Me not real?! Your not real, 🤬!
 </SlackMessage>
-
-🤭Ой... 🤔_Або вмирають..._ Замовник не надав жодного конкретного технічного завдання, тому складемо його собі самі. Так само і дизайн. Нехай на початках це буде просто браузерна гра, в якій один персонаж систематично б'є іншого і навпаки, а помірної складності алгоритм визначає, якої сили був нанесений удар і скільки життя залишилось в того повільного невдахи, що не встиг ухилитись від "з локтя у носа". А там далі вже подивимось, який новий функціонал чи дизайн можна встигнути закодити до дедлайну. Що ж, запевнити клієнта, що все під контролем і до роботи?
-
+🤭Oh ... 🤔Or they die ... The customer didn’t provide any specific technical task, so we will make it ourselves. So is the design. Let it be just a browser game in the beginning, in which one character systematically beats another and vice versa, and a moderately complex algorithm determines how hard the blow was inflicted and how much life is left in the slow loser who did not have time to dodge to be elbowed in the nose. And then we'll see what new functionality or design you can manage to code before the deadline. Well, assure the client that everything is under control and to work?
 <SlackMessage
   senderId="you"
   senderName="You"
