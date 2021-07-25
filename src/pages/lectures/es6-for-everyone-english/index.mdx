@@ -279,24 +279,27 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>var</code> declares a variable, optionally initializing it to a value
         </label>
         <div class="details-body">
-         <SnippetL01S04 />
+          Declaration will be hoisted to the global scope or a function block scope. Variable defined inside of the inner scope can override another variable from the outer scope. <strong>That's why it mustn't be used in the modern JS code!</strong>
+          <SnippetL01S04 />
         </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-2" />
         <label class="summary" for="accordion-3-2">
-          <code>let</code> declares a block-scoped, local variable, optionally initializing it to a value
+          <code>let</code> declares a local block-scoped variable, optionally initializing it to a value
         </label>
         <div class="details-body">
+          Declaration wouldn't be hoisted but will create a new locally scoped variable.
           <SnippetL01S05 />
         </div>
       </li>
       <li class="details">
         <input type="checkbox" id="accordion-3-3" />
         <label class="summary" for="accordion-3-3">
-          <code>const</code> declares a block-scoped, read-only named constant
+          <code>const</code> declares a local block-scoped read-only constant variable
         </label>
         <div class="details-body">
+          Variable cannot be <strong>reassigned</strong>, but objects defined with <code>const</code> can be changed
           <SnippetL01S06 />
         </div>
       </li>
