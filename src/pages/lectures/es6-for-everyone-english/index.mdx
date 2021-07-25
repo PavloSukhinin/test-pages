@@ -48,6 +48,14 @@ import SnippetL01S23 from "./assets/snippets/snippet-l01-s23.mdx";
 import SnippetL01S24 from "./assets/snippets/snippet-l01-s24.mdx";
 import SnippetL01S25 from "./assets/snippets/snippet-l01-s25.mdx";
 import SnippetL01S26 from "./assets/snippets/snippet-l01-s26.mdx";
+import SnippetL01S27 from "./assets/snippets/snippet-l01-s27.mdx";
+import SnippetL01S28 from "./assets/snippets/snippet-l01-s28.mdx";
+import SnippetL01S29 from "./assets/snippets/snippet-l01-s29.mdx";
+import SnippetL01S30 from "./assets/snippets/snippet-l01-s30.mdx";
+import SnippetL01S31 from "./assets/snippets/snippet-l01-s31.mdx";
+import SnippetL01S32 from "./assets/snippets/snippet-l01-s32.mdx";
+import SnippetL01S33 from "./assets/snippets/snippet-l01-s33.mdx";
+import SnippetL01S34 from "./assets/snippets/snippet-l01-s34.mdx";
 import SnippetL02S01 from "./assets/snippets/snippet-l02-s01.mdx";
 import SnippetL02S02 from "./assets/snippets/snippet-l02-s02.mdx";
 import SnippetL02S03 from "./assets/snippets/snippet-l02-s03.mdx";
@@ -430,12 +438,99 @@ So, there is no specification, but it seems that this time we are talking about 
   </li>
 
   <li>
-    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" title="Loops and iteration"><strong>Loops and iteration</strong></a></p>
-    <p>Loops offer a quick and easy way to do something repeatedly. The statements for loops provided in JavaScript are:</p>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects" title="Standard built-in objects"><strong>Standard built-in objects</strong></a></p>
+    <p>Objects, which are created in the global scope and can be accessed wherever in the code. They can be created by the user script or provided by the host environment <em>(browser, node)</em>. Let's look through the common ones:</p>
     <ul>
       <li class="details">
         <input type="checkbox" id="accordion-7-1" />
         <label class="summary" for="accordion-7-1">
+          <strong>Object</strong>
+        </label>
+        <div class="details-body">
+          Represents complex Javascript data type. It is used to store various keyed collections and more complex nested entities.
+          <SnippetL01S34 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-2" />
+        <label class="summary" for="accordion-7-2">
+          <strong>Array</strong>
+        </label>
+        <div class="details-body">
+          List-like object, which includes methods to perform traversal and mutation operations. Each element can be accessed only by its index. Neither the length of a JavaScript array nor the types of its elements are fixed.
+          <SnippetL01S27 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-3" />
+        <label class="summary" for="accordion-7-3">
+          <strong>Map</strong>
+        </label>
+        <div class="details-body">
+          Object, which holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
+          <SnippetL01S28 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-4" />
+        <label class="summary" for="accordion-7-4">
+          <strong>Set</strong>
+        </label>
+        <div class="details-body">
+          Object allows storing unique values of any type, whether primitive values or object references. Plays a role as an array of unique values.
+          <SnippetL01S29 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-5" />
+        <label class="summary" for="accordion-7-5">
+          <strong>RegExp</strong>
+        </label>
+        <div class="details-body">
+          Object which holds pattern used to match character combinations in strings.
+          <SnippetL01S30 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-6" />
+        <label class="summary" for="accordion-7-6">
+          <strong>Date</strong>
+        </label>
+        <div class="details-body">
+          Object represents a single moment in time in a platform-independent format. Internally contains a Number that represents milliseconds since 1 January 1970 UTC.
+          <SnippetL01S31 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-7" />
+        <label class="summary" for="accordion-7-7">
+          <strong>Math</strong>
+        </label>
+        <div class="details-body">
+          Object that has properties and methods for mathematical constants and functions. Works with Number type, but doesn't support BigInt type
+          <SnippetL01S32 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-7-8" />
+        <label class="summary" for="accordion-7-8">
+          <strong>JSON</strong>
+        </label>
+        <div class="details-body">
+          Object contains methods for parsing JSON and converting stringified values to JSON.
+          <SnippetL01S33 />
+        </div>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" title="Loops and iteration"><strong>Loops and iteration</strong></a></p>
+    <p>Loops offer a quick and easy way to do something repeatedly. The statements for loops provided in JavaScript are:</p>
+    <ul>
+      <li class="details">
+        <input type="checkbox" id="accordion-8-1" />
+        <label class="summary" for="accordion-8-1">
           <code>for</code> statement, <code>break</code> statement, <code>continue</code> statement
         </label>
         <div class="details-body">
@@ -443,8 +538,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-7-2" />
-        <label class="summary" for="accordion-7-2">
+        <input type="checkbox" id="accordion-8-2" />
+        <label class="summary" for="accordion-8-2">
           <code>while</code> statement
         </label>
         <div class="details-body">
@@ -452,8 +547,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-7-3" />
-        <label class="summary" for="accordion-7-3">
+        <input type="checkbox" id="accordion-8-3" />
+        <label class="summary" for="accordion-8-3">
           <code>do...while</code> statement
         </label>
         <div class="details-body">
@@ -461,8 +556,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-7-4" />
-        <label class="summary" for="accordion-7-4">
+        <input type="checkbox" id="accordion-8-4" />
+        <label class="summary" for="accordion-8-4">
           <code>for...of</code> statement
         </label>
         <div class="details-body">
@@ -470,8 +565,8 @@ So, there is no specification, but it seems that this time we are talking about 
         </div>
       </li>
       <li class="details">
-        <input type="checkbox" id="accordion-7-5" />
-        <label class="summary" for="accordion-7-5">
+        <input type="checkbox" id="accordion-8-5" />
+        <label class="summary" for="accordion-8-5">
           <code>for...in</code> statement
         </label>
         <div class="details-body">
