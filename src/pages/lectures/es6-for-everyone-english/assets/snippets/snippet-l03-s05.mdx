@@ -1,0 +1,17 @@
+```js
+function Bird(name, sound) {
+  Animal.apply(this, arguments);
+  const _home = "tree"; 
+}
+
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+
+Bird.prototype.fly = function() {
+  Animal.prototype.makeSound.apply(this);
+  console.log(`Bird ${this.name} fly`);
+};
+
+const bird = new Bird("Kiwi", "singing");
+bird.fly();
+```

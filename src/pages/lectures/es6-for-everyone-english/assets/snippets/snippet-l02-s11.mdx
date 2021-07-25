@@ -1,0 +1,9 @@
+```js
+fetch(API_URL)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed load data');
+    }
+    return response.json();
+  })
+```

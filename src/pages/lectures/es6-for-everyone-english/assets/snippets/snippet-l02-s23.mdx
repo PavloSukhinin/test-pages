@@ -1,0 +1,9 @@
+```js
+  const fighters = await callApi(endpoint, 'GET');
+  const fightersArr = await callApi(endpoint, 'GET');
+
+  const [fighters, fightersArr] = await Promise.all([
+    callApi(endpoint, 'GET'),
+    callApi(endpoint, 'GET')
+  ]);
+```

@@ -1,0 +1,16 @@
+```js
+function createPromise(message, ms) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(message), ms);
+  });
+}
+
+const one = createPromise('first resolved', 2000);
+const two = createPromise('second resolved', 3000);  
+
+const promiseRace = Promise.race([one, two]);
+const promiseAll = Promise.all([one, two]);
+
+promiseRace.then(res => console.log(res)); // first resolved
+promiseAll.then(res => console.log(res)); // ['first resolved', 'second resolved']
+```

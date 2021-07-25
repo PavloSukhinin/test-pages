@@ -1,0 +1,9 @@
+```js
+const API_URL = 'https://api.github.com/';
+
+async function startApp() {
+  const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
+  const fighters = await callApi(endpoint, 'GET');
+  rootElement.innerText = getFightersNames(fighters);
+}
+```

@@ -1,0 +1,16 @@
+```js
+const fightersDetailsMap = new Map();
+
+element.addEventListener('click', (event) => handleFighterClick(event, fighter), false)
+
+handleFighterClick(event, fighter) {
+  const { _id } = fighter;
+
+  if(!fightersDetailsMap.has(_id)) {
+    // send request here
+    fightersDetailsMap.set(_id, fighter);
+  }
+
+  console.log(fightersDetailsMap.get(_id));
+}
+```

@@ -1,0 +1,17 @@
+```js
+class FightersView extends View {
+  constructor(fighters) {
+    super();
+    
+    this.handleClick = this.handleFighterClick.bind(this);
+    this.createFighters(fighters);
+  }
+
+  createFighters(fighters) {
+    const fighterElements = fighters.map(fighter => {
+      const fighterView = new FighterView(fighter, this.handleFighterClick);
+      return fighterView.element;
+    });
+  }
+}
+```
