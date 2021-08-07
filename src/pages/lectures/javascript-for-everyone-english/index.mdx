@@ -152,7 +152,7 @@ import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
     I will tell you about all the joys of modern JavaScript, starting from the basic syntax and ending <em>(carefully, jargon!)</em> with modules, transpilers, and bundlers. Before you start - a few disclaimers about the content of the lecture:<br />
     <ol class="compact inverted">
       <li>Some terms and technologies are covered superficially;</li>
-      <li>"— Should I click on all the links to the documentation and read all the articles?" Well-u-u-u-u, up to you;</li>
+      <li>"- Should I click on all the links to the documentation and read all the articles?" Well-u-u-u-u, up to you;</li>
       <li>Everything should be interesting and as informative as possible, but you’ll see how it will turn out ... Have fun! 🙃</li>
     </ol>
     <p>And another <strong>heads up</strong> - you will need your favorite <strong>IDE</strong>, <strong>Node.js</strong>, and the <a href="https://github.com/binary-studio-academy/stage-2-es6-for-everyone"><strong>project starter</strong></a> (I will compose it during the lecture). Ready? Let's go!</p>
@@ -269,7 +269,7 @@ So, there is no specification, but it seems that this time we are talking about 
   <li>
     <p><strong>Ready to try <a href="https://www.javascript.com/">JavaScript</a>?</strong></p>
     <p>To start with, here are <strong>the main points</strong> you should remember about JS:</p>
-    <p><span class="chip">Brendan Eich</span><span class="chip">EcmaScript</span><span class="chip">script language</span><span class="chip">dynamic language</span><span class="chip">dynamically typed</span><span class="chip">first-class functions</span><span class="chip">object-oriented</span><span class="chip">prototype-based</span><span class="chip">single-threaded</span><span class="chip">asynchronous</span></p>
+    <p><span class="chip">Brendan Eich</span><span class="chip">EcmaScript</span><span class="chip">script language</span><span class="chip">dynamic language</span><span class="chip">weakly typed</span><span class="chip">first-class functions</span><span class="chip">object-oriented</span><span class="chip">prototype-based</span><span class="chip">single-threaded</span><span class="chip">asynchronous</span></p>
   </li>
 
   <li>
@@ -305,7 +305,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <code>let</code> declares a local block-scoped variable, optionally initializing it to a value
         </label>
         <div class="details-body">
-          Declaration wouldn't be hoisted but will create a new locally scoped variable.
+          Declaration won't be hoisted but will create a new locally scoped variable.
           <SnippetL01S05 />
         </div>
       </li>
@@ -386,7 +386,7 @@ So, there is no specification, but it seems that this time we are talking about 
           <strong>undefined</strong>
         </label>
         <div class="details-body">
-          <p><code>undefined</code> is a top-level property whose value is not defined.</p>
+          <p><code>undefined</code> is a property of the global object. The initial value is the primitive value <code>undefined</code></p>
            <SnippetL01S14 />
        </div>
       </li>
@@ -408,7 +408,7 @@ So, there is no specification, but it seems that this time we are talking about 
     <p>JavaScript variables can be converted to a new variable and another data type either by the use of a JavaScript function or automatically by JavaScript itself:</p>
     <p>Converting to <strong>string</strong>:</p>
     <SnippetL01S16 />
-    <p>Converting to <strong>numbers</strong>:</p>
+    <p>Converting to <strong>number</strong>:</p>
     <SnippetL01S17 />
     <p>Converting to <strong>boolean</strong>:</p>
     <SnippetL01S18 />
