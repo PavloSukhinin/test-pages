@@ -6,8 +6,8 @@ const obj = {
   },
 
 
-  functionNestedExpressions: function () {
-    const nestedExpression = function () {
+  functionNestedExpressions: function() {
+    const nestedExpression = function() {
       console.log(this); // { Window }
     }
     console.log(this); // { prop: 1, func: f, functionNestedExpressions: f, functionNestedArrow: f }
@@ -15,9 +15,9 @@ const obj = {
   },
 
 
-  functionNestedArrow: function () {
+  functionNestedArrow: function() {
     const nestedArrow = () => {
-        console.log(this); // { prop: 1, func: f, functionNestedExpressions: f, functionNestedArrow: f }
+      console.log(this); // { prop: 1, func: f, functionNestedExpressions: f, functionNestedArrow: f }
     }
     console.log(this); // { prop: 1, func: f, functionNestedExpressions: f, functionNestedArrow: f }
     nestedArrow();
