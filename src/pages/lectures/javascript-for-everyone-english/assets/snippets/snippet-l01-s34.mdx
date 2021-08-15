@@ -2,11 +2,11 @@
 const obj = {
   foo: 'bar',
   nested: {
-	  bar: 'foo'
+    bar: 'foo'
   }
 }
 
-Object.keys(obj); // ['foo']
-Object.values(obj); // ['bar']
-Object.entries(obj); // [ ['foo', 'bar'] ]
+Object.keys(obj); // ['foo', 'nested']
+Object.values(obj); // ['bar', { bar: 'foo' }]
+Object.entries(obj); // [ ['foo', 'bar'], ['nested', { bar: 'foo' }] ]
 ```
