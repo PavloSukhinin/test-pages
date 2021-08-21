@@ -4,8 +4,9 @@ const obj = {
   prop2: "Property indeed!"
 }
 
-for (const prop in obj) {
+for (const prop in obj) { // OWN + INHERITED
   console.log(prop); // prop1, prop2
 }
-Object.keys(obj).forEach(value => console.log(value)); // prop1, prop2
+Object.keys(obj) // ONLY OWN PROPERTIES
+  .forEach(value => console.log(value)); // prop1, prop2
 ```
