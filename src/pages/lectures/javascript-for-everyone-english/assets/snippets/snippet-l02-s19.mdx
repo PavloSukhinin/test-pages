@@ -2,7 +2,7 @@
 const BASE_API_URL = 'https://api.github.com/';
 const SECURITY_HEADERS = {
   headers: {
-    authorization: "token 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"
+    authorization: "token %your_token%"
   }
 };
 
@@ -10,9 +10,8 @@ const rootElement = document.getElementById('root');
 const loadingElement = document.getElementById('loading-overlay');
 
  function startApp() {
-  const endpoint = '/repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
+  const endpoint = 'repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
   const fightersPromise = callApi(endpoint, 'GET');
-
   fightersPromise.then(fighters =>
     rootElement.innerText = getFightersNames(fighters)
   );

@@ -3,8 +3,8 @@ async function startApp() {
   try {
     loadingElement.style.visibility = 'visible';
 
-    const endpoint = '/repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
-    const fighters = await callApi(endpoint, 'GET');
+    const endpoint = 'repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
+    const fighters = await callApi(endpoint);
 
     rootElement.innerText = getFightersNames(fighters);
   } catch (error) {
@@ -13,21 +13,5 @@ async function startApp() {
   } finally {
     loadingElement.style.visibility = 'hidden';
   }
-}
-
-function callApi(endpoind, method) {
-  const url = API_URL + endpoind
-  const options = {
-    method
-  };
-
-  return fetch(url, options)
-    .then(response =>
-      response.ok
-        ? response.json()
-        : Promise.reject(Error('Failed to load'))
-    )
-    .then(file => JSON.parse(atob(file.content)))
-    .catch(error => { throw error });
 }
 ```
