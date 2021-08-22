@@ -1,10 +1,16 @@
 ```js
-const API_URL = 'https://api.github.com/';
+const BASE_API_URL = 'https://api.github.com/';
+const SECURITY_HEADERS = {
+  headers: {
+    authorization: "token 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"
+  }
+};
+
 const rootElement = document.getElementById('root');
 const loadingElement = document.getElementById('loading-overlay');
 
  function startApp() {
-  const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
+  const endpoint = '/repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
   const fightersPromise = callApi(endpoint, 'GET');
 
   fightersPromise.then(fighters =>
@@ -13,8 +19,8 @@ const loadingElement = document.getElementById('loading-overlay');
 }
 
 function callApi(endpoint, method) {
-  const url = API_URL + endpoint;
-  const options = { method };
+  const url = BASE_API_URL + endpoint;
+  const options = { method, ...SECURITY_HEADERS };
 
   return fetch(url, options)
     .then(response => response.ok ? response.json() : Promise.reject(Error('Failed to load')))
