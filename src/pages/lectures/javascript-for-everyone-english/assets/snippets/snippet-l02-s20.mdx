@@ -4,6 +4,12 @@ const obj = {
   b: true,
   c: true
 };
+
+ // ❌
+const a = obj.a;
+const secondProperty = obj.b;
+
+// 👌
 const {
   a,
   b: secondProperty
