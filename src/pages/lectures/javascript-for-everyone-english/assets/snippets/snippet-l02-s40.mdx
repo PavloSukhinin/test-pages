@@ -3,7 +3,7 @@ class App {
   static rootElement = document.getElementById('root');
   static loadingElement = document.getElementById('loading-overlay');
 
-  async startApp() {
+  static async startApp() {
     try {
       App.loadingElement.style.visibility = 'visible';
 
@@ -20,6 +20,5 @@ class App {
   }
 }
 
-const application = new App();
-application.startApp();
+App.startApp();
 ```
