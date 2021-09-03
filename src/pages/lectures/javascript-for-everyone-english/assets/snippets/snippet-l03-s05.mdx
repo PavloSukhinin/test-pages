@@ -1,7 +1,8 @@
 ```js
 function Bird(name, sound) {
   Animal.apply(this, arguments);
-  const _home = "tree"; 
+
+  this._home = "tree"; // Private property convention
 }
 
 Bird.prototype = Object.create(Animal.prototype);

@@ -7,5 +7,11 @@ const student = {
   study: true
 };
 
-student.__proto__ = person;
+student.__proto__ = person; // ❌ - controversial and discouraged
+console.log(student.__proto__);//  ↗
+
+Object.setPrototypeOf(student, person);
+console.log(Object.getPrototypeOf(student));
+
+console.log(student.study) // true
 ```
