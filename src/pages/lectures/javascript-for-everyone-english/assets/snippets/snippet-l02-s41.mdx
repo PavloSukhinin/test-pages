@@ -9,10 +9,20 @@ class FightersView extends View {
 
   createFighters(fighters) {
     const fighterElements = fighters.map(fighter => {
-      const fighterView = new FighterView(fighter, this.handleFighterClick.bind(this)); // .bind()
-      const fighterView = new FighterView(fighter, (event, fighters) => this.handleFighterClick(event, fighters)); // () => {}
+
+      // 1. Class function with context
+      const fighterView = new FighterView(fighter, this.handleClick);
+
+      // 2. Inline context binding
+      const fighterView = new FighterView(fighter, this.handleFighterClick.bind(this));
+
+      // 3. Arrow function
+      const fighterView = new FighterView(fighter, (event, fighters) => this.handleFighterClick(event, fighters));
+
       return fighterView.element;
     });
+
+    // ...
   }
 }
 ```
