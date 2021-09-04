@@ -4,14 +4,11 @@ const person = {
 };
 
 const student = {
-  study: true
+  studying: 'Javascript'
 };
 
 student.__proto__ = person; // ❌ - controversial and discouraged
-console.log(student.__proto__);//  ↗
+Object.setPrototypeOf(student, person); // 👌 - recommended alternative
 
-Object.setPrototypeOf(student, person);
-console.log(Object.getPrototypeOf(student));
-
-console.log(student.study) // true
+console.log(student.walk) // true
 ```
