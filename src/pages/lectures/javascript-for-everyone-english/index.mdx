@@ -1090,7 +1090,7 @@ So, there is no specification, but it seems that this time we are talking about 
         Install <a href="https://nodejs.org/en/"><strong>node.js</strong></a>, open <strong>Terminal</strong> in Visual Studio Code <sup><em>(Terminal</em> &rarr; <em>New Terminal)</em></sup>, and run <code>npm init</code>.
       </li>
       <li>
-        Now install <strong>babel</strong> with <code>npm install --save-dev @babel/core @babel/cli</code>
+        Now install <strong>babel</strong> with <code>npm i -D @babel/core @babel/cli</code>
       </li>
       <li>
         Add <code>"scripts"</code> to the <strong>package.json</strong> file
@@ -1103,12 +1103,6 @@ So, there is no specification, but it seems that this time we are talking about 
         Set up transpiling of ES2015+ code — <code>npm install @babel/preset-env --save-dev</code>, create a <strong>.babelrc</strong> in the root of your project, with the following content:
         <div>
           <SnippetL03S07 />
-        </div>
-      </li>
-      <li>
-        We need more nice things — <code>npm install @babel/plugin-proposal-class-properties --save-dev</code> and add that plugin to <strong>.babelrc</strong>:
-        <div>
-          <SnippetL03S08 />
         </div>
       </li>
       <li>
