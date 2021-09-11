@@ -127,8 +127,10 @@ import SnippetL03S13 from "./assets/snippets/snippet-l03-s13.mdx";
 import SnippetL03S14 from "./assets/snippets/snippet-l03-s14.mdx";
 import SnippetL03S15 from "./assets/snippets/snippet-l03-s15.mdx";
 import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
+import SnippetL03S17 from "./assets/snippets/snippet-l03-s17.mdx";
+import SnippetL03S18 from "./assets/snippets/snippet-l03-s18.mdx";
 
-<div><h1><strong>ES6 for everyone</strong></h1></div>
+<div><h1><strong>Javascript for everyone</strong></h1></div>
 
 <VideoWrapper duration="50 сек">
   <iframe src="https://www.youtube.com/embed/YUgKHOaal8k" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
@@ -1154,14 +1156,14 @@ So, there is no specification, but it seems that this time we are talking about 
           <li class="details">
             <input type="checkbox" id="accordion-3-4-1" />
             <label class="summary" for="accordion-3-4-1">
-              Add <code>babel-loader</code> to transpile code, as was mentioned before
+              Add <code>babel-loader</code> to transpile code, as was mentioned before:
             </label>
             <div class="details-body">
               <code>npm install babel-loader --save-dev</code> and edit <strong>webpack.config.js</strong> to include <code>module</code> key:
              <div>
                <SnippetL03S13 />
              </div>
-             Rename **.babelrc** to **babel.config.js** and change it's content:
+             Rename <strong>.babelrc</strong> to <strong>babel.config.js</strong> to consistent with webpack config type and change it's content to:
               <div>
                 <SnippetL03S14 />
               </div>
@@ -1173,8 +1175,38 @@ So, there is no specification, but it seems that this time we are talking about 
               Add <code>style-loader</code> and <code>css-loader</code>, so that you could import styles in your JavaScript files with <code>import './src/styles/styles.css';</code>
             </label>
             <div class="details-body">
-              As usual, just `npm install css-loader style-loader --save-dev` and edit <strong>webpack.config.js</strong> to include new rules:
+              As usual, just run <code>npm install css-loader style-loader --save-dev</code> and edit <strong>webpack.config.js</strong> to include the new rules:
               <SnippetL03S15 />
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Set up <a href="https://webpack.js.org/plugins/"><strong>plugins</strong></a>:</p>
+        <ul>
+          <li class="details">
+            <input type="checkbox" id="accordion-3-5-1" />
+            <label class="summary" for="accordion-3-5-1">
+              Add <code>html-webpack-plugin</code> to automate HTML file creation:
+            </label>
+            <div class="details-body">
+              <code>npm install html-webpack-plugin --save-dev</code> and edit <strong>webpack.config.js</strong> to include <code>plugins</code> key:
+              <div>
+                <SnippetL03S17 />
+              </div>
+              <ul>
+                <li>
+                  <label class="summary">
+                    Add <code>html-loader</code> to bundle assets from template <code>.html</code> file:
+                  </label>
+                  <div class="details-body">
+                    <code>npm install html-loader --save-dev</code> and edit <strong>webpack.config.js</strong> to include the new rule:
+                    <div>
+                      <SnippetL03S18 />
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -1184,7 +1216,7 @@ So, there is no specification, but it seems that this time we are talking about 
         <div>
           <SnippetL03S16 />
         </div>
-        <p>Add <code>"start": "webpack-dev-server"</code> to <strong>package.json</strong>'s <code>scripts</code> key</p>
+        <p>Add <code>"dev": "webpack-dev-server"</code> to <strong>package.json</strong>'s <code>scripts</code> key</p>
       </li>
       <li>
         Maybe add <code>devtool</code> option to the <strong>webpack.config.js</strong> for much better debugging experience — <code>devtool: "source-map"</code>
