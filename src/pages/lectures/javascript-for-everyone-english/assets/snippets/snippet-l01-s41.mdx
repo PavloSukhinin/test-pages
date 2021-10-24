@@ -7,10 +7,11 @@ users.forEach((value, index) => {
   console.log(value); // 'Mike'
 });
 
-
+// LIFEHACK
+// Traverse not all the elements of the huge arrays
 users.some((value, index) => {
   if (value === 'Skip me!') return false; // Skips the iteration
   if (index === 1) return true;
   console.log(value); // 'Mike'
-})
+});
 ```
