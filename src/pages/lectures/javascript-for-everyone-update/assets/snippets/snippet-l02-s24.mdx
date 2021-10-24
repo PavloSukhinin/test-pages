@@ -1,0 +1,13 @@
+```js
+function* generateSequence() {
+  const result = yield 1;
+  console.log(result); // 'args'
+  yield 2;
+  yield 3;
+}
+
+let generator = generateSequence();
+let one = generator.next(); // {value: 1, done: false}
+let two = generator.next('args'); // {value: 2, done: false}
+let three = generator.next(); // {value: 3, done: true}
+```

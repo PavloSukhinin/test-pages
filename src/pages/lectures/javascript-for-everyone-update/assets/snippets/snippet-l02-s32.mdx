@@ -1,0 +1,13 @@
+```js
+const words = ['a', 'b'];
+const [firstElement, ...restElements] = words; // ['a', ['b']]
+
+const obj = {
+    a: true,
+    b: true
+};
+const {
+    a,
+    ...restProps
+} = obj; // { a: true, restProps: { b: true } }
+```
