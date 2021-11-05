@@ -4,7 +4,7 @@ import { faFacebookSquare, faWikipediaW, faVk, faGoogle, faYahoo, faGithub, faSy
 import { pavelNemchenko2017Avatar } from "../../../assets/images/avatars/intro-rounded";
 import "./styles.css";
 
-<div><h1><strong>PHP 7 features and ecosystem</strong></h1></div>
+<div><h1><strong>Modern PHP features and ecosystem</strong></h1></div>
 
 <VideoWrapper duration="55 мин 8 сек">
   <iframe src="https://www.youtube.com/embed/n7qZgVI-I4U" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -16,29 +16,23 @@ import "./styles.css";
       <object class="avatar-object" data={pavelNemchenko2017Avatar} role="img" aria-label="My profile picture"></object>
     </div>
     <div class="profile">
-      <h3 class="name">Павел Немченко</h3>
+      <h3 class="name">Владимир Ленч</h3>
       <ul class="contacts">
         <li>
-          <a href="https://www.facebook.com/nempavel" rel="author" class="facebook">
-            <FontAwesomeIcon icon={faFacebookSquare} className="icon" />
-            <span>nempavel</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/nemoipaha" rel="author" class="github">
+          <a href="https://github.com/lenchv" rel="author" class="github">
             <FontAwesomeIcon icon={faGithub} className="icon" />
-            <span>nemoipaha</span>
+            <span>lenchv</span>
           </a>
         </li>
       </ul>
       <p class="about">
-        Паша Немченко закончил курс Академии по РНР и с тех пор кодит в <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> с юмором и удовольствием. Знает о <a href="https://martinfowler.com/bliki/CQRS.html"><strong>CQRS</strong></a> и <a href="https://www.martinfowler.com/eaaDev/EventSourcing.html"><strong>event sourcing</strong></a>, а также пилит фронтенд на <a href="https://vuejs.org/"><strong>Vue</strong></a>. Любит ходить на технические митапы, читать мемы, смотреть Марвел, пить кофе и разбираться в новых технологиях по выходным.
+        Вова Ленч закончил курс Академии по РНР и с тех пор кодит в <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> с юмором и удовольствием. Знает о <a href="https://martinfowler.com/bliki/CQRS.html"><strong>CQRS</strong></a> и <a href="https://www.martinfowler.com/eaaDev/EventSourcing.html"><strong>event sourcing</strong></a>, а также пилит фронтенд на <a href="https://vuejs.org/"><strong>Vue</strong></a>. Любит ходить на технические митапы, читать мемы, смотреть Марвел, пить кофе и разбираться в новых технологиях по выходным.
       </p>
     </div>
   </div>
   <div class="bubble" style="margin: -0.5em 1em 1em;">
     <strong>Всем привет! 👋</strong><br />
-    Вашему вниманию первая профильная лекция «PHP 7 features and ecosystem» или «Make PHP great again»! Рассмотрим что нового в PHP и что будущее готовит. Но вначале дисклеймер:
+    Вашему вниманию первая профильная лекция «Modern PHP features and ecosystem» или «Make PHP great again»! Рассмотрим что нового в PHP и что будущее готовит. Но вначале дисклеймер:
     <ol class="compact inverted">
       <li>часть материала вам уже знакома и это гуд 😊;</li>
       <li>лекция обещает быть интересной и познавательной <em>(за употребление слов-паразитов, жаргона и нецензурной брани простите)</em>.</li>
@@ -52,8 +46,8 @@ import "./styles.css";
     linkTo: "#welcome-to-php",
     title: "Welcome to PHP"
   }, {
-    linkTo: "#whats-new-in-php-7",
-    title: "What's new in PHP 7"
+    linkTo: "#whats-new-in-php",
+    title: "What's new in PHP"
   }, {
     linkTo: "#php-ecosystem",
     title: "PHP ecosystem"
@@ -124,7 +118,7 @@ free(testArray);
 $testArray = [];
 $testArray[] = 'Hi!';
 
-// cleanup memory by garbage collector
+// memory is cleaned up by garbage collector
 ```
 Memory is managed dynamically. [Written in Zend engine using C language.](https://github.com/php)
   
@@ -173,7 +167,7 @@ class MegaTask extends Task {}
 
 // functional
 $p = function() { return 'p'; };
-$h = function() { return 'h'; };
+$h = fn() => 'h';
 echo $p() . $h() . $p();
 
 // procedural
@@ -256,11 +250,11 @@ $kernel->terminate($request, $response);
 </ul>
 
 
-<Level id="whats-new-in-php-7" number="2" name="What's new in PHP 7" difficulty="Hardcore." objectives="Learn what PHP 7 can offer us." />
+<Level id="whats-new-in-php" number="2" name="What's new in PHP 7" difficulty="Hardcore." objectives="Learn what PHP 7 can offer us." />
 
-![php7 rules](https://www.pvsm.ru/images/2016/12/20/uluchshenie-proizvoditelnosti-PHP-7.jpg)
+![php rules](https://www.meme-arsenal.com/memes/d16038f002f4a605c327354818f86c11.jpg)
 
-The following are some of the new features in PHP 7 — it is faster ([PHP 5.6 vs 7.0](http://www.phpbenchmarks.com/en/comparator/php)), memory optimized, has new exception hierarchy, introduces new syntax sugar (`??, <=>`), nullables (`?string`), scalar type declarations, , `void` return type, iterable type, anonymous classes. Let's take a look at some of the features in detail:
+The following are some of the new features in PHP 7 and higher — it is faster ([PHP 5.6 vs 8.0](http://www.phpbenchmarks.com/en/comparator/php)), memory optimized, has new exception hierarchy, introduces new syntax sugar (`??, <=>, () =>`), nullables (`?string`), scalar type declarations, , `void` return type, iterable type, anonymous classes. Let's take a look at some of the features in detail:
 
 <ul>
 <li class="details">
@@ -1136,9 +1130,9 @@ server {
 
 export const metadata = {
   orderId: 3,
-  author: "Павел Немченко",
-  title: "PHP 7 features and ecosystem",
-  description: "Павел проводит экскурс в фундаментальные понятия и новинки <strong>PHP 7</strong>, объясняет в каких случаях используются наиболее распостраненные фреймворки, показывает как работать с <strong>Composer</strong> и рассказывает о типичном рабочем окружении PHP-программиста.",
+  author: "Владимир Ленч",
+  title: "Modern PHP features and ecosystem",
+  description: "Владимир проводит экскурс в фундаментальные понятия и новинки <strong>PHP</strong>, объясняет в каких случаях используются наиболее распостраненные фреймворки, показывает как работать с <strong>Composer</strong> и рассказывает о типичном рабочем окружении PHP-программиста.",
   keywords: ["hola", "guapa"],
   duration: "55 мин",
   publishedAt: "2019-05-13T22:00:00",

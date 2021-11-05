@@ -24,6 +24,8 @@ const getAuthorAvatar = author => {
       return alexandrTovmach2018Avatar;
     case "Павел Немченко":
       return pavelNemchenko2017Avatar;
+    case "Владимир Ленч":
+      return pavelNemchenko2017Avatar;
     case "Ростислав Дяків":
       return rostyslavDiakiv2018Avatar;
     case "Никита Краснов":
