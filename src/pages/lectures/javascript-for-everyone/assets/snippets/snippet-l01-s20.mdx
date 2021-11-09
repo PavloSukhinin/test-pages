@@ -1,20 +1,14 @@
 ```js
-for (let step = 0; step < stepCount; step++) {
-  const value = step * intervalComputed;
-
-  if (value === 0) {
-    labelsFromRange.push('0');
-    continue;
-  }
-
-  const labelText = formatNumber(value, decimalSeparator);
-  const labelWidth = getTextWidth(labelText);
-  const isLastStep = step === stepCountWithMargin;
-
-  if (isLastStep && remainingAxisLength < labelWidth) {
+switch(ageCategory) {
+  case 'young': 
+    console.log('less than 18');
+  case 'adult': 
+    console.log('from 18 to 50');
     break;
-  }
-
-  labelsFromRange.push(labelText);
+  case 'old': 
+    console.log('older then 50'); 
+    break;
+  default: 
+    console.log('unknown');
 }
 ```

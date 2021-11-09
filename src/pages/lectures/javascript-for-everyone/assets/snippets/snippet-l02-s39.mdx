@@ -2,7 +2,6 @@
 class FighterView extends View {
   constructor(fighter, handleClick) {
     super();
-
     this.createFighter(fighter, handleClick);
   }
 
@@ -19,30 +18,26 @@ class FighterView extends View {
   createName(name) {
     const nameElement = this.createElement({ tagName: 'span', className: 'name' });
     nameElement.innerText = name;
-
     return nameElement;
   }
 
   createImage(source) {
     const attributes = { src: source };
-    const imgElement = this.createElement({
+    return this.createElement({
       tagName: 'img',
       className: 'fighter-image',
       attributes
     });
-
-    return imgElement;
   }
 }
 
 class FightersView extends View {
+  fightersDetailsMap = new Map();
+
   constructor(fighters) {
     super();
-    
     this.createFighters(fighters);
   }
-
-  fightersDetailsMap = new Map();
 
   createFighters(fighters) {
     const fighterElements = fighters.map(fighter => {

@@ -1,5 +1,13 @@
 ```js
-String(null) // "null"
-false.toString();  // "false"
-12 + 'px' // "12px"
+const isAdmin = Symbol('isAdmin');
+
+const user = {
+  name: 'John',
+  isAdmin: false,
+  [isAdmin]: true
+}
+
+console.log(user.isAdmin); // false
+console.log(user[isAdmin]); // true
+
 ```

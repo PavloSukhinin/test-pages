@@ -1,0 +1,11 @@
+```js
+foo(); // Can be accessed before declaration
+
+function foo() {
+  console.log(`I'm a hoisted function ${bar()}`); // "I'm a hoisted function with a nested function"
+
+  function bar() {
+    return "with a nested function";
+  }
+}
+```
