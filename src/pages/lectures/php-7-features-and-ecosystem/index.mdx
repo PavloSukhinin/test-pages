@@ -4,7 +4,7 @@ import { faFacebookSquare, faWikipediaW, faVk, faGoogle, faYahoo, faGithub, faSy
 import { pavelNemchenko2017Avatar } from "../../../assets/images/avatars/intro-rounded";
 import "./styles.css";
 
-<div><h1><strong>Modern PHP features and ecosystem</strong></h1></div>
+<div><h1><strong>PHP 7 features and ecosystem</strong></h1></div>
 
 <VideoWrapper duration="55 мин 8 сек">
   <iframe src="https://www.youtube.com/embed/n7qZgVI-I4U" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -16,23 +16,29 @@ import "./styles.css";
       <object class="avatar-object" data={pavelNemchenko2017Avatar} role="img" aria-label="My profile picture"></object>
     </div>
     <div class="profile">
-      <h3 class="name">Владимир Ленч</h3>
+      <h3 class="name">Павел Немченко</h3>
       <ul class="contacts">
         <li>
-          <a href="https://github.com/lenchv" rel="author" class="github">
+          <a href="https://www.facebook.com/nempavel" rel="author" class="facebook">
+            <FontAwesomeIcon icon={faFacebookSquare} className="icon" />
+            <span>nempavel</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/nemoipaha" rel="author" class="github">
             <FontAwesomeIcon icon={faGithub} className="icon" />
-            <span>lenchv</span>
+            <span>nemoipaha</span>
           </a>
         </li>
       </ul>
       <p class="about">
-        Вова Ленч закончил курс Академии по РНР и с тех пор кодит в <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> с юмором и удовольствием. Знает о <a href="https://martinfowler.com/bliki/CQRS.html"><strong>CQRS</strong></a> и <a href="https://www.martinfowler.com/eaaDev/EventSourcing.html"><strong>event sourcing</strong></a>, а также пилит фронтенд на <a href="https://vuejs.org/"><strong>Vue</strong></a>. Любит ходить на технические митапы, читать мемы, смотреть Марвел, пить кофе и разбираться в новых технологиях по выходным.
+        Паша Немченко закончил курс Академии по РНР и с тех пор кодит в <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> с юмором и удовольствием. Знает о <a href="https://martinfowler.com/bliki/CQRS.html"><strong>CQRS</strong></a> и <a href="https://www.martinfowler.com/eaaDev/EventSourcing.html"><strong>event sourcing</strong></a>, а также пилит фронтенд на <a href="https://vuejs.org/"><strong>Vue</strong></a>. Любит ходить на технические митапы, читать мемы, смотреть Марвел, пить кофе и разбираться в новых технологиях по выходным.
       </p>
     </div>
   </div>
   <div class="bubble" style="margin: -0.5em 1em 1em;">
     <strong>Всем привет! 👋</strong><br />
-    Вашему вниманию первая профильная лекция «Modern PHP features and ecosystem» или «Make PHP great again»! Рассмотрим что нового в PHP и что будущее готовит. Но вначале дисклеймер:
+    Вашему вниманию первая профильная лекция «PHP 7 features and ecosystem» или «Make PHP great again»! Рассмотрим что нового в PHP и что будущее готовит. Но вначале дисклеймер:
     <ol class="compact inverted">
       <li>часть материала вам уже знакома и это гуд 😊;</li>
       <li>лекция обещает быть интересной и познавательной <em>(за употребление слов-паразитов, жаргона и нецензурной брани простите)</em>.</li>
@@ -46,8 +52,8 @@ import "./styles.css";
     linkTo: "#welcome-to-php",
     title: "Welcome to PHP"
   }, {
-    linkTo: "#whats-new-in-php",
-    title: "What's new in PHP"
+    linkTo: "#whats-new-in-php-7",
+    title: "What's new in PHP 7"
   }, {
     linkTo: "#php-ecosystem",
     title: "PHP ecosystem"
@@ -118,7 +124,7 @@ free(testArray);
 $testArray = [];
 $testArray[] = 'Hi!';
 
-// memory is cleaned up by garbage collector
+// cleanup memory by garbage collector
 ```
 Memory is managed dynamically. [Written in Zend engine using C language.](https://github.com/php)
   
@@ -167,7 +173,7 @@ class MegaTask extends Task {}
 
 // functional
 $p = function() { return 'p'; };
-$h = fn() => 'h';
+$h = function() { return 'h'; };
 echo $p() . $h() . $p();
 
 // procedural
@@ -250,11 +256,11 @@ $kernel->terminate($request, $response);
 </ul>
 
 
-<Level id="whats-new-in-php" number="2" name="What's new in PHP 7" difficulty="Hardcore." objectives="Learn what PHP 7 can offer us." />
+<Level id="whats-new-in-php-7" number="2" name="What's new in PHP 7" difficulty="Hardcore." objectives="Learn what PHP 7 can offer us." />
 
-![php rules](https://www.meme-arsenal.com/memes/d16038f002f4a605c327354818f86c11.jpg)
+![php7 rules](https://www.pvsm.ru/images/2016/12/20/uluchshenie-proizvoditelnosti-PHP-7.jpg)
 
-The following are some of the new features in PHP 7 and higher — it is faster ([PHP 5.6 vs 8.0](http://www.phpbenchmarks.com/en/comparator/php)), memory optimized, has new exception hierarchy, introduces new syntax sugar (`??, <=>, () =>`), nullables (`?string`), scalar type declarations, , `void` return type, iterable type, anonymous classes. Let's take a look at some of the features in detail:
+The following are some of the new features in PHP 7 — it is faster ([PHP 5.6 vs 7.0](http://www.phpbenchmarks.com/en/comparator/php)), memory optimized, has new exception hierarchy, introduces new syntax sugar (`??, <=>`), nullables (`?string`), scalar type declarations, , `void` return type, iterable type, anonymous classes. Let's take a look at some of the features in detail:
 
 <ul>
 <li class="details">
@@ -877,232 +883,6 @@ function numbersAsIterator(): iterable
 <li class="details">
   <input type="checkbox" id="accordion-25" hidden />
   <label class="summary" for="accordion-25">
-    <span class="badge" data-badge="7.4">Spread operator</span>
-  </label>
-  <div class="details-body">
-
-```php
-$foo = [3, 4, 5];
-
-// [1, 2, 3, 4, 5, 6]
-$bar = [1, 2, ...$foo, 6];
-```
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-26" hidden />
-  <label class="summary" for="accordion-26">
-    <span class="badge" data-badge="7.4">Arrow functions</span>
-  </label>
-  <div class="details-body">
-
-```php
-$arr = [1, 2, 3];
-
-// [1, 4, 9]
-array_map(
-  fn($n) => $n * $n,
-  $arr
-);
-```
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-27" hidden />
-  <label class="summary" for="accordion-27">
-    <span class="badge" data-badge="7.4">Typed properties</span>
-  </label>
-  <div class="details-body">
-  Class properties now support type declarations.
-
-```php
-class User {
-    public int $id;
-    public string $name;
-}
-```
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-28" hidden />
-  <label class="summary" for="accordion-28">
-    <span class="badge" data-badge="7.4">Null coalescing assignment operator</span>
-  </label>
-  <div class="details-body">
-
-```php
-
-// before 7.4
-if (!isset($array['key'])) {
-    $array['key'] = computeDefault();
-}
-
-// after
-$array['key'] ??= computeDefault();
-```
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-29" hidden />
-  <label class="summary" for="accordion-29">
-    <span class="badge" data-badge="8.0">Named arguments</span>
-  </label>
-  <div class="details-body">
-    
-    Specify only required parameters, skipping optional ones. Arguments are order-independent and self-documented.
-
-```php
-
-function sub(int $a, int $b): int {
-    return $b - $a;
-}
-
-sub(
-  b: 2,
-  a: 3
-);
-```
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-30" hidden />
-  <label class="summary" for="accordion-30">
-    <span class="badge" data-badge="8.0">Attributes</span>
-  </label>
-  <div class="details-body">
-  
-    Instead of PHPDoc annotations, you can now use structured metadata with PHP's native syntax.
-
-```php
-
-class PostsController
-{
-    #[Route("/api/posts/{id}", methods: ["GET"])]
-    public function get($id) { /* ... */ }
-}
-
-```
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-31" hidden />
-  <label class="summary" for="accordion-31">
-    <span class="badge" data-badge="8.0">Constructor property promotion</span>
-  </label>
-  <div class="details-body">
-
-  Less boilerplate code to define and initialize properties.
-
-```php
-
-// PHP 7
-class Point {
-  public float $x;
-  public float $y;
-
-  public function __construct(
-    float $x = 0.0,
-    float $y = 0.0,
-  ) {
-    $this->x = $x;
-    $this->y = $y;
-  }
-}
-
-// PHP 8
-class Point {
-  public function __construct(
-    public float $x = 0.0,
-    public float $y = 0.0,
-  ) {}
-}
-```
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-32" hidden />
-  <label class="summary" for="accordion-32">
-    <span class="badge" data-badge="8.0">Union types</span>
-  </label>
-  <div class="details-body">
-    Instead of PHPDoc annotations for a combination of types, you can use native union type declarations that are validated at runtime.
-
-```php
-
-class Number {
-  public function __construct(
-    private int|float $number
-  ) {}
-}
-
-new Number('NaN'); // TypeError
-
-```
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-33" hidden />
-  <label class="summary" for="accordion-33">
-    <span class="badge" data-badge="8.0">Match expression</span>
-  </label>
-  <div class="details-body">
-    The new match is similar to switch and has the following features:
-
-    1) Match is an expression, meaning its result can be stored in a variable or returned.
-
-    2) Match branches only support single-line expressions and do not need a break; statement.
-
-    3) Match does strict comparisons.
-
-```php
-
-echo match (8.0) {
-  '8.0' => "Oh no!",
-  8.0 => "This is what I expected",
-};
-//> This is what I expected
-
-```
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-34" hidden />
-  <label class="summary" for="accordion-34">
-    <span class="badge" data-badge="8.0">Nullsafe operator</span>
-  </label>
-  <div class="details-body">
-  Instead of null check conditions, you can now use a chain of calls with the new nullsafe operator. When the evaluation of one element in the chain fails, the execution of the entire chain aborts and the entire chain evaluates to null.
-
-```php
-
-$country = $session?->user?->getAddress()?->country;
-
-```
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-35" hidden />
-  <label class="summary" for="accordion-35">
-    <span class="badge" data-badge="8.0">Just-In-Time compilation</span>
-  </label>
-  <div class="details-body">
-
-  PHP 8 introduces two JIT compilation engines.
-  Tracing JIT, the most promising of the two, shows about _3 times_ better performance on synthetic benchmarks and _1.5–2 times_ improvement on some specific long-running applications.
-
-  ![](https://php.net/images/php8/scheme.svg)
-
-  </div>
-</li>
-<li class="details">
-  <input type="checkbox" id="accordion-40" hidden />
-  <label class="summary" for="accordion-40">
     Exceptions <sup><em>new hierarchy</em></sup>
   </label>
   <div class="details-body">
@@ -1340,15 +1120,10 @@ server {
 * Standardize dev environment: [vagrant-homestead](https://laravel.com/docs/5.8/homestead), [docker-laradock](https://laradock.io/)
 
 <h3><strong>Useful links</strong></h3>
-
 * [clean-code-php](https://github.com/jupeter/clean-code-php)
-
 * [awesome-php](https://github.com/ziadoz/awesome-php)
-
 * [Laracasts](https://laracasts.com/)
-
 * [codecourse](https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g)
-
 
 <hr />
 
@@ -1361,9 +1136,9 @@ server {
 
 export const metadata = {
   orderId: 3,
-  author: "Владимир Ленч",
-  title: "Modern PHP features and ecosystem",
-  description: "Владимир проводит экскурс в фундаментальные понятия и новинки <strong>PHP</strong>, объясняет в каких случаях используются наиболее распостраненные фреймворки, показывает как работать с <strong>Composer</strong> и рассказывает о типичном рабочем окружении PHP-программиста.",
+  author: "Павел Немченко",
+  title: "PHP 7 features and ecosystem",
+  description: "Павел проводит экскурс в фундаментальные понятия и новинки <strong>PHP 7</strong>, объясняет в каких случаях используются наиболее распостраненные фреймворки, показывает как работать с <strong>Composer</strong> и рассказывает о типичном рабочем окружении PHP-программиста.",
   keywords: ["hola", "guapa"],
   duration: "55 мин",
   publishedAt: "2019-05-13T22:00:00",
