@@ -37,7 +37,7 @@ import "./styles.css";
       <li>часть материала вам уже знакома и это гуд 😊;</li>
       <li>лекция обещает быть интересной и познавательной <em>(за употребление слов-паразитов, жаргона и нецензурной брани простите)</em>.</li>
     </ol>
-    Да, кстати... С собой: терминал (командная строка), <a href="https://git-scm.com/"><strong>Git</strong></a>, <a href="https://code.visualstudio.com/"><strong>PHPStorm</strong></a> или <a href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong></a>. Начнём?
+    Да, кстати... с собой: терминал (командная строка), <a href="https://git-scm.com/"><strong>Git</strong></a>, <a href="https://code.visualstudio.com/"><strong>PHPStorm</strong></a> или <a href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong></a>. Начнём?
   </div>
 </div>
 
@@ -250,7 +250,7 @@ $kernel->terminate($request, $response);
 </ul>
 
 
-<Level id="whats-new-in-php" number="2" name="What's new in PHP 7" difficulty="Hardcore." objectives="Learn what PHP 7 can offer us." />
+<Level id="whats-new-in-php" number="2" name="What's new in PHP" difficulty="Hardcore." objectives="Learn what PHP can offer us." />
 
 ![php rules](https://www.meme-arsenal.com/memes/d16038f002f4a605c327354818f86c11.jpg)
 
@@ -799,7 +799,7 @@ Use types everywhere! )
 <li class="details">
   <input type="checkbox" id="accordion-22" hidden />
   <label class="summary" for="accordion-22">
-    <span class="badge" data-badge="7.1">Nullables</span>
+    <span class="badge badge-secondary" data-badge="7.1">Nullables</span>
   </label>
   <div class="details-body">
 
@@ -832,7 +832,7 @@ class Profile
 <li class="details">
   <input type="checkbox" id="accordion-23" hidden />
   <label class="summary" for="accordion-23">
-    <span class="badge" data-badge="7.1">Void type</span>
+    <span class="badge badge-secondary" data-badge="7.1">Void type</span>
   </label>
   <div class="details-body">
 
@@ -850,7 +850,7 @@ function doSomething(): void
 <li class="details">
   <input type="checkbox" id="accordion-24" hidden />
   <label class="summary" for="accordion-24">
-    <span class="badge" data-badge="7.1">Iterable type</span>
+    <span class="badge badge-secondary" data-badge="7.1">Iterable type</span>
   </label>
   <div class="details-body">
 
@@ -877,7 +877,7 @@ function numbersAsIterator(): iterable
 <li class="details">
   <input type="checkbox" id="accordion-25" hidden />
   <label class="summary" for="accordion-25">
-    <span class="badge" data-badge="7.4">Spread operator</span>
+    <span class="badge badge-secondary" data-badge="7.4">Spread operator</span>
   </label>
   <div class="details-body">
 
@@ -893,7 +893,7 @@ $bar = [1, 2, ...$foo, 6];
 <li class="details">
   <input type="checkbox" id="accordion-26" hidden />
   <label class="summary" for="accordion-26">
-    <span class="badge" data-badge="7.4">Arrow functions</span>
+    <span class="badge badge-secondary" data-badge="7.4">Arrow functions</span>
   </label>
   <div class="details-body">
 
@@ -912,7 +912,7 @@ array_map(
 <li class="details">
   <input type="checkbox" id="accordion-27" hidden />
   <label class="summary" for="accordion-27">
-    <span class="badge" data-badge="7.4">Typed properties</span>
+    <span class="badge badge-secondary" data-badge="7.4">Typed properties</span>
   </label>
   <div class="details-body">
   Class properties now support type declarations.
@@ -929,7 +929,7 @@ class User {
 <li class="details">
   <input type="checkbox" id="accordion-28" hidden />
   <label class="summary" for="accordion-28">
-    <span class="badge" data-badge="7.4">Null coalescing assignment operator</span>
+    <span class="badge badge-secondary" data-badge="7.4">Null coalescing assignment operator</span>
   </label>
   <div class="details-body">
 
@@ -1098,6 +1098,94 @@ $country = $session?->user?->getAddress()?->country;
 
   ![](https://php.net/images/php8/scheme.svg)
 
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-36" hidden />
+  <label class="summary" for="accordion-36">
+    <span class="badge" data-badge="8.1">Enums</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+enum Status
+{
+    case pending;
+    case fullfilled;
+    case canceled;
+    
+    public function color(): string
+    {
+        return match($this) 
+        {
+            Status::pending => 'blue',   
+            Status::fullfilled => 'green',   
+            Status::canceled => 'red',   
+        };
+    }
+}
+
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-37" hidden />
+  <label class="summary" for="accordion-37">
+    <span class="badge" data-badge="8.1">Readonly properties</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+class PostData
+{
+    public function __construct(
+        public readonly string $title,
+        public readonly string $author,
+        public readonly string $text,
+        public readonly DateTimeImmutable $createdAt
+    ) {}
+}
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-38" hidden />
+  <label class="summary" for="accordion-38">
+    <span class="badge" data-badge="8.1">New in initializers</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+class StateMachine
+{
+    public function __construct(
+        private State $state = new DefaultState(),
+    ) {
+    }
+}
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-39" hidden />
+  <label class="summary" for="accordion-39">
+    <span class="badge" data-badge="8.1">Pure intersection types</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+function generateSlug(HasTitle&HasId $post): string {
+    return strtolower($post->getTitle()) . $post->getId();
+}
+
+```
   </div>
 </li>
 <li class="details">
