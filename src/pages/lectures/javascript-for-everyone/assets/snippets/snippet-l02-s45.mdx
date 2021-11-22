@@ -1,0 +1,12 @@
+```js
+// .apply()
+const obj = { a: 1 };
+const args = ['firstArg', 'secondArg'];
+foo.apply(obj, args); // { a: 1 }, 'firstArg', 'secondArg'
+
+foo.call(obj, ...args); // alternative
+
+function foo(arg1, arg2) {
+  console.log(this, arg1, arg2);
+}
+```
