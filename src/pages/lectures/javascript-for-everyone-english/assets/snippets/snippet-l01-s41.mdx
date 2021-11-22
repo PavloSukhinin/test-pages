@@ -1,0 +1,16 @@
+```js
+const users = ['Mike', 'Alex'];
+users.forEach((value, index, array) => console.log(value)); // 'Mike', 'Alex'
+
+users.forEach((value, index) => {
+  if (index > 0) return; // Skips the iteration
+  console.log(value); // 'Mike'
+});
+
+
+users.some((value, index) => {
+  if (value === 'Skip me!') return false; // Skips the iteration
+  if (index === 1) return true;
+  console.log(value); // 'Mike'
+})
+```

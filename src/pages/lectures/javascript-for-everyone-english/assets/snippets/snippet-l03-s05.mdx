@@ -1,0 +1,18 @@
+```js
+function Bird(name, sound) {
+  Animal.apply(this, arguments);
+
+  this._home = "tree"; // Private property naming convention
+}
+
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+
+Bird.prototype.fly = function() {
+  Animal.prototype.makeSound.call(this);
+  console.log(`Bird ${this.name} fly`);
+};
+
+const bird = new Bird("Kiwi", "singing");
+bird.fly();
+```

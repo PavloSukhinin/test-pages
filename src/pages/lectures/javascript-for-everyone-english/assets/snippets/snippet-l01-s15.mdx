@@ -1,0 +1,13 @@
+```js
+const isAdmin = Symbol('isAdmin');
+
+const user = {
+  name: 'John',
+  isAdmin: false,
+  [isAdmin]: true
+}
+
+console.log(user.isAdmin); // false
+console.log(user[isAdmin]); // true
+
+```

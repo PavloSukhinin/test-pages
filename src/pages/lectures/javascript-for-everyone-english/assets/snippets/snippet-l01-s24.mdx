@@ -1,0 +1,12 @@
+```js
+const users = ['Mike', 'Alex'];
+for (let value of users) {
+  console.log(value); // Mike, Alex
+}
+
+const user = { firstName: 'Mike', lastName: 'Din' };
+for (let value of user) {
+  console.log(value); // Mike, Din
+}
+Object.values(user).forEach(value => console.log(value)); // Mike, Din
+```
