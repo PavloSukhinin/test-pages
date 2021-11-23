@@ -5,7 +5,8 @@ import {
   SlackMessage,
   ThatsAllFolks,
   TimelineOfContents,
-  VideoWrapper
+  VideoWrapper,
+	Language
 } from "../../../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -131,6 +132,11 @@ import SnippetL03S17 from "../assets/snippets/snippet-l03-s17.mdx";
 import SnippetL03S18 from "../assets/snippets/snippet-l03-s18.mdx";
 
 <div><h1><strong>Javascript for everyone</strong></h1></div>
+
+<Language
+	currentLanguage="en"
+	languages={{"ua": "lectures/javascript-for-everyone", "ru": "lectures/javascript-for-everyone/ru", "en": "lectures/javascript-for-everyone/en"}}
+/>
 
 <VideoWrapper duration="50 sec">
   <iframe src="https://www.youtube.com/embed/YUgKHOaal8k" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
