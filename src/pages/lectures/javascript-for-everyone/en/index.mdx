@@ -5,11 +5,12 @@ import {
   SlackMessage,
   ThatsAllFolks,
   TimelineOfContents,
-  VideoWrapper
-} from "../../../components";
+  VideoWrapper,
+	Language
+} from "../../../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { romanSahan2017Avatar } from "../../../assets/images/avatars/intro-rounded";
+import { romanSahan2017Avatar } from "../../../../assets/images/avatars/intro-rounded";
 import {
   alexandrTovmachAvatar,
   alyonaRapovaAvatar,
@@ -21,116 +22,121 @@ import {
   ryuAvatar,
   youAvatar,
   yuriyStetsulaAvatar
-} from "../../../assets/images/avatars/slack-squared";
-import SnippetL01S01 from "./assets/snippets/snippet-l01-s01.mdx";
-import SnippetL01S02 from "./assets/snippets/snippet-l01-s02.mdx";
-import SnippetL01S03 from "./assets/snippets/snippet-l01-s03.mdx";
-import SnippetL01S04 from "./assets/snippets/snippet-l01-s04.mdx";
-import SnippetL01S05 from "./assets/snippets/snippet-l01-s05.mdx";
-import SnippetL01S06 from "./assets/snippets/snippet-l01-s06.mdx";
-import SnippetL01S07 from "./assets/snippets/snippet-l01-s07.mdx";
-import SnippetL01S08 from "./assets/snippets/snippet-l01-s08.mdx";
-import SnippetL01S09 from "./assets/snippets/snippet-l01-s09.mdx";
-import SnippetL01S10 from "./assets/snippets/snippet-l01-s10.mdx";
-import SnippetL01S11 from "./assets/snippets/snippet-l01-s11.mdx";
-import SnippetL01S12 from "./assets/snippets/snippet-l01-s12.mdx";
-import SnippetL01S13 from "./assets/snippets/snippet-l01-s13.mdx";
-import SnippetL01S14 from "./assets/snippets/snippet-l01-s14.mdx";
-import SnippetL01S15 from "./assets/snippets/snippet-l01-s15.mdx";
-import SnippetL01S16 from "./assets/snippets/snippet-l01-s16.mdx";
-import SnippetL01S17 from "./assets/snippets/snippet-l01-s17.mdx";
-import SnippetL01S18 from "./assets/snippets/snippet-l01-s18.mdx";
-import SnippetL01S19 from "./assets/snippets/snippet-l01-s19.mdx";
-import SnippetL01S20 from "./assets/snippets/snippet-l01-s20.mdx";
-import SnippetL01S21 from "./assets/snippets/snippet-l01-s21.mdx";
-import SnippetL01S22 from "./assets/snippets/snippet-l01-s22.mdx";
-import SnippetL01S23 from "./assets/snippets/snippet-l01-s23.mdx";
-import SnippetL01S24 from "./assets/snippets/snippet-l01-s24.mdx";
-import SnippetL01S25 from "./assets/snippets/snippet-l01-s25.mdx";
-import SnippetL01S26 from "./assets/snippets/snippet-l01-s26.mdx";
-import SnippetL01S27 from "./assets/snippets/snippet-l01-s27.mdx";
-import SnippetL01S28 from "./assets/snippets/snippet-l01-s28.mdx";
-import SnippetL01S29 from "./assets/snippets/snippet-l01-s29.mdx";
-import SnippetL01S30 from "./assets/snippets/snippet-l01-s30.mdx";
-import SnippetL01S31 from "./assets/snippets/snippet-l01-s31.mdx";
-import SnippetL01S32 from "./assets/snippets/snippet-l01-s32.mdx";
-import SnippetL01S33 from "./assets/snippets/snippet-l01-s33.mdx";
-import SnippetL01S34 from "./assets/snippets/snippet-l01-s34.mdx";
-import SnippetL01S35 from "./assets/snippets/snippet-l01-s35.mdx";
-import SnippetL01S36 from "./assets/snippets/snippet-l01-s36.mdx";
-import SnippetL01S37 from "./assets/snippets/snippet-l01-s37.mdx";
-import SnippetL01S38 from "./assets/snippets/snippet-l01-s38.mdx";
-import SnippetL01S39 from "./assets/snippets/snippet-l01-s39.mdx";
-import SnippetL01S40 from "./assets/snippets/snippet-l01-s40.mdx";
-import SnippetL01S41 from "./assets/snippets/snippet-l01-s41.mdx";
-import SnippetL01S42 from "./assets/snippets/snippet-l01-s42.mdx";
-import SnippetL01S43 from "./assets/snippets/snippet-l01-s43.mdx";
-import SnippetL01S44 from "./assets/snippets/snippet-l01-s44.mdx";
-import SnippetL01S45 from "./assets/snippets/snippet-l01-s45.mdx";
-import SnippetL02S01 from "./assets/snippets/snippet-l02-s01.mdx";
-import SnippetL02S02 from "./assets/snippets/snippet-l02-s02.mdx";
-import SnippetL02S03 from "./assets/snippets/snippet-l02-s03.mdx";
-import SnippetL02S04 from "./assets/snippets/snippet-l02-s04.mdx";
-import SnippetL02S05 from "./assets/snippets/snippet-l02-s05.mdx";
-import SnippetL02S06 from "./assets/snippets/snippet-l02-s06.mdx";
-import SnippetL02S07 from "./assets/snippets/snippet-l02-s07.mdx";
-import SnippetL02S08 from "./assets/snippets/snippet-l02-s08.mdx";
-import SnippetL02S09 from "./assets/snippets/snippet-l02-s09.mdx";
-import SnippetL02S10 from "./assets/snippets/snippet-l02-s10.mdx";
-import SnippetL02S11 from "./assets/snippets/snippet-l02-s11.mdx";
-import SnippetL02S12 from "./assets/snippets/snippet-l02-s12.mdx";
-import SnippetL02S13 from "./assets/snippets/snippet-l02-s13.mdx";
-import SnippetL02S14 from "./assets/snippets/snippet-l02-s14.mdx";
-import SnippetL02S15 from "./assets/snippets/snippet-l02-s15.mdx";
-import SnippetL02S16 from "./assets/snippets/snippet-l02-s16.mdx";
-import SnippetL02S17 from "./assets/snippets/snippet-l02-s17.mdx";
-import SnippetL02S18 from "./assets/snippets/snippet-l02-s18.mdx";
-import SnippetL02S19 from "./assets/snippets/snippet-l02-s19.mdx";
-import SnippetL02S20 from "./assets/snippets/snippet-l02-s20.mdx";
-import SnippetL02S21 from "./assets/snippets/snippet-l02-s21.mdx";
-import SnippetL02S22 from "./assets/snippets/snippet-l02-s22.mdx";
-import SnippetL02S23 from "./assets/snippets/snippet-l02-s23.mdx";
-import SnippetL02S24 from "./assets/snippets/snippet-l02-s24.mdx";
-import SnippetL02S26 from "./assets/snippets/snippet-l02-s26.mdx";
-import SnippetL02S27 from "./assets/snippets/snippet-l02-s27.mdx";
-import SnippetL02S28 from "./assets/snippets/snippet-l02-s28.mdx";
-import SnippetL02S29 from "./assets/snippets/snippet-l02-s29.mdx";
-import SnippetL02S30 from "./assets/snippets/snippet-l02-s30.mdx";
-import SnippetL02S31 from "./assets/snippets/snippet-l02-s31.mdx";
-import SnippetL02S32 from "./assets/snippets/snippet-l02-s32.mdx";
-import SnippetL02S33 from "./assets/snippets/snippet-l02-s33.mdx";
-import SnippetL02S34 from "./assets/snippets/snippet-l02-s34.mdx";
-import SnippetL02S35 from "./assets/snippets/snippet-l02-s35.mdx";
-import SnippetL02S36 from "./assets/snippets/snippet-l02-s36.mdx";
-import SnippetL02S37 from "./assets/snippets/snippet-l02-s37.mdx";
-import SnippetL02S38 from "./assets/snippets/snippet-l02-s38.mdx";
-import SnippetL02S39 from "./assets/snippets/snippet-l02-s39.mdx";
-import SnippetL02S40 from "./assets/snippets/snippet-l02-s40.mdx";
-import SnippetL02S41 from "./assets/snippets/snippet-l02-s41.mdx";
-import SnippetL02S42 from "./assets/snippets/snippet-l02-s42.mdx";
-import SnippetL02S43 from "./assets/snippets/snippet-l02-s43.mdx";
-import SnippetL02S44 from "./assets/snippets/snippet-l02-s44.mdx";
-import SnippetL02S45 from "./assets/snippets/snippet-l02-s45.mdx";
-import SnippetL03S01 from "./assets/snippets/snippet-l03-s01.mdx";
-import SnippetL03S02 from "./assets/snippets/snippet-l03-s02.mdx";
-import SnippetL03S03 from "./assets/snippets/snippet-l03-s03.mdx";
-import SnippetL03S04 from "./assets/snippets/snippet-l03-s04.mdx";
-import SnippetL03S05 from "./assets/snippets/snippet-l03-s05.mdx";
-import SnippetL03S06 from "./assets/snippets/snippet-l03-s06.mdx";
-import SnippetL03S07 from "./assets/snippets/snippet-l03-s07.mdx";
-import SnippetL03S08 from "./assets/snippets/snippet-l03-s08.mdx";
-import SnippetL03S09 from "./assets/snippets/snippet-l03-s09.mdx";
-import SnippetL03S10 from "./assets/snippets/snippet-l03-s10.mdx";
-import SnippetL03S11 from "./assets/snippets/snippet-l03-s11.mdx";
-import SnippetL03S12 from "./assets/snippets/snippet-l03-s12.mdx";
-import SnippetL03S13 from "./assets/snippets/snippet-l03-s13.mdx";
-import SnippetL03S14 from "./assets/snippets/snippet-l03-s14.mdx";
-import SnippetL03S15 from "./assets/snippets/snippet-l03-s15.mdx";
-import SnippetL03S16 from "./assets/snippets/snippet-l03-s16.mdx";
-import SnippetL03S17 from "./assets/snippets/snippet-l03-s17.mdx";
-import SnippetL03S18 from "./assets/snippets/snippet-l03-s18.mdx";
+} from "../../../../assets/images/avatars/slack-squared";
+import SnippetL01S01 from "../assets/snippets/snippet-l01-s01.mdx";
+import SnippetL01S02 from "../assets/snippets/snippet-l01-s02.mdx";
+import SnippetL01S03 from "../assets/snippets/snippet-l01-s03.mdx";
+import SnippetL01S04 from "../assets/snippets/snippet-l01-s04.mdx";
+import SnippetL01S05 from "../assets/snippets/snippet-l01-s05.mdx";
+import SnippetL01S06 from "../assets/snippets/snippet-l01-s06.mdx";
+import SnippetL01S07 from "../assets/snippets/snippet-l01-s07.mdx";
+import SnippetL01S08 from "../assets/snippets/snippet-l01-s08.mdx";
+import SnippetL01S09 from "../assets/snippets/snippet-l01-s09.mdx";
+import SnippetL01S10 from "../assets/snippets/snippet-l01-s10.mdx";
+import SnippetL01S11 from "../assets/snippets/snippet-l01-s11.mdx";
+import SnippetL01S12 from "../assets/snippets/snippet-l01-s12.mdx";
+import SnippetL01S13 from "../assets/snippets/snippet-l01-s13.mdx";
+import SnippetL01S14 from "../assets/snippets/snippet-l01-s14.mdx";
+import SnippetL01S15 from "../assets/snippets/snippet-l01-s15.mdx";
+import SnippetL01S16 from "../assets/snippets/snippet-l01-s16.mdx";
+import SnippetL01S17 from "../assets/snippets/snippet-l01-s17.mdx";
+import SnippetL01S18 from "../assets/snippets/snippet-l01-s18.mdx";
+import SnippetL01S19 from "../assets/snippets/snippet-l01-s19.mdx";
+import SnippetL01S20 from "../assets/snippets/snippet-l01-s20.mdx";
+import SnippetL01S21 from "../assets/snippets/snippet-l01-s21.mdx";
+import SnippetL01S22 from "../assets/snippets/snippet-l01-s22.mdx";
+import SnippetL01S23 from "../assets/snippets/snippet-l01-s23.mdx";
+import SnippetL01S24 from "../assets/snippets/snippet-l01-s24.mdx";
+import SnippetL01S25 from "../assets/snippets/snippet-l01-s25.mdx";
+import SnippetL01S26 from "../assets/snippets/snippet-l01-s26.mdx";
+import SnippetL01S27 from "../assets/snippets/snippet-l01-s27.mdx";
+import SnippetL01S28 from "../assets/snippets/snippet-l01-s28.mdx";
+import SnippetL01S29 from "../assets/snippets/snippet-l01-s29.mdx";
+import SnippetL01S30 from "../assets/snippets/snippet-l01-s30.mdx";
+import SnippetL01S31 from "../assets/snippets/snippet-l01-s31.mdx";
+import SnippetL01S32 from "../assets/snippets/snippet-l01-s32.mdx";
+import SnippetL01S33 from "../assets/snippets/snippet-l01-s33.mdx";
+import SnippetL01S34 from "../assets/snippets/snippet-l01-s34.mdx";
+import SnippetL01S35 from "../assets/snippets/snippet-l01-s35.mdx";
+import SnippetL01S36 from "../assets/snippets/snippet-l01-s36.mdx";
+import SnippetL01S37 from "../assets/snippets/snippet-l01-s37.mdx";
+import SnippetL01S38 from "../assets/snippets/snippet-l01-s38.mdx";
+import SnippetL01S39 from "../assets/snippets/snippet-l01-s39.mdx";
+import SnippetL01S40 from "../assets/snippets/snippet-l01-s40.mdx";
+import SnippetL01S41 from "../assets/snippets/snippet-l01-s41.mdx";
+import SnippetL01S42 from "../assets/snippets/snippet-l01-s42.mdx";
+import SnippetL01S43 from "../assets/snippets/snippet-l01-s43.mdx";
+import SnippetL01S44 from "../assets/snippets/snippet-l01-s44.mdx";
+import SnippetL01S45 from "../assets/snippets/snippet-l01-s45.mdx";
+import SnippetL02S01 from "../assets/snippets/snippet-l02-s01.mdx";
+import SnippetL02S02 from "../assets/snippets/snippet-l02-s02.mdx";
+import SnippetL02S03 from "../assets/snippets/snippet-l02-s03.mdx";
+import SnippetL02S04 from "../assets/snippets/snippet-l02-s04.mdx";
+import SnippetL02S05 from "../assets/snippets/snippet-l02-s05.mdx";
+import SnippetL02S06 from "../assets/snippets/snippet-l02-s06.mdx";
+import SnippetL02S07 from "../assets/snippets/snippet-l02-s07.mdx";
+import SnippetL02S08 from "../assets/snippets/snippet-l02-s08.mdx";
+import SnippetL02S09 from "../assets/snippets/snippet-l02-s09.mdx";
+import SnippetL02S10 from "../assets/snippets/snippet-l02-s10.mdx";
+import SnippetL02S11 from "../assets/snippets/snippet-l02-s11.mdx";
+import SnippetL02S12 from "../assets/snippets/snippet-l02-s12.mdx";
+import SnippetL02S13 from "../assets/snippets/snippet-l02-s13.mdx";
+import SnippetL02S14 from "../assets/snippets/snippet-l02-s14.mdx";
+import SnippetL02S15 from "../assets/snippets/snippet-l02-s15.mdx";
+import SnippetL02S16 from "../assets/snippets/snippet-l02-s16.mdx";
+import SnippetL02S17 from "../assets/snippets/snippet-l02-s17.mdx";
+import SnippetL02S18 from "../assets/snippets/snippet-l02-s18.mdx";
+import SnippetL02S19 from "../assets/snippets/snippet-l02-s19.mdx";
+import SnippetL02S20 from "../assets/snippets/snippet-l02-s20.mdx";
+import SnippetL02S21 from "../assets/snippets/snippet-l02-s21.mdx";
+import SnippetL02S22 from "../assets/snippets/snippet-l02-s22.mdx";
+import SnippetL02S23 from "../assets/snippets/snippet-l02-s23.mdx";
+import SnippetL02S24 from "../assets/snippets/snippet-l02-s24.mdx";
+import SnippetL02S26 from "../assets/snippets/snippet-l02-s26.mdx";
+import SnippetL02S27 from "../assets/snippets/snippet-l02-s27.mdx";
+import SnippetL02S28 from "../assets/snippets/snippet-l02-s28.mdx";
+import SnippetL02S29 from "../assets/snippets/snippet-l02-s29.mdx";
+import SnippetL02S30 from "../assets/snippets/snippet-l02-s30.mdx";
+import SnippetL02S31 from "../assets/snippets/snippet-l02-s31.mdx";
+import SnippetL02S32 from "../assets/snippets/snippet-l02-s32.mdx";
+import SnippetL02S33 from "../assets/snippets/snippet-l02-s33.mdx";
+import SnippetL02S34 from "../assets/snippets/snippet-l02-s34.mdx";
+import SnippetL02S35 from "../assets/snippets/snippet-l02-s35.mdx";
+import SnippetL02S36 from "../assets/snippets/snippet-l02-s36.mdx";
+import SnippetL02S37 from "../assets/snippets/snippet-l02-s37.mdx";
+import SnippetL02S38 from "../assets/snippets/snippet-l02-s38.mdx";
+import SnippetL02S39 from "../assets/snippets/snippet-l02-s39.mdx";
+import SnippetL02S40 from "../assets/snippets/snippet-l02-s40.mdx";
+import SnippetL02S41 from "../assets/snippets/snippet-l02-s41.mdx";
+import SnippetL02S42 from "../assets/snippets/snippet-l02-s42.mdx";
+import SnippetL02S43 from "../assets/snippets/snippet-l02-s43.mdx";
+import SnippetL02S44 from "../assets/snippets/snippet-l02-s44.mdx";
+import SnippetL02S45 from "../assets/snippets/snippet-l02-s45.mdx";
+import SnippetL03S01 from "../assets/snippets/snippet-l03-s01.mdx";
+import SnippetL03S02 from "../assets/snippets/snippet-l03-s02.mdx";
+import SnippetL03S03 from "../assets/snippets/snippet-l03-s03.mdx";
+import SnippetL03S04 from "../assets/snippets/snippet-l03-s04.mdx";
+import SnippetL03S05 from "../assets/snippets/snippet-l03-s05.mdx";
+import SnippetL03S06 from "../assets/snippets/snippet-l03-s06.mdx";
+import SnippetL03S07 from "../assets/snippets/snippet-l03-s07.mdx";
+import SnippetL03S08 from "../assets/snippets/snippet-l03-s08.mdx";
+import SnippetL03S09 from "../assets/snippets/snippet-l03-s09.mdx";
+import SnippetL03S10 from "../assets/snippets/snippet-l03-s10.mdx";
+import SnippetL03S11 from "../assets/snippets/snippet-l03-s11.mdx";
+import SnippetL03S12 from "../assets/snippets/snippet-l03-s12.mdx";
+import SnippetL03S13 from "../assets/snippets/snippet-l03-s13.mdx";
+import SnippetL03S14 from "../assets/snippets/snippet-l03-s14.mdx";
+import SnippetL03S15 from "../assets/snippets/snippet-l03-s15.mdx";
+import SnippetL03S16 from "../assets/snippets/snippet-l03-s16.mdx";
+import SnippetL03S17 from "../assets/snippets/snippet-l03-s17.mdx";
+import SnippetL03S18 from "../assets/snippets/snippet-l03-s18.mdx";
 
 <div><h1><strong>Javascript for everyone</strong></h1></div>
+
+<Language
+	currentLanguage="en"
+	languages={{"ua": "lectures/javascript-for-everyone", "ru": "lectures/javascript-for-everyone/ru", "en": "lectures/javascript-for-everyone/en"}}
+/>
 
 <VideoWrapper duration="50 sec">
   <iframe src="https://www.youtube.com/embed/YUgKHOaal8k" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
@@ -270,7 +276,7 @@ So, there is no specification, but it seems that this time we are talking about 
 
 <Level id="basic-javascript" number="1" name="Basic JavaScript" difficulty="Nothing special 🤷‍♂️." objectives="Get a general idea about JavaScript." />
 
-<VideoWrapper duration="10 хв 57 sec">
+<VideoWrapper duration="10 min 57 sec">
   <iframe src="https://www.youtube.com/embed/bVhnIdxD2uo" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </VideoWrapper>
 
@@ -615,7 +621,7 @@ So, there is no specification, but it seems that this time we are talking about 
 
 <Level id="building-a-webpage" number="2" name="Building a webpage" difficulty="Let's spice it up 🔥." objectives="Gain practical knowledge." />
 
-<VideoWrapper duration="39 хв 42 sec">
+<VideoWrapper duration="39 min 42 sec">
   <iframe src="https://www.youtube.com/embed/P_SyGfORElk" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </VideoWrapper>
 
@@ -1029,7 +1035,7 @@ So, there is no specification, but it seems that this time we are talking about 
 
 <Level id="modules-transpiling-bundling-etc" number="3" name="Modules, transpiling, bundling, etc." difficulty="And now we gonna roll 🤸." objectives="Get the most out of the JS." />
 
-<VideoWrapper duration="28 хв 5 sec">
+<VideoWrapper duration="28 min 5 sec">
   <iframe src="https://www.youtube.com/embed/1OYgnBaZW6A" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </VideoWrapper>
 
@@ -1246,7 +1252,7 @@ export const metadata = {
   title: "Javascript for everyone",
   description: "Oleksandr talks about the basic concepts of <strong>JavaScript</strong>, then writes a frontend for a simple interactive web page, using the <strong>DOM API</strong> to create elements and the most popular <strong>ES6+</strong> functions for data processing, as well as explains about <strong>modules</strong>, <strong>transpilers</strong>, and <strong>bundlers</strong>.",
   keywords: ["JS", "Javascript", "async"],
-  duration: "1 год 19 хв",
+  duration: "1 h 19 min",
   publishedAt: "2019-05-13T22:00:00"
 }
 
