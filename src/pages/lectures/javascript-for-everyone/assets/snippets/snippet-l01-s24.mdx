@@ -1,9 +1,12 @@
 ```js
-Array.prototype.customFunction = function() {};
-
-let weekends = ['Sat', 'Sun'];
-
-for (let i in weekends ) {
-  console.log(i); // 0, 1, "customFunction"
+const users = ['Mike', 'Alex'];
+for (let value of users) {
+  console.log(value); // Mike, Alex
 }
+
+const user = { firstName: 'Mike', lastName: 'Din' };
+for (let value of user) {
+  console.log(value); // Mike, Din
+}
+Object.values(user).forEach(value => console.log(value)); // Mike, Din
 ```

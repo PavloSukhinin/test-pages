@@ -1,8 +1,20 @@
 ```js
-let level = currentLevel;
+for (let step = 0; step < stepCount; step++) {
+  const value = step * intervalComputed;
 
-while(level >= 0) {
-  // do something
-  level--;
+  if (value === 0) {
+    labelsFromRange.push('0');
+    continue;
+  }
+
+  const labelText = formatNumber(value, decimalSeparator);
+  const labelWidth = getTextWidth(labelText);
+  const isLastStep = step === stepCountWithMargin;
+
+  if (isLastStep && remainingAxisLength < labelWidth) {
+    break;
+  }
+
+  labelsFromRange.push(labelText);
 }
 ```

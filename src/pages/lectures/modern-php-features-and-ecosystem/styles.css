@@ -1,0 +1,28 @@
+/* PHP users */
+.content .php-users {
+  margin-bottom: 0.25rem;
+}
+.content .php-users .column a {
+  transition: all 0.2s linear;
+}
+.content .php-users .column a:not(:hover) {
+  filter: contrast(0) grayscale(1);
+}
+
+/* PHP frameworks */
+.content ul.php-frameworks {
+  padding-left: 1.5em;
+  margin: 0;
+}
+.content ul.php-frameworks li.with-logo {
+  margin-left: -1.5em;
+}
+.content ul.php-frameworks li.with-logo:before {
+  display: none;
+}
+.content ul.php-frameworks li.with-logo .logo {
+  margin-right: 0.25em;
+}
+.content ul.php-frameworks li a {
+  color: inherit;
+}

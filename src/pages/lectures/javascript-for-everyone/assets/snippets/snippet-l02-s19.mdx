@@ -1,23 +1,25 @@
 ```js
-const API_URL = 'https://api.github.com/';
+const BASE_API_URL = 'https://api.github.com/';
+const SECURITY_HEADERS = {
+  headers: {
+    authorization: "token %your_token%"
+  }
+};
+
 const rootElement = document.getElementById('root');
 const loadingElement = document.getElementById('loading-overlay');
 
-const startApp = function() {
-  const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
+ function startApp() {
+  const endpoint = 'repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
   const fightersPromise = callApi(endpoint, 'GET');
-  
-  fightersPromise.then(fighters => {
-    const fightersNames = getFightersNames(fighters);
-    rootElement.innerText = fightersNames;
-  });	
+  fightersPromise.then(fighters =>
+    rootElement.innerText = getFightersNames(fighters)
+  );
 }
 
-function callApi(endpoind, method) {
-  const url = API_URL + endpoind;
-  const options = {
-    method
-  };
+function callApi(endpoint, method) {
+  const url = BASE_API_URL + endpoint;
+  const options = { method, ...SECURITY_HEADERS };
 
   return fetch(url, options)
     .then(response => response.ok ? response.json() : Promise.reject(Error('Failed to load')))
@@ -32,8 +34,7 @@ function callApi(endpoind, method) {
 }
 
 function getFightersNames(fighters) {
-  const names = fighters.map(it => it.name).join('\n');
-  return names;
+  return fighters.map(it => it.name).join('\n');
 }
 
 startApp();

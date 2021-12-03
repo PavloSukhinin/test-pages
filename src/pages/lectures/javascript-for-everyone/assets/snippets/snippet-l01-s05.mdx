@@ -1,8 +1,14 @@
 ```js
-const user = {
-  name: 'John',
-  age: 24
-};
+let message;
+message = 'Hello World';
 
-const PRIMARY_COLOR = '#ccc';
+let name = 'John',
+    age = 24;
+
+let count = 10;
+if (count > 5) {
+  let count = 5; // Declares a new local variable, which doesn't interfere with the outer scope
+  // count is equal to 5 here 👌
+}
+// count is still equal to 10 👌
 ```

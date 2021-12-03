@@ -1,15 +1,21 @@
 ```js
+/*
+ * I'm a large and bulky
+ * comment
+ */
+function foo() {
+  console.log('bar');
+}
+
 /**
  * returns the name of the lecture
- * @param {string} course 'js' | 'php' | 'net'
- * @returns {string}
+ * @param {string} course 'js' | 'net'
+ * @returns {string | undefined}
  */
 function getLectureName(course) {
   switch (course) {
     case "js":
       return "Introduction to JavaScript";
-    case "php":
-      return "Laravel - The PHP Framework";
     case "net":
       return "C# and .NET framework";
   }
