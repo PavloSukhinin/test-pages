@@ -10,7 +10,8 @@ import {
   pavelNemchenko2017Avatar,
   rostyslavDiakiv2018Avatar,
   nikitaKrasnov2018Avatar,
-  kyryloLesohorskyi2020Avatar
+  kyryloLesohorskyi2020Avatar,
+  LenchVolodymyr2021Avatar
  } from "../assets/images/avatars/intro-rounded";
 import "./index.css";
 
@@ -24,6 +25,8 @@ const getAuthorAvatar = author => {
       return alexandrTovmach2018Avatar;
     case "Павел Немченко":
       return pavelNemchenko2017Avatar;
+    case "Владимир Ленч":
+      return LenchVolodymyr2021Avatar;
     case "Ростислав Дяків":
       return rostyslavDiakiv2018Avatar;
     case "Никита Краснов":
