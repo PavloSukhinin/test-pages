@@ -1,9 +1,7 @@
 ```js
-const API_URL = 'https://api.github.com/';
-
 async function startApp() {
-  const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
-  const fighters = await callApi(endpoint, 'GET');
+  const endpoint = 'repos/oleksandr-danylchenko/street-fighter/contents/resources/api/fighters.json';
+  const fighters = await callApi(endpoint);
   rootElement.innerText = getFightersNames(fighters);
 }
 ```

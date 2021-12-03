@@ -1,7 +1,7 @@
 ```js
-fetch(API_URL)
+fetch(API_URL, SECURITY_HEADERS)
   .then(
-    response => { return response.json(); }, 
-    error => { console.warn(error); }
+    response => response.json(),
+    error => console.warn(error)
   )
 ```

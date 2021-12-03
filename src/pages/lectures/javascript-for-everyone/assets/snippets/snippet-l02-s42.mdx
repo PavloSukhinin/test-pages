@@ -1,0 +1,20 @@
+```js
+class Lumberjack {
+  cut() {
+    console.log("Cutting tree");
+  }
+}
+
+class SmartLumberjack extends Lumberjack {
+  cut() {
+    console.log("Measuring sizes of the tree");
+    super.cut();
+  }
+}
+
+const smartLumberjack = new SmartLumberjack();
+smartLumberjack.cut(); /*
+                        * Measuring sizes of the tree
+                        * Cutting tree
+                        */
+```

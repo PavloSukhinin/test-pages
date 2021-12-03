@@ -1,3 +1,20 @@
 ```js
-const getFightersNames = () => fighters.map(it => it.name).join('\n');
+const obj = {
+  a: true,
+  b: true,
+  c: true
+};
+
+ // ❌
+const a = obj.a;
+const secondProperty = obj.b;
+
+// 👌
+const {
+  a,
+  b: secondProperty
+} = obj;
+
+const words = ['a', 'b'];
+const [firstElement] = words; // ['a']
 ```
