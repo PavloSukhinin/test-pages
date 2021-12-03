@@ -107,7 +107,7 @@ const Index = ({ data: { allMdx: { edges: data } } }) => (
                       <div className="panel-header">
                         {
                           isPublished
-                          ? <Link to={`.${slug}`} title={title}>{lectureTitle}</Link>
+                          ? <Link to={slug} title={title}>{lectureTitle}</Link>
                           : lectureTitle
                         }
                       </div>
