@@ -25,7 +25,7 @@ const Language = ({ languages, currentLanguage }) => (
 							"is-active": currentLanguage === language
 						}
 					)}
-					to={languages[language]}
+					to={`/${languages[language]}`}
 				>
 					{language.toUpperCase()}
 				</Link>
