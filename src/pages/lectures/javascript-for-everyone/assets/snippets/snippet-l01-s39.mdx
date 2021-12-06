@@ -1,0 +1,10 @@
+```js
+const foo = () => {
+  const bar = () => {
+    return "with a nested arrow function";
+  }
+  console.log(`I'm not a hoisted arrow function ${bar()}`); // "I'm not a hoisted arrow function with a nested arrow function"
+}
+
+foo(); // Must be accessed only after declaration
+```

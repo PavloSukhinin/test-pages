@@ -1,0 +1,1480 @@
+import { Lecture, SlackMessage, TimelineOfContents, Level, ThatsAllFolks, VideoWrapper, Language } from "../../../../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookSquare, faWikipediaW, faVk, faGoogle, faYahoo, faGithub, faSymfony, faLaravel, faWordpress, faJoomla, faDrupal, faMagento, faOpencart, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { LenchVolodymyr2021Avatar } from "../../../../assets/images/avatars/intro-rounded";
+import { default as meme } from '../assets/meme_ua.jpg';
+import "../styles.css";
+
+<div><h1><strong>Modern PHP features and ecosystem</strong></h1></div>
+
+<Language
+  currentLanguage="ua"
+  languages={{"ru": "lectures/modern-php-features-and-ecosystem", "ua": "lectures/modern-php-features-and-ecosystem/ua"}
+}/>
+
+<VideoWrapper duration="55 мин 8 сек">
+  <iframe src="https://www.youtube.com/embed/n7qZgVI-I4U" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+</VideoWrapper>
+
+<div>
+  <div class="author">
+    <div class="avatar-wrapper">
+      <object class="avatar-object" data={LenchVolodymyr2021Avatar} role="img" aria-label="My profile picture"></object>
+    </div>
+    <div class="profile">
+      <h3 class="name">Володимир Лєнч</h3>
+      <ul class="contacts">
+        <li>
+          <a href="https://github.com/lenchv" rel="author" class="github">
+            <FontAwesomeIcon icon={faGithub} className="icon" />
+            <span>lenchv</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/people/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80-%D0%9B%D0%B5%D0%BD%D1%87/100000740939113/" rel="author" class="facebook">
+            <FontAwesomeIcon icon={faFacebookSquare} className="icon" />
+            <span>Володимир Лєнч</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/vladimirlench/" rel="author" class="instagram">
+            <FontAwesomeIcon icon={faInstagram} className="icon" />
+            <span>vladimirlench</span>
+          </a>
+        </li>
+      </ul>
+      <p class="about">
+        Вова закінчив курс академії по РНР у 2017 році та з тих пір пише код в <a href="https://binary-studio.com"><strong>Binary Studio</strong></a>. Знає про <a href="https://martinfowler.com/bliki/CQRS.html"><strong>CQRS</strong></a> та <a href="https://www.martinfowler.com/eaaDev/EventSourcing.html"><strong>event sourcing</strong></a>, вміє пилити фронтенд на <a href="https://vuejs.org/"><strong>Vue</strong></a>, але розробляє додаток для моделюання баз даних на <a href="https://reactjs.org/"><strong>React</strong></a>. Любить відвідувати технічні мітапи, пити каву, та розбиратися у нових технологіях по вихідним.
+      </p>
+    </div>
+  </div>
+  <div class="bubble" style="margin: -0.5em 1em 1em;">
+    <strong>Усім привіт! 👋</strong><br />
+    Вашій увазі перша профільна лекція «Modern PHP features and ecosystem» або ж «Make PHP great again»! Розглянемо що нового у PHP та що майбутнє готує. Але зпочатку дізклеймер:
+    <ol class="compact inverted">
+      <li>частина матеріалу вам вже знайома і це гуд 😊;</li>
+      <li>лекція обіцяє бути цікавою та познавальною <em>(за використання слів-паразитів, жаргону та нецензурної лайки вибачайте)</em>.</li>
+    </ol>
+    Так, до речі... з собою: термінал (командний рядок), <a href="https://git-scm.com/"><strong>Git</strong></a>, <a href="https://code.visualstudio.com/"><strong>PHPStorm</strong></a> або <a href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong></a>. Почнемо?
+  </div>
+</div>
+
+<div id="table-of-contents" class="table-of-contents" style="margin-top: 1em;">
+  <TimelineOfContents timeline={[{
+    linkTo: "#welcome-to-php",
+    title: "Welcome to PHP"
+  }, {
+    linkTo: "#whats-new-in-php",
+    title: "What's new in PHP"
+  }, {
+    linkTo: "#php-ecosystem",
+    title: "PHP ecosystem"
+  }, {
+    linkTo: "#typical-php-development-environment",
+    title: "Typical PHP development environment"
+  }]} />
+</div>
+
+<Level id="welcome-to-php" number="1" name="Welcome to PHP" difficulty="Hardcore." objectives="Get some knowledge about $php features." />
+
+[**PHP: Hypertext Preprocessor**](https://www.php.net/) _(or simply PHP)_ is a general-purpose programming language originally designed for web development. Originally PHP was just a "**p**ersonal **h**ome **p**age" created by [Rasmus Lerdorf](https://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D1%80%D0%B4%D0%BE%D1%80%D1%84,_%D0%A0%D0%B0%D1%81%D0%BC%D1%83%D1%81) in 1995. But hey, isn't it still alive?! [Hell, yes.](https://w3techs.com/technologies/details/pl-php/all/all) Let's list some of the [fine folks who use PHP in production](https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites), so that you understand how serious it is:
+
+<div class="columns php-users">
+  <div className="column col-1 text-center">
+    <a href="https://www.google.com/" title="Google">
+      <FontAwesomeIcon color="#4285f4" icon={faGoogle} size="2x" fixedWidth />
+    </a>
+  </div>
+  <div className="column col-1 text-center">
+    <a href="https://www.yahoo.com/" title="Yahoo!">
+      <FontAwesomeIcon color="#410093" icon={faYahoo} size="2x" fixedWidth />
+    </a>
+  </div>
+  <div className="column col-1 text-center">
+    <a href="https://www.facebook.com/" title="Facebook">
+      <FontAwesomeIcon color="#3b5998" icon={faFacebookSquare} size="2x" fixedWidth />
+    </a>
+  </div>
+  <div className="column col-1 text-center">
+    <a href="https://www.vk.com/" title="Vk">
+      <FontAwesomeIcon color="#45668e" icon={faVk} size="2x" fixedWidth />
+    </a>
+  </div>
+  <div className="column col-1 text-center">
+    <a href="https://www.wikipedia.org/" title="Wikipedia">
+      <FontAwesomeIcon color="#000000" icon={faWikipediaW} size="2x" fixedWidth />
+    </a>
+  </div>
+  <div className="column col-1 text-center">
+    <a href="https://www.wordpress.org/" title="Wordpress">
+      <FontAwesomeIcon color="#21759b" icon={faWordpress} size="2x" fixedWidth />
+    </a>
+  </div>
+</div>
+
+
+<div class="bubble small subtle">
+  <strong>PHP</strong> <em>(ПХП, похапэ, пэхэпэ, пиашпи, пих-пих, ПиЭйчПи)</em> — одна з небагатьох мов програмуання, володіючи якою, можна заробити собі на хліб, $ало та воду.
+</div>
+
+<hr class="small" />
+
+<ul>
+  <li class="details">
+    <input type="checkbox" id="accordion-1-1" />
+    <label class="summary" for="accordion-1-1">
+      <strong>High-level language</strong>
+    </label>
+  <div class="details-body">
+
+```php
+// C/C++ language allocate memory
+int *testArray = malloc(5 * sizeof(int));
+free(testArray);
+
+// allocate memory
+$testArray = [];
+$testArray[] = 'Hi!';
+
+// memory is cleaned up by garbage collector
+```
+Memory is managed dynamically. [Written in Zend engine using C language.](https://github.com/php)
+  
+  </div>
+  </li>
+  <li class="details">
+    <input type="checkbox" id="accordion-1-2" />
+    <label class="summary" for="accordion-1-2">
+      <strong>PHP is interpreted</strong>
+    </label>
+  <div class="details-body">
+
+```php
+php hello.php
+```
+  
+  </div>
+  </li>
+  <li class="details">
+    <input type="checkbox" id="accordion-1-3" />
+    <label class="summary" for="accordion-1-3">
+      <strong>OOP vs FP vs procedural</strong>
+    </label>
+  <div class="details-body">
+
+```php
+// oop
+namespace A;
+
+interface Schedulable
+{
+    public function setTime(\DateTime $datetime): void;
+}
+
+abstract class Task implements Schedulable
+{
+    private $time;
+
+    public function setTime(\DateTime $time): void
+    {
+        $this->time = $time;
+    }
+}
+
+class MegaTask extends Task {}
+
+// functional
+$p = function() { return 'p'; };
+$h = fn() => 'h';
+echo $p() . $h() . $p();
+
+// procedural
+function header() {
+    $title = 'Hello!';
+    
+    echo '<div>' . $title . '</div>';
+}
+function content() {
+    echo '<div>content</div>';
+}
+```
+  
+  </div>
+  </li>
+  <li class="details">
+    <input type="checkbox" id="accordion-1-4" />
+    <label class="summary" for="accordion-1-4">
+      <strong>Weak typing system</strong>
+    </label>
+  <div class="details-body">
+
+```php
+$one = '1';
+$two = 2;
+
+// int(3)
+var_dump($one + $two);
+
+$foo = null;
+$bar = false;
+
+// true
+var_dump($foo == $bar);
+
+// false
+var_dump($foo === $bar);
+```
+But starting from PHP 7.0
+```php
+declare(strict_types=1);
+
+function tuple(int $a, int $b): array
+{
+    return [$x, $y];
+}
+```
+  
+  </div>
+  </li>
+  <li class="details">
+    <input type="checkbox" id="accordion-1-5" />
+    <label class="summary" for="accordion-1-5">
+      <strong>Single threaded</strong>
+    </label>
+  <div class="details-body">
+
+Multi thread with POSIX and `--pthreads` extension. High-load tasks with message queue systems (RabbitMQ, etc.).
+  
+  </div>
+  </li>
+  <li class="details">
+    <input type="checkbox" id="accordion-1-6" />
+    <label class="summary" for="accordion-1-6">
+      <strong>Too many dollars $$$</strong>
+    </label>
+  <div class="details-body">
+
+```php
+$kernel = new Kernel($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
+$request = Request::createFromGlobals();
+$response = $kernel->handle($request);
+$response->send();
+$kernel->terminate($request, $response);
+```
+[**Why do we use $ in PHP?**](https://www.quora.com/Why-do-we-use-a-dollar-symbol-before-variables-in-PHP)
+  
+  </div>
+  </li>
+</ul>
+
+
+<Level id="whats-new-in-php" number="2" name="What's new in PHP" difficulty="Hardcore." objectives="Learn what PHP can offer us." />
+
+<object data={meme} role="img" aria-label="php rules"></object>
+
+
+The following are some of the new features in PHP 7 and higher — it is faster ([PHP 5.6 vs 8.0](http://www.phpbenchmarks.com/en/comparator/php)), memory optimized, has new exception hierarchy, introduces new syntax sugar (`??, <=>, () =>`), nullables (`?string`), scalar type declarations, , `void` return type, iterable type, anonymous classes. Let's take a look at some of the features in detail:
+
+<ul>
+<li class="details">
+  <input type="checkbox" id="accordion-1" hidden />
+  <label class="summary" for="accordion-1">
+    Deprecated tags
+  </label>
+  <div class="details-body">
+
+  ```php
+  <script language="php">
+  // cannot be used anymore
+  </script>
+  // no  ASP tags
+  <% echo 'Oh, God!'; %>
+  <?php echo 'Hello, sweety!'; ?>
+  <?= "Whaat?" ?>
+  ```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-2" hidden />
+  <label class="summary" for="accordion-2">
+    Deprecated mysql_* functions
+  </label>
+  <div class="details-body">
+
+  ```php
+  $query = 'SELECT * FROM USERS WHERE 1 = 1';
+  $result = mysql_db_query($somedb, $query, $connection);
+
+  // use PDO
+  $pdo = new PDO('mysql:host=localhost,dbname=test');
+  $query = $pdo->prepare('SELECT * FROM USERS WHERE age = :age');
+  $result = $query->execute([':age' => 24]);
+  ```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-3" hidden />
+  <label class="summary" for="accordion-3">
+    Deprecated PHP 4 style constructors
+  </label>
+  <div class="details-body">
+
+```php
+class A 
+{
+    // bad, PHP 4 syntax
+    public function A() 
+    {
+        
+    }
+    
+    // good
+    public function __construct() 
+    {
+         
+    }
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-4" hidden />
+  <label class="summary" for="accordion-4">
+    Deprecated functions
+  </label>
+  <div class="details-body">
+
+```php
+ereg();
+eregi();
+ereg_replace();
+...
+```
+Use **preg_\*** functions like `preg_match();`.
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-5" hidden />
+  <label class="summary" for="accordion-5">
+    Array destructuring
+  </label>
+  <div class="details-body">
+
+```php
+$user = ['John', 'Doe', 29];
+
+// list syntax
+list($firstname, $lastname, $age) = $user;
+
+// short array syntax
+[$firstname, $lastname, $age] = $user;
+
+// destructuring with keys
+[
+    'first_name' => $firstname,
+    'last_name' => $lastname,
+    'age' => $age
+] = $user;
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-6" hidden />
+  <label class="summary" for="accordion-6">
+    New variable call combinations
+  </label>
+  <div class="details-body">
+
+```php
+$foo = function() {
+    return [
+        'bar' => function() { echo 'bar'; },
+        'foo' => function() { echo 'foo'; }
+    ];
+};
+// call a closure inside an array returned by another closure
+$foo()['bar']();
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-7" hidden />
+  <label class="summary" for="accordion-7">
+    String character access
+  </label>
+  <div class="details-body">
+
+```php
+function getUserName() {
+    return 'Pavel';
+}
+// access a character by index
+echo getUserName(){0};
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-8" hidden />
+  <label class="summary" for="accordion-8">
+    Object public property access from array
+  </label>
+  <div class="details-body">
+
+```php
+$ball = new stdClass();
+$ball->type = 'football';
+
+$ball1 = new stdClass();
+$ball1->type = 'basketball';
+
+echo [$ball, $ball1][0]->type;
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-9" hidden />
+  <label class="summary" for="accordion-9">
+    Nested double colons ::
+  </label>
+  <div class="details-body">
+
+```php
+class Student
+{
+  public static $courses = [
+    'math',
+    'programming',
+    'databases'
+  ];
+
+  public static function getSchedule(): Schedule
+  {
+    return new Schedule();
+  }
+
+  public function getCredits(): Credits
+  {
+    return new Credits();
+  }
+}
+
+class Schedule
+{
+  public static $classes = 5;
+}
+
+class Credits
+{
+  public static function getCreditsPerYear(): int
+  {
+    return 350;
+  }
+}
+
+$students = [
+  'Bob' => new Student(),
+  'Rachel' => new Student()
+];
+
+// access a static property on a string class name or object inside an array
+$students['Bob']::$courses;
+
+// access a static property on a string class name or object returned by a static method call on a string class name or object
+$students['Rachel']::getSchedule()::$classes;
+
+// call a static method on a string class name or object returned by an instance method call
+$students['Rachel']->getCredits()::getCreditsPerYear();
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-10" hidden />
+  <label class="summary" for="accordion-10">
+    Nested functions call
+  </label>
+  <div class="details-body">
+
+```php
+function foo(): callable {
+  return function(): string {
+    return 'Hi!';
+  };
+}
+
+// call a callable returned by function
+echo foo()();
+
+$foo = function(string $param): callable {
+    return function() use($param): string {
+        return $param;
+    };
+};
+
+// call a callable returned by another callable
+echo $foo('Hi!')();
+
+// also works with classes
+class A
+{
+  public function foo(): callable
+  {
+    return function(): string {
+      return 'Hi!';
+    };
+  }
+
+  public static function bar(): callable
+  {
+    return function(): string {
+      return 'Hi!';
+    };
+  }
+}
+
+(new A)->foo()();
+A::bar()();
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-11" hidden />
+  <label class="summary" for="accordion-11">
+    General expressions dereferencing schema
+  </label>
+  <div class="details-body">
+
+```php
+// array key
+(expression)['key']
+
+// class property
+(expression)->prop
+
+// call a method
+(expression)->method()
+
+// static prop
+(expression)::$foo
+
+// static method
+(expression)::method()
+
+// call a callable
+(expression)()
+
+// access a string character
+(expression){0}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-12" hidden />
+  <label class="summary" for="accordion-12">
+    Null coalescing operator <code>??</code>
+  </label>
+  <div class="details-body">
+
+```php
+// PHP 5
+$key = isset($_GET['access_token']) ? $_GET['access_token'] : null;
+// PHP 7
+$key = $request->get('access_token') ?? null;
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-13" hidden />
+  <label class="summary" for="accordion-13">
+    Spaceship operator <code>&lt;=&gt;</code>
+  </label>
+  <div class="details-body">
+
+```php
+$a = 5;
+$b = 10;
+
+// $a == $b : 0 
+// $a > $b : 1
+// $a < $b : -1
+$res = $a <=> $b;
+
+$list = [-1, 10, -6, 126];
+usort($list, function(int $a, int $b) {
+    return $a <=> $b;
+});
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-14" hidden />
+  <label class="summary" for="accordion-14">
+    Constant arrays using <code>define()</code>
+  </label>
+  <div class="details-body">
+
+```php
+define('COLORS', [
+  'red' => '#ff0000',
+  'green' => '#00ff00',
+  'blue' => '#0000ff'
+]);
+
+echo COLORS['red'];
+
+class Drawer
+{
+  // visibility added in php 7.1
+  public const COLORS = [
+    'red' => '#ff0000',
+    'green' => '#00ff00',
+    'blue' => '#0000ff'
+  ];
+}
+
+echo Drawer::COLORS['red'];
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-15" hidden />
+  <label class="summary" for="accordion-15">
+    Multiple catch
+  </label>
+  <div class="details-body">
+
+```php
+try {
+    // code
+} catch (InvalidArgumentException | MyException $e) {
+    // catch only specific
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-16" hidden />
+  <label class="summary" for="accordion-16">
+    Integer division aka intdiv()
+  </label>
+  <div class="details-body">
+
+```php
+$a = intdiv(8, 3);
+$b = 8 % 3;
+
+try {
+    $c = intdiv(1, 0);
+} catch (DivisionByZeroError $e) {
+    // logic
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-17" hidden />
+  <label class="summary" for="accordion-17">
+    Binding Closure
+  </label>
+  <div class="details-body">
+
+```php
+class Greeting {
+    private $hello = 'Hello';
+}
+
+$closure = function(string $name) {
+    return "{$this->hello}, {$name}";
+};
+
+echo $closure->call(new Greeting(), 'Bob');
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-18" hidden />
+  <label class="summary" for="accordion-18">
+    Group use statements
+  </label>
+  <div class="details-body">
+
+```php
+use Some\Namespace{ClassA, ClassB};
+use function Some\Namespace{funcA, funcB};
+use const Some\Namespace{CONST_A, CONST_B};
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-19" hidden />
+  <label class="summary" for="accordion-19">
+    Anonymous classes
+  </label>
+  <div class="details-body">
+
+```php
+interface Logger {}
+
+class BaseLogger {}
+
+trait WriteToFile {}
+
+class Util
+{
+    private $logger;
+
+    public function setLogger($logger)
+    {
+        $this->logger = $logger;
+    }
+}
+
+$util = new Util();
+$util->setLogger(
+    new class ($config) extends BaseLogger implements LoggerInterface {
+        use WriteToFile;
+
+        private $config;
+
+        public function __construct(array $config)
+        {
+            $this->config = $config;
+        }
+
+        public function log($msg)
+        {
+            $this->write('app.log', $msg);
+        }
+    }
+);
+```
+Object of anonymous class lives once at runtime. Can be used in test code to mock objects. Think before use :)
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-20" hidden />
+  <label class="summary" for="accordion-20">
+    Type hinting
+  </label>
+  <div class="details-body">
+
+
+* bool
+* float
+* int
+* string
+* array
+* iterable
+
+```php
+function typed(string $a, bool $b, float $c): array {}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-21" hidden />
+  <label class="summary" for="accordion-21">
+    Strict types
+  </label>
+  <div class="details-body">
+
+```php
+declare(strict_types=1);
+
+function intSum(int $a, int $b): int
+{
+    return $a + $b;
+}
+
+// good
+intSum(1, 2);
+
+// TypeError thrown
+intSum(0.1, 2);
+```
+Use types everywhere! )
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-22" hidden />
+  <label class="summary" for="accordion-22">
+    <span class="badge badge-secondary" data-badge="7.1">Nullables</span>
+  </label>
+  <div class="details-body">
+
+```php
+class Profile
+{
+  private $name;
+  private $age;
+
+  public function __construct(string $name, ?int $age)
+  {
+    $this->name = $name;
+    $this->age = $age;
+  }
+
+  public function getName(): string
+  {
+    return $this->name;
+  }
+
+  public function getAge(): ?int
+  {
+    return $this->age;
+  }
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-23" hidden />
+  <label class="summary" for="accordion-23">
+    <span class="badge badge-secondary" data-badge="7.1">Void type</span>
+  </label>
+  <div class="details-body">
+
+```php
+// php 7.1
+function doSomething(): void 
+{
+  // write to log file
+  return;
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-24" hidden />
+  <label class="summary" for="accordion-24">
+    <span class="badge badge-secondary" data-badge="7.1">Iterable type</span>
+  </label>
+  <div class="details-body">
+
+```php
+function render(iterable $list)
+{
+  foreach ($list as $item) {}
+}
+
+function numbers(): iterable
+{
+  return [1, 2];
+}
+
+function numbersAsIterator(): iterable
+{
+  $numbers = new ArrayObject([1, 2]);
+  return $numbers->getIterator();
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-25" hidden />
+  <label class="summary" for="accordion-25">
+    <span class="badge badge-secondary" data-badge="7.4">Spread operator</span>
+  </label>
+  <div class="details-body">
+
+```php
+$foo = [3, 4, 5];
+
+// [1, 2, 3, 4, 5, 6]
+$bar = [1, 2, ...$foo, 6];
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-26" hidden />
+  <label class="summary" for="accordion-26">
+    <span class="badge badge-secondary" data-badge="7.4">Arrow functions</span>
+  </label>
+  <div class="details-body">
+
+```php
+$arr = [1, 2, 3];
+
+// [1, 4, 9]
+array_map(
+  fn($n) => $n * $n,
+  $arr
+);
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-27" hidden />
+  <label class="summary" for="accordion-27">
+    <span class="badge badge-secondary" data-badge="7.4">Typed properties</span>
+  </label>
+  <div class="details-body">
+  Class properties now support type declarations.
+
+```php
+class User {
+    public int $id;
+    public string $name;
+}
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-28" hidden />
+  <label class="summary" for="accordion-28">
+    <span class="badge badge-secondary" data-badge="7.4">Null coalescing assignment operator</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+// before 7.4
+if (!isset($array['key'])) {
+    $array['key'] = computeDefault();
+}
+
+// after
+$array['key'] ??= computeDefault();
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-29" hidden />
+  <label class="summary" for="accordion-29">
+    <span class="badge" data-badge="8.0">Named arguments</span>
+  </label>
+  <div class="details-body">
+    
+    Specify only required parameters, skipping optional ones. Arguments are order-independent and self-documented.
+
+```php
+
+function sub(int $a, int $b): int {
+    return $b - $a;
+}
+
+sub(
+  b: 2,
+  a: 3
+);
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-30" hidden />
+  <label class="summary" for="accordion-30">
+    <span class="badge" data-badge="8.0">Attributes</span>
+  </label>
+  <div class="details-body">
+  
+    Instead of PHPDoc annotations, you can now use structured metadata with PHP's native syntax.
+
+```php
+
+class PostsController
+{
+    #[Route("/api/posts/{id}", methods: ["GET"])]
+    public function get($id) { /* ... */ }
+}
+
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-31" hidden />
+  <label class="summary" for="accordion-31">
+    <span class="badge" data-badge="8.0">Constructor property promotion</span>
+  </label>
+  <div class="details-body">
+
+  Less boilerplate code to define and initialize properties.
+
+```php
+
+// PHP 7
+class Point {
+  public float $x;
+  public float $y;
+
+  public function __construct(
+    float $x = 0.0,
+    float $y = 0.0,
+  ) {
+    $this->x = $x;
+    $this->y = $y;
+  }
+}
+
+// PHP 8
+class Point {
+  public function __construct(
+    public float $x = 0.0,
+    public float $y = 0.0,
+  ) {}
+}
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-32" hidden />
+  <label class="summary" for="accordion-32">
+    <span class="badge" data-badge="8.0">Union types</span>
+  </label>
+  <div class="details-body">
+    Instead of PHPDoc annotations for a combination of types, you can use native union type declarations that are validated at runtime.
+
+```php
+
+class Number {
+  public function __construct(
+    private int|float $number
+  ) {}
+}
+
+new Number('NaN'); // TypeError
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-33" hidden />
+  <label class="summary" for="accordion-33">
+    <span class="badge" data-badge="8.0">Match expression</span>
+  </label>
+  <div class="details-body">
+    The new match is similar to switch and has the following features:
+
+    1) Match is an expression, meaning its result can be stored in a variable or returned.
+
+    2) Match branches only support single-line expressions and do not need a break; statement.
+
+    3) Match does strict comparisons.
+
+```php
+
+echo match (8.0) {
+  '8.0' => "Oh no!",
+  8.0 => "This is what I expected",
+};
+//> This is what I expected
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-34" hidden />
+  <label class="summary" for="accordion-34">
+    <span class="badge" data-badge="8.0">Nullsafe operator</span>
+  </label>
+  <div class="details-body">
+  Instead of null check conditions, you can now use a chain of calls with the new nullsafe operator. When the evaluation of one element in the chain fails, the execution of the entire chain aborts and the entire chain evaluates to null.
+
+```php
+
+$country = $session?->user?->getAddress()?->country;
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-35" hidden />
+  <label class="summary" for="accordion-35">
+    <span class="badge" data-badge="8.0">Just-In-Time compilation</span>
+  </label>
+  <div class="details-body">
+
+  PHP 8 introduces two JIT compilation engines.
+  Tracing JIT, the most promising of the two, shows about _3 times_ better performance on synthetic benchmarks and _1.5–2 times_ improvement on some specific long-running applications.
+
+  ![](https://php.net/images/php8/scheme.svg)
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-36" hidden />
+  <label class="summary" for="accordion-36">
+    <span class="badge" data-badge="8.1">Enums</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+enum Status
+{
+    case pending;
+    case fullfilled;
+    case canceled;
+    
+    public function color(): string
+    {
+        return match($this) 
+        {
+            Status::pending => 'blue',   
+            Status::fullfilled => 'green',   
+            Status::canceled => 'red',   
+        };
+    }
+}
+
+```
+
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-37" hidden />
+  <label class="summary" for="accordion-37">
+    <span class="badge" data-badge="8.1">Readonly properties</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+class PostData
+{
+    public function __construct(
+        public readonly string $title,
+        public readonly string $author,
+        public readonly string $text,
+        public readonly DateTimeImmutable $createdAt
+    ) {}
+}
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-38" hidden />
+  <label class="summary" for="accordion-38">
+    <span class="badge" data-badge="8.1">New in initializers</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+class StateMachine
+{
+    public function __construct(
+        private State $state = new DefaultState(),
+    ) {
+    }
+}
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-39" hidden />
+  <label class="summary" for="accordion-39">
+    <span class="badge" data-badge="8.1">Pure intersection types</span>
+  </label>
+  <div class="details-body">
+
+```php
+
+function generateSlug(HasTitle&HasId $post): string {
+    return strtolower($post->getTitle()) . $post->getId();
+}
+
+```
+  </div>
+</li>
+<li class="details">
+  <input type="checkbox" id="accordion-40" hidden />
+  <label class="summary" for="accordion-40">
+    Exceptions <sup><em>new hierarchy</em></sup>
+  </label>
+  <div class="details-body">
+
+`Throwable` is the base interface for any object that can be thrown via a `throw` statement in PHP 7, including `Error` and `Exception`. PHP classes cannot implement the `Throwable` interface directly, and must instead extend `Exception`.
+<ul><li>Throwable<ul><li><code class="language-text">Exception implements Throwable</code><ul><li>LogicException<ul><li>BadFunctionCallException<ul><li>BadMethodCallException</li></ul></li><li>DomainException</li><li>InvalidArgumentException</li><li>LengthException</li><li>OutOfRangeException</li></ul></li><li>RuntimeException<ul><li>OutOfBoundsException</li><li>OverflowException</li><li>RangeException</li><li>UnderflowException</li><li>UnexpectedValueException</li></ul></li></ul></li><li><code class="language-text">Error implements Throwable</code><ul><li>AssertionError</li><li>ArithmeticError</li><li>DivisionByZeroError</li><li>ParseError</li><li>TypeError</li></ul></li></ul></li></ul>
+
+```php
+try {
+    // code
+} catch (Throwable $e) {
+    // catch all possible errors
+}
+```
+  </div>
+</li>
+</ul>
+
+<Level id="php-ecosystem" number="3" name="PHP ecosystem" difficulty="Hardcore." objectives="Learn composer & autoloading basics, explore ecosystem." />
+
+#### What can I build?
+
+_Anything_. PHP is mainly focused on server-side scripting, so you can do anything any other CGI program can do, such as collect form data, generate dynamic page content, or send and receive cookies. With PHP you are not limited to output HTML — PHP can do much more. These are the main areas where PHP is used:
+
+* **Server-side apps**
+* **API** (REST, GraphQL)
+* **CRM**, **CMS**, **forum**, **e-commerce**
+* **CLI**
+
+So with PHP, you have the freedom of choosing an operating system and a web server. Furthermore, you also have the choice of using procedural programming or object oriented programming (OOP), or a mixture of them both. One of the strongest and most significant features in PHP is its support for a wide range of databases. Writing a database-enabled web page is incredibly simple using one of the database specific extensions (e.g., for **mysql**), or using an abstraction layer like **PDO**, or connect to any database supporting the **Open Database Connection** standard via the ODBC extension. PHP also has support for talking to other services using protocols such as **LDAP**, **IMAP**, **SNMP**, **NNTP**, **POP3**, **HTTP**, **COM** (on Windows) and countless others. In order to speed up the development process, write well-organized, reusable and maintainable code, you can choose to use and maybe extend a **framework** that is most suitable for the needs of your project:
+
+<div class="columns">
+  <div className="column col-2">
+    <h6><strong>MVC</strong></h6>
+    <ul className="php-frameworks">
+      <li className="with-logo">
+        <a href="https://symfony.com/" title="Symfony">
+          <FontAwesomeIcon icon={faSymfony} fixedWidth className="logo" />
+          <strong>Symfony</strong>
+        </a>
+      </li>
+      <li className="with-logo">
+        <a href="https://laravel.com/" title="Symfony">
+          <FontAwesomeIcon icon={faLaravel} fixedWidth className="logo" />
+          <strong>Laravel</strong>
+        </a>
+      </li>
+      <li>Zend</li>
+      <li>Phalcon</li>
+      <li>Yii</li>
+    </ul>
+  </div>
+  <div className="column col-2">
+    <h6><strong>API</strong></h6>
+    <ul className="php-frameworks">
+      <li>Slim</li>
+      <li>Lumen</li>
+      <li className="with-logo">
+        <a href="https://symfony.com/5/" title="Symfony">
+          <FontAwesomeIcon icon={faSymfony} fixedWidth className="logo" />
+          <strong>Symfony 5</strong>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div className="column col-2">
+    <h6><strong>CMS</strong></h6>
+    <ul className="php-frameworks">
+      <li className="with-logo">
+        <a href="https://wordpress.org/" title="Wordpress">
+          <FontAwesomeIcon icon={faWordpress} fixedWidth className="logo" />
+          <strong>Wordpress</strong>
+        </a>
+      </li>
+      <li className="with-logo">
+        <a href="https://www.joomla.org/" title="Joomla">
+          <FontAwesomeIcon icon={faJoomla} fixedWidth className="logo" />
+          <strong>Joomla</strong>
+        </a>
+      </li>
+      <li className="with-logo">
+        <a href="https://www.drupal.org/" title="Drupal">
+          <FontAwesomeIcon icon={faDrupal} fixedWidth className="logo" />
+          <strong>Drupal</strong>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div className="column col-2">
+    <h6><strong>CRM</strong></h6>
+    <ul className="php-frameworks">
+      <li>SugarCRM</li>
+      <li>SuiteCRM</li>
+      <li>vTiger</li>
+    </ul>
+  </div>
+  <div className="column col-2">
+    <h6><strong>E-commerce</strong></h6>
+    <ul className="php-frameworks">
+      <li className="with-logo">
+        <a href="https://magento.com/" title="Drupal">
+          <FontAwesomeIcon icon={faMagento} fixedWidth className="logo" />
+          <strong>Magento</strong>
+        </a>
+      </li>
+      <li className="with-logo">
+        <a href="https://www.opencart.com/" title="Drupal">
+          <FontAwesomeIcon icon={faOpencart} fixedWidth className="logo" />
+          <strong>Opencart</strong>
+        </a>
+      </li>
+      <li>WooCommerce</li>
+    </ul>
+  </div>
+  <div className="column col-2">
+    <h6><strong>Bot</strong></h6>
+    <ul className="php-frameworks">
+      <li>Botman</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="small" />
+
+#### Standards and specifications
+
+The [**PHP Standard Recommendation**](https://www.php-fig.org/psr/) <sup><small><strong>PSR</strong></small></sup> is a PHP specification published by the [**PHP Framework Interop Group**](https://www.php-fig.org/) <sup><small><strong>PHP-FIG</strong></small></sup>. Similar to Java Specification Request for Java, it serves the standardization of programming concepts in PHP. The aim is to enable interoperability of components and to provide a common technical basis for implementation of proven concepts for optimal programming and testing practices. The PHP-FIG is formed by several PHP frameworks founders. Each PSR is suggested by members and voted according to an established protocol to act consistently and in line with their agreed upon processes.
+
+<hr class="small" />
+
+#### Package management
+
+<h5>
+  <img src="https://getcomposer.org/img/logo-composer-transparent2.png" alt="Composer logo" style={{
+    display: "inline-block",
+    height: "1.2em",
+    marginRight: "0.25em",
+    verticalAlign: "top"
+  }} />
+  <a href="https://getcomposer.org/" title="Composer"><strong>Composer</strong></a>
+</h5>
+
+**Composer** is a tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. _Composer is not a package manager in the same sense as Yum or Apt are_. Yes, it deals with "packages" or libraries, but it manages them on a per-project basis, installing them in a directory (e.g. **/vendor**) inside your project. By default it does not install anything globally. Thus, it is a dependency manager. It does however support a "global" project for convenience via the `global` command. This idea is not new and Composer is strongly inspired by node's **npm** and ruby's **bundler**.
+
+1. **composer.json**  
+   To start using Composer in your project, all you need is a **composer.json** file. This file describes the dependencies of your project and may contain other metadata as well. Take a look on [**Laravel's composer.json**](https://github.com/laravel/laravel/blob/master/composer.json)
+2. **Composer commands**  
+   `composer init`, `composer require vendor/package-name`, `composer install`, `composer dump-autoload`
+3. **composer.lock**  
+   Composer uses the exact versions listed in composer.lock to ensure that the package versions are consistent for everyone working on your project. As a result you will have all dependencies requested by your composer.json file, but they may not all be at the very latest available versions (some of the dependencies listed in the composer.lock file may have released newer versions since the file was created). This is by design, it ensures that your project does not break because of unexpected changes in dependencies. [**Composer: Всё о .lock файле**](https://phpprofi.ru/blogs/post/15)
+4. **Composer autoload & PSR-4**  
+   💩**index.php** before:  
+   ```php
+   require __DIR__ . '/Academy.php';
+   require __DIR__ . '/PHP.php';
+ 
+   Academy::start();
+   PHP::rock();
+   ```
+   💡**composer.json**:  
+   ```json
+   "autoload": {
+     "psr-4": {
+       "App\\": "app/"
+     },
+     "classmap": [
+       "directory1",
+       "directory2"
+     ],
+     "files": [
+       "MyClass.php"
+     ]
+   },
+   "autoload-dev": {
+     "psr-4": {
+       "Tests\\": "tests/"
+     }
+   }
+   ```
+   🎉**index.php** after:
+   ```php
+   require __DIR__ . '/vendor/autoload.php';
+ 
+   Academy::start();
+   PHP::rock();
+   ```
+5. [**packagist.org**](https://packagist.org/)
+   <div class="bubble small subtle">
+     When you search for a package take a look at GitHub stars, resolved issues, and last commit date.
+   </div>
+
+##### [**PECL**](https://pecl.php.net)
+
+**PECL** is a repository for PHP Extensions, providing a directory of all known extensions and hosting facilities for downloading and development of PHP extensions.
+
+<hr class="small" />
+
+#### PHP & Web servers
+
+* PHP built-in local web server → `php -S localhost:8888`
+* apache web server → **mod-php**
+* nginx web server → **php-fpm**
+
+<small>Sample nginx php-fpm configuration — <strong>mywebsite.nginx.conf</strong></small>
+
+```
+server {
+  listen 80;
+  root /var/www/app/public;
+  index index.php index.htm index.html;
+  
+  # ...settings
+  
+  # proxy files that end with ".php" through php-fpm
+  location ~ \.php$ {
+    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_buffers 16 16k;
+    fastcgi_buffer_size 32k;
+    include fastcgi_params;
+  }
+}
+```
+![php-fpm_nginx](https://datadog-prod.imgix.net/img/blog/nginx-502-bad-gateway-errors-php-fpm/php-fpm-health-3.png?fit=max)
+
+<Level id="typical-php-development-environment" number="4" name="Typical PHP development environment" difficulty="Hardcore." objectives="Setup your own development environment." />
+
+* OS: Linux, Windows, MacOS
+* Version control system: Git
+* Smart IDE: [PHPStorm](https://www.jetbrains.com/phpstorm/), [VSCode](https://code.visualstudio.com/)
+* Linters: phpstan, phpmd, phpcs
+* Debuggers: xdebug, zend debugger
+* Profilers for memory optimization: blackfire.io, xhprof
+* Standardize dev environment: [vagrant-homestead](https://laravel.com/docs/8.x/homestead), [docker-laradock](https://laradock.io/)
+
+<h3><strong>Useful links</strong></h3>
+
+* [clean-code-php](https://github.com/jupeter/clean-code-php)
+
+* [awesome-php](https://github.com/ziadoz/awesome-php)
+
+* [Laracasts](https://laracasts.com/)
+
+* [codecourse](https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g)
+
+
+<hr />
+
+![i am neo](http://memesmix.net/media/created/6d6gtz.jpg)
+
+<ThatsAllFolks />		
+<div class="bubble">		
+  А на сьогодні все! Свої питання та відгуки залишайте на сайті <a href="https://academy.binary-studio.com/"><strong>Binary Studio Academy</strong></a>. Бажаю вам успіхів, не втрачайте мотивації та вчіться з задоволенням. Дякую за увагу! 🤙		
+</div>
+
+export const metadata = {
+  orderId: 3,
+  author: "Володимир Лєнч",
+  title: "Modern PHP features and ecosystem",
+  description: "Володимир проводить екскурс у фундаментальні поняття та новинки <strong>PHP</strong>,пояснює у яких випадках використовуються найбільш поширені фреймворки, показує як працювати з <strong>Composer</strong> та розказує про типое оточення PHP-програміста.",
+  keywords: ["hola", "guapa"],
+  duration: "55 мин",
+  publishedAt: "2019-05-13T22:00:00",
+  hiddenFromMainPage: true,
+}
+
+export default Lecture;
