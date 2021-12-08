@@ -3,7 +3,7 @@ const fightersDetailsMap = new Map();
 
 element.addEventListener('click', (event) => handleFighterClick(event, fighter), false)
 
-handleFighterClick(event, fighter) {
+function handleFighterClick(event, fighter) {
   const { _id } = fighter;
 
   if(!fightersDetailsMap.has(_id)) {

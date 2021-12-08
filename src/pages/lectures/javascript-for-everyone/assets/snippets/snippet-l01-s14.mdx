@@ -1,11 +1,8 @@
 ```js
-let isAdmin = Symbol('isAdmin');
+let x; // undefined
 
-let user = {
-  name: 'John',
-  [isAdmin]: true
+const noReturnValue = foo(); // undefined
+function foo() {
+  return;
 }
-
-user.isAdmin; // undefined
-user[isAdmin]; // true
 ```

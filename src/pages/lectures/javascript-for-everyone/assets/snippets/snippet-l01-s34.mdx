@@ -1,0 +1,12 @@
+```js
+const obj = {
+  foo: 'bar',
+  nested: {
+    bar: 'foo'
+  }
+}
+
+Object.keys(obj); // ['foo', 'nested']
+Object.values(obj); // ['bar', { bar: 'foo' }]
+Object.entries(obj); // [ ['foo', 'bar'], ['nested', { bar: 'foo' }] ]
+```

@@ -9,4 +9,6 @@ export { default as rostyslavDiakiv2018Avatar } from "./rostyslav-diakiv-2018.sv
 export { default as rostyslavDiakiv2019Avatar } from "./rostyslav-diakiv-2019.svg";
 export { default as volodymyrKushnir2017Avatar } from "./volodymyr-kushnir-2017.svg";
 export { default as volodymyrKushnir2019Avatar } from "./volodymyr-kushnir-2019.svg";
-export { default as kyryloLesohorskyi2020Avatar } from "./kyrylo-lesohorskyi-2020.svg"
+export { default as kyryloLesohorskyi2020Avatar } from "./kyrylo-lesohorskyi-2020.svg";
+export { default as LenchVolodymyr2021Avatar } from "./lench-volodymyr-2021.svg";
+export { default as ulianaLobanova2021Avatar } from "./uliana-lobanova-2021.svg";
