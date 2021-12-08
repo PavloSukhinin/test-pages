@@ -35,6 +35,8 @@ const getAuthorAvatar = author => {
     case "Кирилл Лесогорский":
      return kyryloLesohorskyi2020Avatar;
     case "Олександр Данильченко":
+    case "Александр Данильченко":
+    case "Oleksandr Danylchenko":
      return oleksandrDanylchenko2021Avatar;
     default:
       return undefined;
