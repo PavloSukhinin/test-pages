@@ -541,3 +541,10 @@ div.details > input:first-child + label + .details-body {
 .content .gatsby-highlight:last-child {
   margin-bottom: 0;
 }
+
+.badge.badge-secondary {
+  &:after {
+    background-color: #eaeae1;
+    color: #727271;
+  }
+}
