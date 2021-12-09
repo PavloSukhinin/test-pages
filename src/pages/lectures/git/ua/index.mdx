@@ -1,0 +1,1102 @@
+import {
+  Lecture,
+  VideoWrapper,
+  FacebookMessage,
+  TimelineOfContents,
+  Level,
+  Accordion,
+  RadarChart,
+  ThatsAllFolks,
+  Language,
+} from "../../../../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestionCircle } from "@fortawesome/pro-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/pro-regular-svg-icons";
+import { viktoriiaVasylenko2021Avatar } from "../../../../assets/images/avatars/intro-rounded";
+import resume_template from "../assets/resume_template.png";
+
+<div>
+  <h1>
+    <strong>Git Homework</strong>
+  </h1>
+</div>
+
+<Language
+  currentLanguage="ua"
+  languages={{
+    en: "lectures/git/en",
+    ua: "lectures/git/ua",
+    ru: "lectures/git/ru",
+  }}
+/>
+
+<div>
+  <div class="author">
+    <div class="avatar-wrapper">
+      <object
+        class="avatar-object"
+        role="img"
+        data={viktoriiaVasylenko2021Avatar}
+        aria-label="Viktoriia Vasylenko"
+      />
+    </div>
+    <div class="profile">
+      <h3 class="name">Вікторія Василенко</h3>
+      <p class="about">
+        Вікторія працює в Binary Studio як Full stack developer після закінчення
+        Binary Studio Academy в 2020.
+      </p>
+    </div>
+  </div>
+  <div class="bubble" style="margin: -0.5em 1em 1em;">
+    <strong>Привіт!</strong> 👋
+    <br />
+    Тут ти знайдеш детальну інструкцію до домашки по Git - тож тобі потрібно лиш
+    виконувати інструкції і готово ✅. Але спочатку, зверни увагу, що:
+    <ol class="compact inverted">
+      <li>
+        це <strong>не</strong> є конспект до лекції - деякі пояснення можуть
+        бути упущені
+        <em> (ви ж щойно переглянути лекцію, правда?)</em>;
+      </li>
+      <li>
+        я дійсно рекомендую вам ознайомитися з усіма завданнями, перш ніж
+        почати виконувати домашнє завдання. Зверніть увагу, що{" "}
+        <strong>у вас є лише 3 спроби</strong>
+        для запуску автоматизованого тесту.
+      </li>
+      <li>
+        посилання на документацію та інструкції необов'язкові{" "}
+        <em>
+          (ви можете ігнорувати їх, якщо відчуваєте себе достатньо просунутими)
+        </em>
+        ;
+      </li>
+      <li>
+        будь ласка, <strong>не пропускайте</strong> жодних кроків
+        і нічого не перейменовуйте - ми запустимо автоматичні тести після того,
+        як ви заллєте домашнє завдання на перевірку і назви репозиторію, гілок,
+        та завдань можуть бути важливі!
+      </li>
+      <li>і якщо виникатимуть питання - не соромтеся писати у чат!</li>
+    </ol>
+    До речі, не забудьте взяти з собою:{" "}
+    <a href="https://git-scm.com/">
+      <strong>Git</strong>
+    </a>
+    , <a href="https://code.visualstudio.com/">
+      <strong>Visual Studio Code</strong>
+    </a>. Тепер поїхали!
+  </div>
+</div>
+
+<div id="table-of-contents" class="table-of-contents" style="margin-top: 2em;">
+  <h2>
+    <strong>Створи та захости власне резюме використовуючи GitHub</strong>
+  </h2>
+  <TimelineOfContents
+    timeline={[
+      {
+        linkTo: "#setting-up-the-repository",
+        title: "Setting up the repository",
+      },
+      {
+        linkTo: "#practicing-git",
+        title: (
+          <span>
+            Practicing <code>git</code>
+          </span>
+        ),
+      },
+      {
+        linkTo: "#project-management-and-planning",
+        title: "Project management and planning",
+      },
+      {
+        linkTo: "#putting-the-website-together",
+        title: "Putting the website together",
+      },
+      {
+        linkTo: "#add-resume-template",
+        title: "Add resume template",
+      },
+    ]}
+  />
+</div>
+
+<Level
+  id="setting-up-the-repository"
+  number="1"
+  name="Setting up the repository"
+  difficulty="I Can Win."
+  objectives="Get to the &#x1F681; Internet! Learn the GitHub platform while you're at it."
+/>
+
+1. Переконайтеся, що у вас встановлено <a href="https://git-scm.com/downloads"><strong>Git</strong></a> - він вам знадобиться 😉.
+
+   <div>
+     {" "}
+     Ми будемо використовувати <strong>GitHub</strong> сьогодні. Для початку, переглянь{" "}
+     <a href="https://guides.github.com/activities/hello-world/">
+       <strong>Hello World</strong>
+     </a> гайди, щоб отримати огляд термінології та основних понять <sup>
+       <strong>
+         <a href="https://git-scm.com/docs/gitglossary" title="gitglossary">
+           [1]
+         </a>
+       </strong>
+     </sup>
+   </div>
+
+2. Відкрий [**GitHub**](https://github.com/) та авторизуйся. Створи новий репозиторій
+   із назвою **"homepage"** (e.g. **your-username/homepage**),
+   постав description "My very own personal website. Basically this is just a résumé.",
+   ініціалізуй **README**, проігноруй **.gitignore**, але обери **"MIT License"**
+
+3. Додай топіки _"personal website homepage resume gh-pages html css binary-studio-academy bsa21"_
+
+   <FacebookMessage small subtle>
+     Hmmm, adding proper topics helps to SEO your repository... Good job!
+   </FacebookMessage>
+
+4. Налаштуй <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"><strong>PAT</strong></a> (personal access token)
+   або <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh"><strong>SSH</strong></a> ключі.
+
+   <div className="grading-hometask">
+     <Accordion>
+       <Accordion.Header>
+         <FontAwesomeIcon icon={faQuestionCircle} />
+         <span className="title">
+           <strong>https or ssh</strong>
+         </span>
+         <span className="icon">
+           <FontAwesomeIcon icon={faChevronRight} fixedWidth />
+         </span>
+       </Accordion.Header>
+       <Accordion.Body>
+         <div className="container">
+           <div className="columns">
+             <div className="column">
+               Не хвилюйтеся, обидва протоколи безпечні у використанні. Основна
+               відмінність полягає в тому, що https вимагає аутентифікації на
+               основі пароля щоразу при push змін{" "}
+               <em>
+                 (проте ви також можете кешувати свої облікові дані git 🤔)
+               </em>
+               , але ssh ви налаштовуєте лише один раз і жодної повторної
+               автентифікації не потрібно.
+             </div>
+           </div>
+         </div>
+       </Accordion.Body>
+     </Accordion>
+   </div>
+
+5. Відкрий свій улюблений термінал, зміни робочу директорію(<code>cd</code>) на ту,
+   куди хочеш склонувати репозиторій <em>(перевір вміст папки за допомогою</em> <code>ls</code> <em>або</em> <code>dir</code><em>)</em>
+
+6. Склонуй репозиторій - використай `git clone` команду для цього. Це матиме вигляд:  
+   `git clone https://github.com/<my-username>/homepage.git` для https  
+   `git clone git@github.com:<my-username>/homepage.git` для ssh
+
+Після цього перейдіть до папки вашого репозиторію - `cd homepage`. Тепер ви також можете
+відкрити свій проект в редакторі коду, наприклад VS Code.
+
+<FacebookMessage small subtle>
+  Ура! Перша частина виконана ✅. Ви щойно створили та клонували свій
+  репозиторій . Давай потренуємося далі.
+</FacebookMessage>  
+  
+<Level
+  id="practicing-git"
+  number="2"
+  name={
+    <span>
+      Practicing <code>git</code>
+    </span>
+  }
+  difficulty="Baby, don't hurt me."
+  objectives={
+    <span>
+      Practicing <code>git</code> commands, gain some confidence.
+    </span>
+  }
+/>
+
+1. Перевір поточний статус за допомогою `git status` команди.
+
+2. Створи нову гілку та перейди на неї `git checkout -b patch/README.md`.
+
+3. Відредагуй README.md — додай "**🧙Hocus-pocus!**" — застейдж зміни за допомогою `git add README.md`
+
+4. Створи коміт за допомогою `git commit -m "Abracadabra"` команди
+
+5. Завантаж (запуш) локальні зміни на ремоут - використай `git push`. Якщо це не вдається, то, швидше за все, тому, що такої гілки немає
+   на віддаленому сервері. Дотримуйся рекомендацій Git і використай `--set-upstream origin patch/README.md` або ж
+   визнач remote гілку явно `git push origin patch/README.md`.
+
+6. Переглянь історію комітів за допомогою `git log`.
+
+7. Видали останній рядок з README.md і переглянь різницю.
+   Застейдж README.md файл - `git add README.md` та створи коміт `git commit -m "Undobracadabra"`.
+
+8. Відміни останній коміт, використавши `git revert HEAD`.
+
+9. Переглянь історію змін знову - `git log`.
+
+10. Завантаж локальні зміни - `git push`.
+
+11. Повернись назад на `main` гілку - `git checkout main`.
+
+<div class="bubble small subtle">
+  Хороша робота! Тепер ти маєш почувати себе більш впевнено з командами Git. Ходімо далі!
+</div>  
+  
+<Level
+  id="project-management-and-planning"
+  number="3"
+  name="Project management and planning"
+  difficulty="Bring It On!"
+  objectives="Master issues and project management."
+/>
+
+1. Створи два проекти — **"Homepage"** та **"Resume"** ― використовуючи **Basic kanban** як темплейт для обох. Використай опис (description) для **Homepage** проекту:
+
+   > **\*\*Make homepage great!\*\*** Make it responsive, accessible, informative, credible, readable, descriptive, compatible, consistent, uncluttered, simple, secure, up-to-date. Alternatively, just give up.
+
+   А це опис для **Resume** проекту:
+
+   > A typical résumé contains a "summary" of relevant job experience and education, as its French origin implies. The résumé is usually one of the first items, along with a cover letter and sometimes an application for employment, which a potential employer sees regarding the job seeker and is typically used to screen applicants. \***\*The goal of this project is to create an online version of the résumé using HTML, CSS, and the minimum amount of JavaScript.\*\***
+
+   <div class="bubble small subtle">
+     Добре, друже, відтепер ти повинен{" "}
+     <strong>
+       створювати завдання в GitHub Projects для кожного кроку цієї місії
+     </strong>
+     ! Таким чином ти пам’ятатимеш, що збираєшся зробити, і твій клієнт знатиме про
+     роботу, яку ти виконуєш.
+   </div>
+
+2. Додайте наступні завдання до проекту **"Resume"** проекту та перетворіть їх на issues —
+   використовуйте GitHub **Labels**, **Assignees**, і **Milestones** _([**Mastering Issues**](https://guides.github.com/features/issues/) explains why and how)_:
+
+   <div class="bubble small subtle">
+     Вміння добре складати завдання, чітко описувати проблеми і звітувати про їх
+     вирішення допоможе знайти спільну мову з проджект-менеджером замовника.
+     Окрім того, в світі open source більшість корисних розмов та інформація
+     щодо вирішення проблем знаходиться якраз в Issues, тому розуміти як це
+     працює — запорука успіху. Тепер це ваш Google (ну, може ще трошки
+     StackOverflow).
+   </div>
+
+   1. **Скласти інтро**  
+      Скласти інтро _(вступ)_, де в 2-4 реченнях описати, чим ти займаєшся, що подобається робити, що хочеться робити краще, що важливо робити, чому ти тут.
+   2. **Скласти блок контактної інформації**  
+      Посилання на соцмережі _(Facebook чи Instagram, тощо)_, номер телефону чи адреса електронної скриньки, тощо. Може не всі лінки в світі, а тільки ті, що дійсно доречні.
+   3. **Скласти таймлайн**  
+      Скласти список всіх _(важливих)_ життєвих подій, визначних дат, досягнень, періодів, що дали приємний і неприємний досвід, тощо. В цьому конкретному випадку довгих списків не буває, натомість бувають погано згорнуті, тому пакуємо сюди все підряд, а про _"лишні"_ події можна буде промовчати пізніше. Список повинен бути систематизованим і посортованим в такий спосіб, щоб читач швидко зрозумів _"паттерн"_ і міг легко орієнтуватись в просторі і часі цього резюме.
+   4. **Скласти додаткові інформаційні блоки**  
+      Можна зробити резюме менш формальним, додавши додаткові блоки, які містять корисну інформацію, але подають її в _"розважальній"_ формі. Наприклад, що подобається і не подобається, сильні і слабкі сторони, перелік навиків чи хобі, інфографіка або ж інтерактивні модулі, тощо. Варто написати контент такого блоку раніше, ніж починати верстку, бо його розміри впливатимуть на розміщення елементів на сторінці.
+
+3. Переміщуй завдання в розділ <strong>"In progress"</strong>, поки працюєш над ними. Залишай коментарі під питаннями, призначай відповідні labels та milestones, закривайте issues та tasks після завершення.
+
+<Level
+  id="putting-the-website-together"
+  number="4"
+  name="Збираємо website докупи"
+  difficulty="Hardcore."
+  objectives="Make the résumé page look better, learn some HTML, CSS."
+/>
+
+1. Створи і перейди на `develop` гілку - `git checkout -b develop`.
+
+2. Створи **index.html** і встав в нього наведений нижче фрагмент:
+
+   ```html
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <meta charset="UTF-8" />
+       <title>Résumé</title>
+     </head>
+     <body>
+       ― Hello World! &#x1F609;
+     </body>
+   </html>
+   ```
+
+   <div class="bubble small subtle">
+     That's right, <code>&amp;#x1F609;</code> is a{" "}
+     <a href="http://unicode.org/emoji/charts-12.0/full-emoji-list.html#1f609">
+       <strong>Unicode code for an emoji</strong>
+     </a>
+     .
+   </div>
+
+3. Перевір `git status`.
+
+4. Застейдж та закоміть зміни - `git add index.html` та `git commit -m "Added index.html template"`
+
+   <div class="bubble small subtle">
+     Між іншим, будь ласка, надавайте своїм комітам змістовні повідомлення, i.e.
+     🤗"Updated Résumé Contacts block".
+   </div>
+
+5. Запуш зміни за допомогою `git push` команди.
+
+6. Перейди за запропонованим посиланням і створіть pull request в <code>main</code> гілку.
+   Постав title _"First release to production"_, визнач метаданні _(assignees, labels, projects)_.
+   Потім <strong>змердж</strong> pull request.
+
+7. Перейди до **Settings** репозиторію і налаштуй **GitHub Pages** (з `main` гілки), онови опис репозиторію з коректним **посиланням**.
+   Перейди за посиланням, щоб перевірити, чи все в порядку – ви повинні побачити вміст index.html.
+
+Тепер ваш репозиторій налаштовано!
+
+<Level
+  id="add-resume-template"
+  number="5"
+  name="Додай темплейт резюме"
+  difficulty="Are you still here?"
+  objectives="Let's make a resume finally"
+/>
+
+<h4>Head</h4>
+
+1. Створи нову гілку `feature/head` (на основі `develop` гілки).
+
+<div class="bubble small subtle">
+  Розділяючи свою роботу на багато гілок, можна швидко і вправно виправляти баги
+  на сервері, мати окремо стабільну версію (<code>release</code>), яка готова до
+  релізу (шляхом злиття в <code>main</code>), а також ще версію, в якій ведеться
+  основна розробка (<code>develop</code>). А в одній єдиній гілці так не вийде.
+  Мерджіть свої гілки pull request-ами, бо так треба. І потім, так можна
+  частково зняти з себе відповідальність, адже той, хто approve-нув поганий код,
+  допустив не меншу помилку, аніж той, хто його написав 😁
+</div>
+
+2. Створи _styles.css_ файл в кореневій папці проекту і встав туди наступні стилі:
+    <details>
+      <summary>General styles</summary>
+
+      ```
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          line-height: 1.5;
+
+          --primary-text-color: #181820;
+          --secondary-text-color: #5c5c62;
+          --durability-text-color: #6a737d9c;
+          --icon-color: #6a737d;
+          --border-color: #ff9a0045;
+          --text-decoration-color: #ff9a00;
+      }
+
+      .container {
+          margin: 0 auto;
+          padding: 0 30px;
+          max-width: 900px;
+      }
+
+      .fh {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+      }
+
+      .fv {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+
+      .resume {
+          margin: 50px auto;
+          border: 1px solid #f5f5f5;
+          box-shadow: 1px 1px 7px 7px #f5f5f5;
+          padding: 30px 0;
+          max-width: 900px;
+      }
+
+      .resume__block {
+          border-bottom: 3px solid var(--border-color);
+          padding-bottom: 30px;
+          margin-bottom: 15px;
+      }
+
+      @media screen and (max-width: 576px) {
+
+          .main-info,
+          .contact_info_container {
+              flex-direction: column;
+          }
+
+          .contact_info_container {
+              align-items: center;
+          }
+
+          .contact-info__block:not(:last-child) {
+              margin-bottom: 20px;
+          }
+
+          .experiences {
+              margin-right: 0;
+          }
+      }
+      ```
+    </details>
+
+    <details>
+      <summary>Contact info styles</summary>
+
+      ```html
+        .contact-info__header,
+        .contact-info__sub-header {
+            text-align: center;
+        }
+
+        .contact-info__header {
+            color: var(--primary-text-color);
+            margin-bottom: 15px;
+            text-decoration-color: var(--text-decoration-color);
+            text-decoration-line: underline;
+        }
+
+        .contact-info__sub-header {
+            color: var(--secondary-text-color);
+            margin-bottom: 30px;
+        }
+
+        .contact-info__block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-info__block--center {
+            justify-content: center;
+        }
+
+        .contact-info__item {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            display: flex;
+            justify-content: start;
+        }
+
+        .contact-info__item:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        .contact-info__item-icon-wrapper {
+            margin-right: 10px;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-info__item-icon path {
+            fill: var(--icon-color);
+        }
+
+        .contact-info__item-icon {
+            height: 1.1428rem;
+            vertical-align: text-bottom;
+        }
+
+        .contact-info__avatar {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 3px solid;
+            border-color: var(--text-decoration-color);
+        }
+      ```
+    </details>
+
+    <details>
+      <summary>Intro and skills styles</summary>
+
+      ```html
+      .intro {
+          display: flex;
+          justify-content: start;
+      }
+
+      .intro__icon-wrapper {
+          margin-right: 30px;
+          width: 30px;
+          display: flex;
+          justify-content: center;
+      }
+
+      .intro__icon {
+          height: 1.1428rem;
+          vertical-align: text-bottom;
+      }
+
+      .intro__icon path {
+          fill: var(--text-decoration-color);
+      }
+
+      .intro_text {
+          color: var(--secondary-text-color);
+          text-align: justify;
+      }
+
+      .skills__header {
+          color: var(--secondary-text-color);
+          text-align: center;
+          margin-bottom: 15px;
+      }
+
+      .skills__text {
+          color: var(--secondary-text-color);
+          text-align: justify;
+      }
+      ```
+    </details>
+
+    <details>
+      <summary>Experience and additonal info styles</summary>
+
+      ```html
+      .experiences {
+          flex: 1 1 60%;
+          margin-right: 50px;
+      }
+
+      .experiences__header {
+          color: var(--secondary-text-color);
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .experiences__company-header-durability {
+          color: var(--durability-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+          font-size: 15px;
+      }
+
+      .experiences__company-header-name {
+          color: var(--primary-text-color);
+          text-decoration-color: var(--text-decoration-color);
+          text-decoration-line: underline;
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .experiences__company-project {
+          margin-left: 15px;
+          margin-bottom: 25px;
+      }
+
+      .experiences__company-project-role {
+          color: var(--durability-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+          font-size: 15px;
+      }
+
+      .experiences__company-project-name {
+          color: var(--primary-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+      }
+
+      .experiences__company-project-responsibilities {
+          color: var(--secondary-text-color);
+          padding-left: 20px;
+      }
+
+      .additional-info {
+          flex: 1 1 40%;
+      }
+
+      .additional-info__education {
+          margin-bottom: 20px;
+      }
+
+      .additional-info__education-header {
+          color: var(--secondary-text-color);
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .additional-info__education-university-durability {
+          color: var(--durability-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+          font-size: 15px;
+      }
+
+      .additional-info__education-university-speciality {
+          color: var(--primary-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+      }
+
+      .additional-info__education-university-name {
+          color: var(--secondary-text-color);
+      }
+
+      .additional-info__languages {
+          margin-bottom: 20px;
+      }
+
+      .additional-info__languages-header {
+          color: var(--secondary-text-color);
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .additional-info__languages-item {
+          color: var(--secondary-text-color);
+      }
+      ```
+    </details>
+
+3. Приєднай стилі додавши наступний рядок всередину `<head></head>` секції.
+
+   ```
+    <link rel="stylesheet" href="styles.css">
+   ```
+
+   Також додай даний мета тег в `<head></head>` секцію для responsive design.
+
+   ```
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   ```
+
+4. Як закінчиш ― <strong>закоміть</strong> свої зміни, <strong>запуш</strong> гілку, створи новий <strong>pull request</strong> і <strong>змердж</strong> в `develop`
+
+<div class="bubble small subtle">
+  Якщо гілку не пушнути нагору, а змерджити локально через{" "}
+  <code>git merge</code>, то віддалений сервер не буде нічого знати про
+  існування гілки, відтак і не покаже її у Insights → Network
+</div>
+
+<h4>Body</h4>
+
+1.  Перейди на `develop` гілку і виконай pull змін `git pull`.
+
+2.  Створи нову гілку `feature/body` (на основі develop) і використовуй її для редагування основного контенту:
+
+    1. Відкрий прев'ю index.html в браузері
+
+    <div class="bubble small subtle">
+      Одним зі способів є встановити http-server{" "}
+      <code>npm install --global http-server</code> і потім заранити
+      <code> http-server -c-1</code> в робочій папці.
+    </div>
+
+    4. Створи `patch/content/primary` гілку (на основі `feature/body`) гілки.
+
+    5. Додай основний контент _(e.g. avatar, name, job, contacts, intro, etc.)_ here. Коміть невеликі зміни, додавай змістовні повідомлення.
+
+      <details>
+        <summary>Primary content template</summary>
+
+        ```html
+        <main>
+          <div class="resume">
+            <div class="container">
+              <div class="resume__block">
+                <h1 class="contact-info__header">Bulka</h1>
+                <h3 class="contact-info__sub-header">Senior Hooman Manager</h3>
+
+                <div class="contact_info_container fh">
+                  <div class="contact-info__block"></div>
+                
+                  <div class="contact-info__block contact-info__block--center">
+                    <img class="contact-info__avatar" src="assets/avatar.png" alt="Avatar">
+                  </div>
+
+                  <div class="contact-info__block"></div>
+                <div>
+              <div>
+            <div>
+          </div>
+        </main>
+        ```
+      </details>
+
+      <details>
+        <summary>Contact info items example (should be place inside the contact-info__block)</summary>
+
+        ```html
+        <a href="" rel="author" class="contact-info__item">
+          <div class="contact-info__item-icon-wrapper">
+            <svg class="contact-info__item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path
+                d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+              </path>
+            </svg>
+          </div>
+          <span>Lviv, Ukraine</span>
+        </a>
+        ```
+
+        ```html
+        <a href="https://ua.linkedin.com/company/binary-studio_241166" rel="author" class="contact-info__item">
+          <div class="contact-info__item-icon-wrapper">
+            <svg class="contact-info__item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+              </path>
+            </svg>
+          </div>
+          <span>binary-studio</span>
+        </a>
+        ```
+
+        You may take SVG icons from [fontawesome](https://fontawesome.com/).  
+      </details>
+
+      <details>
+        <summary>Intro block (should be put below the previous container)</summary>
+
+        ```html
+        <div class="container">
+          <div class="resume__block">
+            <div class="intro">
+              <div class="intro__icon-wrapper">
+                <svg class="intro__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                  </path>
+                </svg>
+              </div>
+              <p class="intro_text">Meow.
+                I am a Binary Studio cat. Still got 7 lives. Work in IT, Full Stack Evil, 
+                all I do is sleep and try to help out hoomans with their projects whenever 
+                they need me.
+              </p>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+    6. Створи `patch/content/secondary` гілку (на основі `feature/body`) гілки.
+
+    7. Додай додатковий контент _(e.g. languages, skills, character, etc.)_. Коміть невеликі зміни, додавай змістовні повідомлення.
+
+      <details>
+        <summary>Skills block</summary>
+
+        ```html
+        <div class="container">
+          <div class="resume__block">
+            <div class="skills">
+              <h3 class="skills__header">Skills</h3>
+              <p class="skills__text">Sleep, eat, more sleep, meow, mrrr, purr. </p>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      <details>
+        <summary>Experience block template</summary>
+
+        ```html
+        <div class="container">
+          <div class="resume__block">
+            <div class="main-info fh">
+
+              <div class="experiences"></div>
+
+              <div class="additional-info fv"></div>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      <details>
+        <summary>Experiences</summary>
+
+        ```html
+        <div class="experiences">
+          <h3 class="experiences__header">Experience</h3>
+          <div class="experiences__company">
+            <div class="experiences__company-header">
+              <span class="experiences__company-header-durability">For whole my life</span>
+              <h3 class="experiences__company-header-name">BinaryStudio</h3>
+            </div>
+
+            <div class="experiences__company-project">
+              <span class="experiences__company-project-role">Binary Studio Cat</span>
+              <h3 class="experiences__company-project-name">Hooman project</h3>
+              <ul class="experiences__company-project-responsibilities">
+                <li>Supported hoomans</li>
+                <li>Slept all the time</li>
+                <li>Lied on the keyboard</li>
+                <li>Watched my hoomans working</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      <details>
+        <summary>Additional info</summary>
+
+        ```html
+        <div class="additional-info fv">
+          <div class="additional-info__education">
+            <h3 class="additional-info__education-header">Education</h3>
+            <div class="additional-info__education-university">
+              <span class="additional-info__education-university-durability">2021</span>
+              <h3 class="additional-info__education-university-speciality">Cat track</h3>
+              <p class="additional-info__education-university-name">Binary Studio Academy</p>
+            </div>
+          </div>
+
+          <div class="additional-info__languages">
+            <h3 class="additional-info__languages-header">Languages</h3>
+            <p class="additional-info__languages-item">
+              Meow dialect
+            </p>
+            <p class="additional-info__languages-item">
+              Ukrainian (understand)
+            </p>
+            <p class="additional-info__languages-item">
+              English (don't understand)
+            </p>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      Як попердній перегляд ви має бачити щось схоже на:
+      <details>
+      <summary>Попередній перегляд</summary>
+
+      <img src={resume_template} alt="eventloop" />
+      </details>
+
+    8. Продовжуй далі та заповни резюме <strong>ВЛАСНОЮ</strong> інформацією -
+       Сміливо додавай нові блоки, змінюй структуру, стилі. Пасхалки також вітаються 😉
+
+    <div class="bubble small subtle">
+      Ми дуже любимо Булку, але ми б також хотіли познайомитися з тобою ближче.
+      Тож, будь ласка, створи власне резюме – і отримай додаткові бали 😉
+    </div>
+
+    9. Змердж обидві гілки в `feature/body` використовуючи pull requests
+
+    10. Змердж `feature/body` в `develop` використовуючи pull request
+
+3.  Відкрий pull request і <strong>змредж `develop` в `main` гілку</strong>.
+
+<div class="bubble small subtle">
+  Будь ласка, не забудьте об’єднати останні зміни в main гілку – ми
+  перевірятимемо лише її.
+</div>
+
+💥 **Boom, done! That's it! You are awesome!**  
+Надішліть нам посилання на ваш репозиторій GitHub і подивіться нижче, як буде оцінено завдання.
+Зверніть увагу, що **у вас є лише 3 спроби запустити автоматичні тести** - тому використовуйте це з розумом 😉
+
+<div className="grading-hometask">
+  <Accordion>
+    <Accordion.Header>
+      <FontAwesomeIcon icon={faQuestionCircle} />
+      <span className="title"><strong>Як буде оцінюватися проект</strong></span>
+      <span className="icon">
+        <FontAwesomeIcon icon={faChevronRight} fixedWidth />
+      </span>
+    </Accordion.Header>
+    <Accordion.Body>
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            Завдання комплексне, тому й оцінюватися буде в шести напрямках, а середнє арифметичне тих шести чисел і буде кінцевою оцінкою:
+          </div>
+        </div>
+        <small>
+          <div className="columns">
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong>Repository management</strong>
+                      <span className="text-gray"><small>#1</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  <p>Репозиторій створений, топіки додані, README.md на місці, а GitHub Pages увімкнено.</p>
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong>Project management</strong>
+                      <span className="text-gray"><small>#2</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Проекти заведені, майлстоуни визначені, таски створюються, 
+                  проблеми описуються, лейби прикріплюються.
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong>
+                        <code>git</code>
+                        <span style={{ fontWeight: 300 }}> + </span>
+                        GitFlow
+                      </strong>
+                      <span className="text-gray"><small>#3</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                   Робота ведеться в декількох гілках, кожна інтуїтивно зрозуміла, а 
+                   для їх злиття у основну гілку використовуються pull request-и. Може 
+                   навіть комміти мають нормальні назви.
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <span>
+                        <span style={{ fontWeight: 900 }}>HTML</span>
+                        <span style={{ fontWeight: 300 }}> / </span>
+                        <strong>CSS</strong>
+                        <span style={{ fontWeight: 300 }}> / </span>
+                        JS
+                      </span>
+                      <span className="text-gray"><small>#4</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Майстер копіпасту 80-го рівня — валідна HTML-розмітка, CSS, а JS (якщо є) робить нормальні речі.
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <span>
+                        <strong>UI</strong>
+                        <span style={{ fontWeight: 300 }}> / </span>
+                        <span style={{ fontWeight: 900 }}>UX</span>
+                      </span>
+                      <span className="text-gray"><small>#5</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Сторінка доступна, інформативна, зручна, читабельна, чиста, приємна, цікава, швидка.
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong><span role="img" aria-label="rainbow">🌈</span>A-a-a-A-A-aweso-o-O-O-oomene-e-E-E-ess!</strong>
+                      <span className="text-gray"><small>#6</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Творчість, старанність, увага до деталей, гумор, оригінальність, "што-о-о-о?!".
+                </div>
+              </div>
+            </div>
+          </div>
+        </small>
+      </div>
+      <RadarChart
+        labels={[
+          "Repository management",
+          "Project management",
+          "git + GitFlow",
+          "HTML / CSS / JS",
+          "UI / UX",
+          "Awesomeness"
+        ]}
+        datasets={[{
+          label: "You",
+          data: [6, 5, 5, 5, 2, 0],
+          dragData: true,
+          borderColor: "rgba(0, 173, 238, 1)",
+          backgroundColor: "rgba(0, 173, 238, 0.125)",
+          pointBorderColor: "white",
+          pointBackgroundColor: context => context.dataIndex % 2 === 0 ? "rgb(255, 199, 18)" : "rgb(236, 24, 72)",
+          pointHoverBorderColor: "white",
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          pointBorderWidth: 3,
+          pointHoverBorderWidth: 3,
+          pointHitRadius: 30
+        }, {
+          label: "Joe Average",
+          data: [6, 5, 5, 5, 2, 0],
+          dragData: false,
+          borderColor: "rgba(0, 0, 0, 0.1)",
+          backgroundColor: "rgba(0, 0, 0, 0.05)",
+          pointRadius: 0,
+          pointHitRadius: 0,
+          pointHoverRadius: 0
+        }]}
+      />
+      <div className="column">
+        Ми дуже цінуємо вашу оригінальність, ініціативу та гумор, тому по останньому критерію 
+        будь-яку цікаву ідею буде високо оцінено!
+      </div>
+    </Accordion.Body>
+  </Accordion>
+</div>
+
+<div class="bubble small subtle">
+  Не хвилюйся 😌, якщо твій репозиторій не отримав 10 — самотужки за короткий
+  проміжок часу репозиторії на 10 не складаються 😝. Хтось вкладе весь свій час
+  і сили в сам проект, але не встигне оформити репозиторій, а хтось зробить
+  навпаки. В першу чергу варто робити те, що подобається, і отримати максимум
+  задоволення від процесу. Якщо при цьому всьому ще й зайти в незнайому чи
+  некомфортну для cебе область і досягти успіхів там — то це взагалі супер!
+</div>
+
+export const metadata = {
+  orderId: 1,
+  author: "Viktoriia Vasylenko",
+  title: "Git Homework",
+  description: "",
+  keywords: ["hola", "guapa"],
+  duration: "31 min",
+  publishedAt: "2021-11-18T10:00:00",
+  hiddenFromMainPage: true,
+};
+
+export default Lecture;
