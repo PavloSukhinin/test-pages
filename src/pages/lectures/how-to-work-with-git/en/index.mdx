@@ -1,0 +1,145 @@
+import { Lecture, VideoWrapper, Level, Language, TimelineOfContents } from "../../../../components";
+import { viktoriiaVasylenko2021Avatar } from "../../../../assets/images/avatars/intro-rounded";
+
+<div>
+  <h1>
+    <strong>How to work with Git</strong>
+  </h1>
+</div>
+
+<Language
+  currentLanguage="en"
+  languages={{
+    en: "lectures/how-to-work-with-git/en",
+    ua: "lectures/how-to-work-with-git/ua",
+    ru: "lectures/how-to-work-with-git/ru",
+  }}
+/>
+
+<div>
+  <div class="author">
+      <div class="avatar-wrapper">
+        <object class="avatar-object" role="img" data={viktoriiaVasylenko2021Avatar} aria-label="Viktoriia Vasylenko"></object>
+      </div>
+      <div class="profile">
+        <h3 class="name">Viktoriia Vasylenko</h3>
+        <p class="about">
+          Viktoriia works at Binary Studio as a Full stack developer after finishing Binary Studio Academy in 2020.
+        </p>
+      </div>
+    </div>
+  <div class="bubble" style="margin: -0.5em 1em 1em;">
+    <strong>Hi, student!</strong> 👋<br />Welcome to the Git lecture. Here you'll find a short script to the lecture with Git commands and useful links. Let's go!
+  </div>
+</div>
+
+<div id="table-of-contents" class="table-of-contents" style="margin-top: 2em;">
+  <h2><strong>Lecture plan</strong></h2>
+  <TimelineOfContents timeline={[{
+    linkTo: "#setting-up-the-repository",
+    title: "Setting up the repository"
+  }, {
+    linkTo: "#practicing-git",
+    title: <span>Common <code>git</code> commands</span>
+  }, {
+    linkTo: "#git-flow",
+    title: "Git flow"
+  },  {
+    linkTo: "#undo-changes",
+    title: "Undo the changes"
+  }]} />
+</div>
+
+<VideoWrapper duration="33m 31s">
+  <iframe src="https://www.youtube.com/embed/czNvX0xdFZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</VideoWrapper>
+
+<Level id="setting-up-the-repository" number="1" name="Setting up the repository" difficulty="Beginner" objectives="How to create and clone the repo" />
+
+1. Before you clone the repository set up either PAT (personal access token) or SSH keys. 
+   You may find this helpful - 
+   <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"><strong>How to set up PAT</strong></a>, 
+   <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh"><strong>How to set up SSH keys</strong></a>.  
+
+2. To clone the repositoty use `git clone` command + copied repository URL.  
+
+   In case you choose https it will look like:  
+   ```
+   git clone https://github.com/<my-username>/homepage.git
+   ``` 
+   In case of SSH: 
+   ```
+   git clone git@github.com:<my-username>/homepage.git
+   ``` 
+
+3. Use `git remote show origin` to see remote repository URL.
+
+4. `git status` command will display the state of your repositoty and staging area. 
+   Use it to see which files are added to the staging area and are going to be included in commit.
+
+
+<Level id="practicing-git" number="2" name={<span>Common <code>git</code> commands</span>} difficulty="Beginner" objectives="How to create commits and branches"  />
+
+1. To add changed files to the staging area we use `git add` command + file name. 
+   You may use `git add .` command to add <strong>all</strong> changed and untracked files.  
+
+2. To create a commit use `git commit` command. To add a description message use 
+   ```
+   git commit -m "Your message here"
+   ```  
+
+3. Use `git branch` command to see local branches and `git checkout branch-name` to switch to the branch.  
+   To create a new branch and switch to it use `git checkout -b branch-name` command.  
+
+4. `git log` command shows commit history of your branch.  
+
+5. To update your remote branch use `git push` command. 
+   If your local branch doesn't exists on the remote you might need to run `git push --set-upstream branch-name` 
+   or just `git push -u branch-name`, which means the same. Otherwise you may explicitly set 
+   a remote branch you want to push your changes to, like `git push origin branch-name`.  
+
+6. Git stash is handy when you're not ready to commit yet. `git stash` command will add your changes 
+   to stash, `git stash list` will show you all available stashes, and `git stash pop` with apply 
+   your changes back.  
+
+7. To follow you teammates changes you might need to run `git fetch` command. `git fetch` downloads 
+   commits, files, or new branches from a remote repository into your local repo. After that you may 
+   merge remote branch changes into your local branch (by using `git merge branch-name` command). 
+   You may use `git pull` command to fetch changes froma  remote branch and merge them at one time.  
+
+8. In case you forgot to add some files to your last commit or noticed a typo in a message you may use `git commit --ammend`. 
+ 
+<Level id="git-flow" number="3" name="Git flow" difficulty="Intermediate" objectives="How to create pull requests" />
+
+You might need/want/like to follow the next steps during yout work with a repository:  
+
+1. Create branches - create a separate branch for every feature  
+
+2. Add commits - make small commits with a meaningful messages  
+
+3. Open a Pull request - open PR to discuss, review and approve your changes  
+
+4. Merge to the main branch  
+
+
+<Level id="undo-changes" number="4" name="Undo the changes" difficulty="Hard" objectives="How to revert or reset commits" />
+
+To undo you changes you may use two commands: `git revert` or `git reset`.
+
+1. `git revert HEAD` creates a new commit with the inverse of the last commit.
+
+2. `git reset <commit>` clears the commit history until the given commit.
+
+
+export const metadata = {
+  orderId: 1,
+  author: "Viktoriia Vasylenko",
+  title: "How to work with Git",
+  description: "",
+  keywords: ["hola", "guapa"],
+  duration: "38 min",
+  publishedAt: "2021-12-08T10:00:00",
+  hiddenFromMainPage: true,
+}
+
+export default Lecture;
