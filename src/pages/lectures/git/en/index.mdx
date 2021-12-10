@@ -1,0 +1,1080 @@
+import {
+  Lecture,
+  VideoWrapper,
+  FacebookMessage,
+  TimelineOfContents,
+  Level,
+  Accordion,
+  RadarChart,
+  ThatsAllFolks,
+  Language,
+} from "../../../../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestionCircle } from "@fortawesome/pro-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/pro-regular-svg-icons";
+import { viktoriiaVasylenko2021Avatar } from "../../../../assets/images/avatars/intro-rounded";
+import resume_template from "../assets/resume_template.png";
+
+<div>
+  <h1>
+    <strong>Git Homework</strong>
+  </h1>
+</div>
+
+<Language
+  currentLanguage="en"
+  languages={{
+    en: "lectures/git/en",
+    ua: "lectures/git/ua",
+    ru: "lectures/git/ru",
+  }}
+/>
+
+<div>
+  <div class="author">
+    <div class="avatar-wrapper">
+      <object
+        class="avatar-object"
+        role="img"
+        data={viktoriiaVasylenko2021Avatar}
+        aria-label="Viktoriia Vasylenko"
+      />
+    </div>
+    <div class="profile">
+      <h3 class="name">Viktoriia Vasylenko</h3>
+      <p class="about">
+        Viktoriia works at Binary Studio as a Full stack developer after
+        finishing Binary Studio Academy in 2020.
+      </p>
+    </div>
+  </div>
+  <div class="bubble" style="margin: -0.5em 1em 1em;">
+    <strong>Hi, student!</strong> 👋
+    <br />
+    Here you'll find a detailed instruction to your Git homework - so you just
+    need to follow the steps and it's done ✅. But firstly, pay attention to
+    that:
+    <ol class="compact inverted">
+      <li>
+        this is <strong>not</strong> a lecture script - some explanations may be
+        omitted <em>(because you've just seen the lecture, right?)</em>;
+      </li>
+      <li>
+        I highly recommend you to look throught all the tasks before you start your homework.
+        Pay attention, that <strong>you have only 3 attempt</strong> to run the automated test.
+      </li>
+      <li>
+        links to the documentations and guidelines are optional{" "}
+        <em>(you may ignore them if you feel strong enough)</em>;
+      </li>
+      <li>
+        please <strong>don't skip</strong> any steps and don't rename anything -
+        we'll run automanted test after you submit the homework and namings may
+        be important!
+      </li>
+      <li>and if you have any questions - feel free to ask them in a chat</li>
+    </ol>
+    By the way, it's dangerous to go alone! Take this:{" "}
+    <a href="https://git-scm.com/">
+      <strong>Git</strong>
+    </a>
+    ,{" "}
+    <a href="https://code.visualstudio.com/">
+      <strong>Visual Studio Code</strong>
+    </a>
+    . Now let's go!
+  </div>
+</div>
+
+<div id="table-of-contents" class="table-of-contents" style="margin-top: 2em;">
+  <h2>
+    <strong>Create and host your own resume using GitHub</strong>
+  </h2>
+  <TimelineOfContents
+    timeline={[
+      {
+        linkTo: "#setting-up-the-repository",
+        title: "Setting up the repository",
+      },
+      {
+        linkTo: "#practicing-git",
+        title: (
+          <span>
+            Practicing <code>git</code>
+          </span>
+        ),
+      },
+      {
+        linkTo: "#project-management-and-planning",
+        title: "Project management and planning",
+      },
+      {
+        linkTo: "#putting-the-website-together",
+        title: "Putting the website together",
+      },
+      {
+        linkTo: "#add-resume-template",
+        title: "Add resume template",
+      },
+    ]}
+  />
+</div>
+
+<Level
+  id="setting-up-the-repository"
+  number="1"
+  name="Setting up the repository"
+  difficulty="I Can Win."
+  objectives="Get to the &#x1F681; Internet! Learn the GitHub platform while you're at it."
+/>
+
+1. Make sure you have <a href="https://git-scm.com/downloads"><strong>Git</strong></a> installed - you'll need it 😉.
+
+   <div>
+     {" "}
+     We'll use <strong>GitHub</strong> to host it. Firstly, skim through <a href="https://guides.github.com/activities/hello-world/">
+       <strong>Hello World</strong>
+     </a> guides to get an overview of terminology and core concepts <sup>
+       <strong>
+         <a href="https://git-scm.com/docs/gitglossary" title="gitglossary">
+           [1]
+         </a>
+       </strong>
+     </sup>
+   </div>
+
+2. Open up [**GitHub**](https://github.com/) and sign in. Create a new repository named **"homepage"** (e.g. **your-username/homepage**), set description to "My very own personal website. Basically this is just a résumé.", initialize with **README**, ignore **.gitignore**, but choose **"MIT License"**
+
+3. Add topics _"personal website homepage resume gh-pages html css binary-studio-academy bsa21"_
+
+   <FacebookMessage small subtle>
+     Hmmm, adding proper topics helps to SEO your repository... Good job!
+   </FacebookMessage>
+
+4. Setup either <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"><strong>PAT</strong></a> (personal access token) or <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh"><strong>SSH</strong></a> keypair depending on which protocol you want to use: https or ssh.
+
+   <div className="grading-hometask">
+     <Accordion>
+       <Accordion.Header>
+         <FontAwesomeIcon icon={faQuestionCircle} />
+         <span className="title">
+           <strong>https or ssh</strong>
+         </span>
+         <span className="icon">
+           <FontAwesomeIcon icon={faChevronRight} fixedWidth />
+         </span>
+       </Accordion.Header>
+       <Accordion.Body>
+         <div className="container">
+           <div className="columns">
+             <div className="column">
+               No worries, both protocols are secure to use. The main difference
+               is that https requires password-based authentication every time
+               you push your changes{" "}
+               <em>(however, you may also cache your git credentials 🤔)</em>,
+               but ssh you configure only once and no repetitive authentication
+               is required.
+             </div>
+           </div>
+         </div>
+       </Accordion.Body>
+     </Accordion>
+   </div>
+
+5. Open your favorite terminal, change working directory (<code>cd</code>) to where you'd like to keep the repository <em>(check directory content with</em> <code>ls</code> <em>or</em> <code>dir</code><em>)</em>
+
+6. Clone the repo - use `git clone` command for that. It'll look like:  
+   `git clone https://github.com/<my-username>/homepage.git` if you choose https  
+   `git clone git@github.com:<my-username>/homepage.git` if you choose ssh  
+
+
+After that go to your repository folder - `cd homepage`. Now you may also open your repository in a code editor like VS Code.  
+
+<FacebookMessage small subtle>
+  Hurray! The first part is done ✅. You've just created and cloned your
+  repository. Let's go to have some practice.
+</FacebookMessage>  
+  
+<Level
+  id="practicing-git"
+  number="2"
+  name={
+    <span>
+      Practicing <code>git</code>
+    </span>
+  }
+  difficulty="Baby, don't hurt me."
+  objectives={
+    <span>
+      Practicing <code>git</code> commands, gain some confidence.
+    </span>
+  }
+/>
+
+1. Check current status with `git status`
+
+2. Create a new branch and checkout to it with `git checkout -b patch/README.md`.
+
+3. Edit README.md — add "**🧙Hocus-pocus!**" — and stage it with `git add README.md`
+
+4. Commit staged file with `git commit -m "Abracadabra"`
+
+5. Upload your local changes with `git push`. If it fails, it's most likely because there's no
+   such branch on the remote server. Follow Git suggestion and use `--set-upstream origin patch/README.md` or
+   set the remote branch explicitly `git push origin patch/README.md`.
+
+6. Look at the current history with `git log`.
+
+7. Remove last line from the README.md and see the difference!
+   Stage README.md file with `git add README.md` and commit with `git commit -m "Undobracadabra"`.
+
+8. Revert the latest commit with `git revert HEAD`.
+
+9. Look at the current history with `git log` again.
+
+10. Upload your local changes with `git push`.
+
+11. Switch to the `main` branch back - `git checkout main`.
+
+<div class="bubble small subtle">
+  Good job! Now you should feel more confident with Git commands. Let's go
+  further!
+</div>  
+  
+<Level
+  id="project-management-and-planning"
+  number="3"
+  name="Project management and planning"
+  difficulty="Bring It On!"
+  objectives="Master issues and project management."
+/>
+
+1. Create two projects — **"Homepage"** and **"Resume"** ― using **Basic kanban** as a project template for both. Here's the description for the **Homepage** project:
+
+   > **\*\*Make homepage great!\*\*** Make it responsive, accessible, informative, credible, readable, descriptive, compatible, consistent, uncluttered, simple, secure, up-to-date. Alternatively, just give up.
+
+   And this is the description for the **Resume** project:
+
+   > A typical résumé contains a "summary" of relevant job experience and education, as its French origin implies. The résumé is usually one of the first items, along with a cover letter and sometimes an application for employment, which a potential employer sees regarding the job seeker and is typically used to screen applicants. \***\*The goal of this project is to create an online version of the résumé using HTML, CSS, and the minimum amount of JavaScript.\*\***
+
+   <div class="bubble small subtle">
+     Alright, mate, from now on you have to{" "}
+     <strong>
+       create a task in GitHub Projects for every step of this mission
+     </strong>
+     ! That way you remember what you are going to do, and your customer is
+     aware of the work you are doing.
+   </div>
+
+2. Add the following tasks to the **"Resume"** project and convert them to issues — it would be very nice if you could use GitHub's **Labels**, **Assignees**, and **Milestones** features at this point _([**Mastering Issues**](https://guides.github.com/features/issues/) explains why and how)_:
+
+   <div class="bubble small subtle">
+     Making clear description of a task is a good skill to have. It'll help you
+     to set the requirements better and get along with a project manager.
+     Besides, a lot of useful discussions are taking place in comments to GitHub
+     issues, so it's helpful to know how to work with them. (But StackOverflow
+     is your friend on this path too 😉).
+   </div>
+
+   1. **Create an intro**  
+      Add an intro about yourself: who are you, what is your strength, why are you here.
+   2. **Create a contact info block**  
+      Add links to social networks (LinkedIn, Facebook, Instagram), phone number, email, Telegram username, etc.
+   3. **Create a timeline**  
+      Add a list of all your activities, achievements, work experience. Add as much info as you can remember. In case you don't have working experience tell about your pet-projects or student projects. Don't be shy :)
+   4. **Create additional info blocks**  
+      You can make your resume less official by adding more entertaining info, like your hobbies and interest, or what do you like, some interactive content or joke, easter egg, etc.
+
+3. Move tasks to <strong>"In progress"</strong> while you're working on them. Leave comments under issues, assign proper labels and milestones, close issues and tasks when done.  
+  
+<Level
+  id="putting-the-website-together"
+  number="4"
+  name="Putting the website together"
+  difficulty="Hardcore."
+  objectives="Make the résumé page look better, learn some HTML, CSS."
+/>
+
+1. Create and checkout to `develop` branch - `git checkout -b develop`.
+
+2. Create **index.html** and insert the snippet below in it:
+
+   ```html
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <meta charset="UTF-8" />
+       <title>Résumé</title>
+     </head>
+     <body>
+       ― Hello World! &#x1F609;
+     </body>
+   </html>
+   ```
+
+   <div class="bubble small subtle">
+     That's right, <code>&amp;#x1F609;</code> is a{" "}
+     <a href="http://unicode.org/emoji/charts-12.0/full-emoji-list.html#1f609">
+       <strong>Unicode code for an emoji</strong>
+     </a>
+     .
+   </div>
+
+3. Check `git status`.
+
+4. Stage and commit your changes - `git add index.html` and `git commit -m "Added index.html template"`
+
+   <div class="bubble small subtle">
+     BTW, please give your commits meaningful messages, i.e. 🤗"Updated Résumé
+     Contacts block".
+   </div>
+
+5. Push your changes with `git push` command.
+
+6. Follow the suggested link and create a pull request into <code>main</code> branch.
+   Set title _"First release to production"_, set metadata _(assignees, labels, projects)_.
+   Then <strong>merge</strong> pull request.
+
+7. Go to repository **Settings** and set up **GitHub Pages** (from the `main` branch), update repository description with the proper **website** link.
+   Follow the link to check if everything is fine - you should see your index.html content.
+
+Now your repository is set up!  
+  
+<Level
+  id="add-resume-template"
+  number="5"
+  name="Add resume template"
+  difficulty="Are you still here?"
+  objectives="Let's make a resume finally"
+/>
+
+<h4>Head</h4>
+
+1. Create a new branch named `feature/head` (based on `develop` branch).
+
+  <div class="bubble small subtle">
+    By dividing your work into many branches, you can quickly and efficiently fix bugs on the server,
+    have a separate stable version (<code> release </code>) that is ready for release, as well as 
+    the version with the main development (<code> develop </code>).
+    Merge your branches with pull requests, because the one who approved bad
+    code, made no less error than the one who wrote it 😁
+  </div>
+
+2. Create _styles.css_ file in the root directory and insert the following styles into it.
+    <details>
+      <summary>General styles</summary>
+
+      ```
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          line-height: 1.5;
+
+          --primary-text-color: #181820;
+          --secondary-text-color: #5c5c62;
+          --durability-text-color: #6a737d9c;
+          --icon-color: #6a737d;
+          --border-color: #ff9a0045;
+          --text-decoration-color: #ff9a00;
+      }
+
+      .container {
+          margin: 0 auto;
+          padding: 0 30px;
+          max-width: 900px;
+      }
+
+      .fh {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+      }
+
+      .fv {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+
+      .resume {
+          margin: 50px auto;
+          border: 1px solid #f5f5f5;
+          box-shadow: 1px 1px 7px 7px #f5f5f5;
+          padding: 30px 0;
+          max-width: 900px;
+      }
+
+      .resume__block {
+          border-bottom: 3px solid var(--border-color);
+          padding-bottom: 30px;
+          margin-bottom: 15px;
+      }
+
+      @media screen and (max-width: 576px) {
+
+          .main-info,
+          .contact_info_container {
+              flex-direction: column;
+          }
+
+          .contact_info_container {
+              align-items: center;
+          }
+
+          .contact-info__block:not(:last-child) {
+              margin-bottom: 20px;
+          }
+
+          .experiences {
+              margin-right: 0;
+          }
+      }
+      ```
+    </details>
+
+    <details>
+      <summary>Contact info styles</summary>
+
+      ```html
+        .contact-info__header,
+        .contact-info__sub-header {
+            text-align: center;
+        }
+
+        .contact-info__header {
+            color: var(--primary-text-color);
+            margin-bottom: 15px;
+            text-decoration-color: var(--text-decoration-color);
+            text-decoration-line: underline;
+        }
+
+        .contact-info__sub-header {
+            color: var(--secondary-text-color);
+            margin-bottom: 30px;
+        }
+
+        .contact-info__block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-info__block--center {
+            justify-content: center;
+        }
+
+        .contact-info__item {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            display: flex;
+            justify-content: start;
+        }
+
+        .contact-info__item:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        .contact-info__item-icon-wrapper {
+            margin-right: 10px;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-info__item-icon path {
+            fill: var(--icon-color);
+        }
+
+        .contact-info__item-icon {
+            height: 1.1428rem;
+            vertical-align: text-bottom;
+        }
+
+        .contact-info__avatar {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 3px solid;
+            border-color: var(--text-decoration-color);
+        }
+      ```
+    </details>
+
+    <details>
+      <summary>Intro and skills styles</summary>
+
+      ```html
+      .intro {
+          display: flex;
+          justify-content: start;
+      }
+
+      .intro__icon-wrapper {
+          margin-right: 30px;
+          width: 30px;
+          display: flex;
+          justify-content: center;
+      }
+
+      .intro__icon {
+          height: 1.1428rem;
+          vertical-align: text-bottom;
+      }
+
+      .intro__icon path {
+          fill: var(--text-decoration-color);
+      }
+
+      .intro_text {
+          color: var(--secondary-text-color);
+          text-align: justify;
+      }
+
+      .skills__header {
+          color: var(--secondary-text-color);
+          text-align: center;
+          margin-bottom: 15px;
+      }
+
+      .skills__text {
+          color: var(--secondary-text-color);
+          text-align: justify;
+      }
+      ```
+    </details>
+
+    <details>
+      <summary>Experience and additonal info styles</summary>
+
+      ```html
+      .experiences {
+          flex: 1 1 60%;
+          margin-right: 50px;
+      }
+
+      .experiences__header {
+          color: var(--secondary-text-color);
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .experiences__company-header-durability {
+          color: var(--durability-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+          font-size: 15px;
+      }
+
+      .experiences__company-header-name {
+          color: var(--primary-text-color);
+          text-decoration-color: var(--text-decoration-color);
+          text-decoration-line: underline;
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .experiences__company-project {
+          margin-left: 15px;
+          margin-bottom: 25px;
+      }
+
+      .experiences__company-project-role {
+          color: var(--durability-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+          font-size: 15px;
+      }
+
+      .experiences__company-project-name {
+          color: var(--primary-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+      }
+
+      .experiences__company-project-responsibilities {
+          color: var(--secondary-text-color);
+          padding-left: 20px;
+      }
+
+      .additional-info {
+          flex: 1 1 40%;
+      }
+
+      .additional-info__education {
+          margin-bottom: 20px;
+      }
+
+      .additional-info__education-header {
+          color: var(--secondary-text-color);
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .additional-info__education-university-durability {
+          color: var(--durability-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+          font-size: 15px;
+      }
+
+      .additional-info__education-university-speciality {
+          color: var(--primary-text-color);
+          text-align: left;
+          margin-bottom: 10px;
+      }
+
+      .additional-info__education-university-name {
+          color: var(--secondary-text-color);
+      }
+
+      .additional-info__languages {
+          margin-bottom: 20px;
+      }
+
+      .additional-info__languages-header {
+          color: var(--secondary-text-color);
+          text-align: left;
+          margin-bottom: 20px;
+      }
+
+      .additional-info__languages-item {
+          color: var(--secondary-text-color);
+      }
+      ```
+    </details>
+
+3. Connect styles by adding the next line inside the `<head></head>` section.
+   ```
+    <link rel="stylesheet" href="styles.css">
+   ```  
+    Also add this meta tag inside the `<head></head>` section for responsive design.
+    ```
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    ```
+
+4. When done ― <strong>commit</strong> your changes, <strong>push</strong> the branch to the remote, create a new <strong>pull request</strong> and <strong>merge</strong> into `develop`
+
+  <div class="bubble small subtle">
+    If the branch is not pushed, but merged locally via <code>git merge</code>, 
+    the remote server will not know anything about the existence of the branch, 
+    and therefore will not show it in Insights → Network
+  </div>
+
+<h4>Body</h4>
+
+1. Switch to `develop` branch and pull changes using `git pull`.  
+
+2. Create a new branch named `feature/body` (based on develop) and use it to edit main content:  
+    1. Preview index.html in a browser
+
+      <div class="bubble small subtle">
+        One way to do it is to install http-server <code>npm install --global http-server</code> and
+        then run <code> http-server -c-1</code> in working directory.
+      </div>
+
+    4. Create `patch/content/primary` (based on `feature/body`) branch.  
+    
+    5. Add a primary content _(e.g. avatar, name, job, contacts, intro, etc.)_ here. Commit small steps, add meaningful messages.
+      <details>
+        <summary>Primary content template</summary>
+
+        ```html
+        <main>
+          <div class="resume">
+            <div class="container">
+              <div class="resume__block">
+                <h1 class="contact-info__header">Bulka</h1>
+                <h3 class="contact-info__sub-header">Senior Hooman Manager</h3>
+
+                <div class="contact_info_container fh">
+                  <div class="contact-info__block"></div>
+                
+                  <div class="contact-info__block contact-info__block--center">
+                    <img class="contact-info__avatar" src="assets/avatar.png" alt="Avatar">
+                  </div>
+
+                  <div class="contact-info__block"></div>
+                <div>
+              <div>
+            <div>
+          </div>
+        </main>
+        ```
+      </details>
+
+      <details>
+        <summary>Contact info items example (should be place inside the contact-info__block</summary>
+
+        ```html
+        <a href="" rel="author" class="contact-info__item">
+          <div class="contact-info__item-icon-wrapper">
+            <svg class="contact-info__item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path
+                d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+              </path>
+            </svg>
+          </div>
+          <span>Lviv, Ukraine</span>
+        </a>
+        ```
+
+        ```html
+        <a href="https://ua.linkedin.com/company/binary-studio_241166" rel="author" class="contact-info__item">
+          <div class="contact-info__item-icon-wrapper">
+            <svg class="contact-info__item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+              </path>
+            </svg>
+          </div>
+          <span>binary-studio</span>
+        </a>
+        ```
+
+        You may take SVG icons from [fontawesome](https://fontawesome.com/).  
+      </details>
+
+      <details>
+        <summary>Intro block (should be put below the previous container)</summary>
+
+        ```html
+        <div class="container">
+          <div class="resume__block">
+            <div class="intro">
+              <div class="intro__icon-wrapper">
+                <svg class="intro__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                  </path>
+                </svg>
+              </div>
+              <p class="intro_text">Meow.
+                I am a Binary Studio cat. Still got 7 lives. Work in IT, Full Stack Evil, 
+                all I do is sleep and try to help out hoomans with their projects whenever 
+                they need me.
+              </p>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+    6. Create `patch/content/secondary` (based on `feature/body`) branch.  
+    
+    7. Add a secondary content _(e.g. languages, skills, character, etc.)_. Commit small steps, add meaningful messages.
+      
+      <details>
+        <summary>Skills block</summary>
+
+        ```html
+        <div class="container">
+          <div class="resume__block">
+            <div class="skills">
+              <h3 class="skills__header">Skills</h3>
+              <p class="skills__text">Sleep, eat, more sleep, meow, mrrr, purr. </p>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      <details>
+        <summary>Experience block template</summary>
+
+        ```html
+        <div class="container">
+          <div class="resume__block">
+            <div class="main-info fh">
+
+              <div class="experiences"></div>
+
+              <div class="additional-info fv"></div>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      <details>
+        <summary>Experiences</summary>
+
+        ```html
+        <div class="experiences">
+          <h3 class="experiences__header">Experience</h3>
+          <div class="experiences__company">
+            <div class="experiences__company-header">
+              <span class="experiences__company-header-durability">For whole my life</span>
+              <h3 class="experiences__company-header-name">BinaryStudio</h3>
+            </div>
+
+            <div class="experiences__company-project">
+              <span class="experiences__company-project-role">Binary Studio Cat</span>
+              <h3 class="experiences__company-project-name">Hooman project</h3>
+              <ul class="experiences__company-project-responsibilities">
+                <li>Supported hoomans</li>
+                <li>Slept all the time</li>
+                <li>Lied on the keyboard</li>
+                <li>Watched my hoomans working</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        ``` 
+      </details>
+
+      <details>
+        <summary>Additional info</summary>
+
+        ```html
+        <div class="additional-info fv">
+          <div class="additional-info__education">
+            <h3 class="additional-info__education-header">Education</h3>
+            <div class="additional-info__education-university">
+              <span class="additional-info__education-university-durability">2021</span>
+              <h3 class="additional-info__education-university-speciality">Cat track</h3>
+              <p class="additional-info__education-university-name">Binary Studio Academy</p>
+            </div>
+          </div>
+
+          <div class="additional-info__languages">
+            <h3 class="additional-info__languages-header">Languages</h3>
+            <p class="additional-info__languages-item">
+              Meow dialect
+            </p>
+            <p class="additional-info__languages-item">
+              Ukrainian (understand)
+            </p>
+            <p class="additional-info__languages-item">
+              English (don't understand)
+            </p>
+          </div>
+        </div>
+        ``` 
+      </details>
+       
+      As a preview ou should see something like this:
+      <details>
+        <summary>Preview</summary>
+
+        <img src={resume_template} alt="eventloop" />
+      </details>
+  
+    8. Iterate further and fill up the resume with <strong>YOUR OWN</strong> info - 
+       feel free to add new blocks, change structure, styles. Easter eggs are welcome too 😉
+      
+      <div class="bubble small subtle">
+        We do like Bulka very much, but we'd like to know you better too. 
+        So, please, create your own resume - and get your additional points 😉
+      </div>
+
+    9. Merge both branches into `feature/body` using pull requests
+    
+    10. Merge `feature/body` into `develop` using pull request  
+
+3. Open a pull request and <strong>merge `develop` into `main`</strong>. 
+
+  <div class="bubble small subtle">
+    Please, don't forget to merge your final changes to the main branch - we'll check only this one.
+  </div>
+
+  
+💥 **Boom, done! That's it! You are awesome!**  
+Send us the link to your GitHub repository and take a look how the task will be evaluated. 
+Pay attention, that **you have only 3 attempts to run the automated tests** - so use it wisely 😉
+
+<div className="grading-hometask">
+  <Accordion>
+    <Accordion.Header>
+      <FontAwesomeIcon icon={faQuestionCircle} />
+      <span className="title"><strong>How the project will be evaluated</strong></span>
+      <span className="icon">
+        <FontAwesomeIcon icon={faChevronRight} fixedWidth />
+      </span>
+    </Accordion.Header>
+    <Accordion.Body>
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            The task is complex, so it will be evaluated in six directions, 
+            and the arithmetic mean of the six numbers will be the final score:
+          </div>
+        </div>
+        <small>
+          <div className="columns">
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong>Repository management</strong>
+                      <span className="text-gray"><small>#1</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  <p> Repository created, topics added, README.md in place, and GitHub Pages enabled.</p>
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong>Project management</strong>
+                      <span className="text-gray"><small>#2</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Projects have been launched, milestones have been identified, 
+                  tasks have been created, problems have been described, and labels 
+                  have been attached.
+                </div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong>
+                        <code>git</code>
+                        <span style={{ fontWeight: 300 }}> + </span>
+                        GitFlow
+                      </strong>
+                      <span className="text-gray"><small>#3</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  The work is carried out in several branches, each intuitively clear, and pull 
+                  requests are used to merge them into the main branch. Maybe even commits have 
+                  normal names :)</div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <span>
+                        <span style={{ fontWeight: 900 }}>HTML</span>
+                        <span style={{ fontWeight: 300 }}> / </span>
+                        <strong>CSS</strong>
+                        <span style={{ fontWeight: 300 }}> / </span>
+                        JS
+                      </span>
+                      <span className="text-gray"><small>#4</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Level 80 copypaste - valid HTML markup, CSS, and JS (if any) does normal things.</div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <span>
+                        <strong>UI</strong>
+                        <span style={{ fontWeight: 300 }}> / </span>
+                        <span style={{ fontWeight: 900 }}>UX</span>
+                      </span>
+                      <span className="text-gray"><small>#5</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  The page is accessible, informative, convenient, readable, clean, pleasant, interesting, fast.</div>
+              </div>
+            </div>
+            <div className="column col-4 col-md-6 col-sm-12">
+              <div className="panel">
+                <div className="panel-header">
+                  <div className="panel-title">
+                    <h6>
+                      <strong><span role="img" aria-label="rainbow">🌈</span>A-a-a-A-A-aweso-o-O-O-oomene-e-E-E-ess!</strong>
+                      <span className="text-gray"><small>#6</small></span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="panel-body">
+                  Creativity, diligence, attention to detail, humor, originality, "wha-a-a-t ?!".
+                </div>
+              </div>
+            </div>
+          </div>
+        </small>
+      </div>
+      <RadarChart
+        labels={[
+          "Repository management",
+          "Project management",
+          "git + GitFlow",
+          "HTML / CSS / JS",
+          "UI / UX",
+          "Awesomeness"
+        ]}
+        datasets={[{
+          label: "You",
+          data: [6, 5, 5, 5, 2, 0],
+          dragData: true,
+          borderColor: "rgba(0, 173, 238, 1)",
+          backgroundColor: "rgba(0, 173, 238, 0.125)",
+          pointBorderColor: "white",
+          pointBackgroundColor: context => context.dataIndex % 2 === 0 ? "rgb(255, 199, 18)" : "rgb(236, 24, 72)",
+          pointHoverBorderColor: "white",
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          pointBorderWidth: 3,
+          pointHoverBorderWidth: 3,
+          pointHitRadius: 30
+        }, {
+          label: "Joe Average",
+          data: [6, 5, 5, 5, 2, 0],
+          dragData: false,
+          borderColor: "rgba(0, 0, 0, 0.1)",
+          backgroundColor: "rgba(0, 0, 0, 0.05)",
+          pointRadius: 0,
+          pointHitRadius: 0,
+          pointHoverRadius: 0
+        }]}
+      />
+      <div className="column">
+        We really appreciate your originality, initiative and humor, so any interesting 
+        idea will be highly appreciated according to the last criterion!
+      </div>
+    </Accordion.Body>
+  </Accordion>
+</div>
+
+<div class="bubble small subtle">
+  Don't worry 😌 if your repository doesn't get 10 - repositories for 10 aren't 
+  compiled on their own in a short period of time 😝. Some will invest all their time 
+  and effort in the project itself, but will not have time to design a repository, 
+  and some will do the opposite. First of all, you should do what you like and get 
+  the most out of the process. If you go into an unfamiliar or uncomfortable area and 
+  succeed there - it's great!
+</div>
+
+export const metadata = {
+  orderId: 1,
+  author: "Viktoriia Vasylenko",
+  title: "Git Homework",
+  description: "",
+  keywords: ["hola", "guapa"],
+  duration: "31 min",
+  publishedAt: "2021-11-18T10:00:00",
+  hiddenFromMainPage: true,
+};
+
+export default Lecture;
