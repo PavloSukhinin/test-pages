@@ -670,7 +670,7 @@ Now your repository is set up!
 
 1. Switch to `develop` branch and pull changes using `git pull`.  
 
-2. Create a new branch named `feature/body` (based on develop) and use it to edit main content:  
+2. Create a new branch named `feature/body` (based on develop), push it to origin - `git push -u origin feature/body`, and use it to edit main content:  
     1. Preview index.html in a browser
 
       <div class="bubble small subtle">
@@ -678,9 +678,9 @@ Now your repository is set up!
         then run <code> http-server -c-1</code> in working directory.
       </div>
 
-    4. Create `patch/content/primary` (based on `feature/body`) branch.  
+    2. Create `patch/content/primary` (based on `feature/body`) branch.  
     
-    5. Add a primary content _(e.g. avatar, name, job, contacts, intro, etc.)_ here. Commit small steps, add meaningful messages.
+    3. Add a primary content _(e.g. avatar, name, job, contacts, intro, etc.)_ here. Commit small steps, add meaningful messages.
       <details>
         <summary>Primary content template</summary>
 
@@ -765,6 +765,10 @@ Now your repository is set up!
         ``` 
       </details>
 
+    4. Merge branch `patch/content/primary` into `feature/body` using pull request
+
+    5. Switch back to `feature/body` branch, pull changes using `git pull`.
+    
     6. Create `patch/content/secondary` (based on `feature/body`) branch.  
     
     7. Add a secondary content _(e.g. languages, skills, character, etc.)_. Commit small steps, add meaningful messages.
@@ -864,18 +868,20 @@ Now your repository is set up!
 
         <img src={resume_template} alt="eventloop" />
       </details>
-  
-    8. Iterate further and fill up the resume with <strong>YOUR OWN</strong> info - 
-       feel free to add new blocks, change structure, styles. Easter eggs are welcome too 😉
-      
+
+    8. Merge branch `patch/content/secondary` into `feature/body` using pull request
+
+    9. Switch back to `feature/body` branch, pull changes using `git pull`.
+
+    10. Iterate further and fill up the resume with <strong>YOUR OWN</strong> info - 
+        feel free to add new blocks, change structure, styles. Easter eggs are welcome too 😉
+    
       <div class="bubble small subtle">
         We do like Bulka very much, but we'd like to know you better too. 
         So, please, create your own resume - and get your additional points 😉
       </div>
-
-    9. Merge both branches into `feature/body` using pull requests
     
-    10. Merge `feature/body` into `develop` using pull request  
+    11. Merge `feature/body` into `develop` using pull request  
 
 3. Open a pull request and <strong>merge `develop` into `main`</strong>. 
 
