@@ -266,7 +266,8 @@ After that go to your repository folder - `cd homepage`. Now you may also open y
      aware of the work you are doing.
    </div>
 
-2. Add the following tasks to the **"Resume"** project and convert them to issues — it would be very nice if you could use GitHub's **Labels**, **Assignees**, and **Milestones** features at this point _([**Mastering Issues**](https://guides.github.com/features/issues/) explains why and how)_:
+2. Add the following tasks to the **"Resume"** project and **convert them to issues** —  use GitHub's **Labels**, **Assignees**, and **Milestones** features at this point _([**Mastering Issues**](https://guides.github.com/features/issues/) explains why and how)_:
+    Add given **descriptions** to the tasks. (Bold instructions are important - don't ignore them 😉)
 
    <div class="bubble small subtle">
      Making clear description of a task is a good skill to have. It'll help you
@@ -319,6 +320,10 @@ After that go to your repository folder - `cd homepage`. Now you may also open y
      </a>
      .
    </div>
+  
+   <div class="bubble small subtle">
+      Psst, please add this task to <strong>Homepage</strong> project. Oh, also convert it to an issue while you're at it
+   </div>
 
 3. Check `git status`.
 
@@ -335,8 +340,16 @@ After that go to your repository folder - `cd homepage`. Now you may also open y
    Set title _"First release to production"_, set metadata _(assignees, labels, projects)_.
    Then <strong>merge</strong> pull request.
 
+   <div class="bubble small subtle">
+      This looks like a task too - add it to <strong>Homepage</strong> project.
+   </div>
+
 7. Go to repository **Settings** and set up **GitHub Pages** (from the `main` branch), update repository description with the proper **website** link.
    Follow the link to check if everything is fine - you should see your index.html content.
+
+   <div class="bubble small subtle">
+      Create a task for this in <strong>Homepage</strong> project.
+   </div>
 
 Now your repository is set up!  
   
@@ -670,7 +683,7 @@ Now your repository is set up!
 
 1. Switch to `develop` branch and pull changes using `git pull`.  
 
-2. Create a new branch named `feature/body` (based on develop) and use it to edit main content:  
+2. Create a new branch named `feature/body` (based on develop), push it to origin - `git push -u origin feature/body`, and use it to edit main content:  
     1. Preview index.html in a browser
 
       <div class="bubble small subtle">
@@ -678,9 +691,9 @@ Now your repository is set up!
         then run <code> http-server -c-1</code> in working directory.
       </div>
 
-    4. Create `patch/content/primary` (based on `feature/body`) branch.  
+    2. Create `patch/content/primary` (based on `feature/body`) branch.  
     
-    5. Add a primary content _(e.g. avatar, name, job, contacts, intro, etc.)_ here. Commit small steps, add meaningful messages.
+    3. Add a primary content _(e.g. avatar, name, job, contacts, intro, etc.)_ here. Commit small steps, add meaningful messages.
       <details>
         <summary>Primary content template</summary>
 
@@ -706,6 +719,8 @@ Now your repository is set up!
           </div>
         </main>
         ```
+
+        Create `assets` folder and put here any Bulka's image from his [Instagram](https://www.instagram.com/binarystudiocat/). Use it as a `src=` for avatar.
       </details>
 
       <details>
@@ -765,6 +780,10 @@ Now your repository is set up!
         ``` 
       </details>
 
+    4. Merge branch `patch/content/primary` into `feature/body` using pull request
+
+    5. Switch back to `feature/body` branch, pull changes using `git pull`.
+    
     6. Create `patch/content/secondary` (based on `feature/body`) branch.  
     
     7. Add a secondary content _(e.g. languages, skills, character, etc.)_. Commit small steps, add meaningful messages.
@@ -864,20 +883,24 @@ Now your repository is set up!
 
         <img src={resume_template} alt="eventloop" />
       </details>
-  
-    8. Iterate further and fill up the resume with <strong>YOUR OWN</strong> info - 
-       feel free to add new blocks, change structure, styles. Easter eggs are welcome too 😉
-      
+
+    8. Merge branch `patch/content/secondary` into `feature/body` using pull request
+
+    9. Switch back to `feature/body` branch, pull changes using `git pull`.
+
+    10. Iterate further and fill up the resume with <strong>YOUR OWN</strong> info - 
+        feel free to add new blocks, change structure, styles. Easter eggs are welcome too 😉
+    
       <div class="bubble small subtle">
         We do like Bulka very much, but we'd like to know you better too. 
         So, please, create your own resume - and get your additional points 😉
       </div>
-
-    9. Merge both branches into `feature/body` using pull requests
     
-    10. Merge `feature/body` into `develop` using pull request  
+    11. Merge `feature/body` into `develop` using pull request  
 
-3. Open a pull request and <strong>merge `develop` into `main`</strong>. 
+3. Check if your HTML and CSS are valid. You may use [HTML validator](https://html5.validator.nu/) and [CSS validator](https://stylelint.io/demo) for this.
+
+4. Open a pull request and <strong>merge `develop` into `main`</strong>. 
 
   <div class="bubble small subtle">
     Please, don't forget to merge your final changes to the main branch - we'll check only this one.
