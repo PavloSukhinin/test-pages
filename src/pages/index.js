@@ -12,7 +12,8 @@ import {
   nikitaKrasnov2018Avatar,
   kyryloLesohorskyi2020Avatar,
   LenchVolodymyr2021Avatar,
-  oleksandrDanylchenko2021Avatar
+  oleksandrDanylchenko2021Avatar,
+  viktoriiaVasylenko2021Avatar
  } from "../assets/images/avatars/intro-rounded";
 import "./index.css";
 
@@ -38,6 +39,10 @@ const getAuthorAvatar = author => {
     case "Александр Данильченко":
     case "Oleksandr Danylchenko":
      return oleksandrDanylchenko2021Avatar;
+    case "Вікторія Василенко":
+    case "Виктория Василенко":
+    case "Viktoriia Vasylenko":
+     return viktoriiaVasylenko2021Avatar;
     default:
       return undefined;
   }
