@@ -204,7 +204,7 @@ And since the student writes in JS, the choice for the technology becomes obviou
     </div>
   </li>
   <li>
-    <h5><strong>Сервер ― "what?" and "why?"</strong></h5>
+    <h5><strong>Server ― "what?" and "why?"</strong></h5>
     <div class="details">
       <input type="checkbox" id="accordion-1-3" />
       <label class="summary" for="accordion-1-3">
@@ -312,7 +312,7 @@ There is no point in writing the full installation process for all operating sys
       <div className="panel-header">
         <div className="panel-title">
           <h6>
-            <strong>Reload your computer after installation</strong>
+            <strong>Restart your computer after installation</strong>
             <span>🖥️</span>
           </h6>
         </div>
@@ -463,7 +463,7 @@ _4. Therefore, it is better to format your function correctly and publish it to 
   </div>
 </div>
 
-[Several years ago] (https://www.javascriptstuff.com/javascript-frontend-package-managers/) the block about package managers could have taken the whole lecture due to their variety, but today the situation has stabilized, and now to work with JS we have 2 leaders:
+[Several years ago](https://www.javascriptstuff.com/javascript-frontend-package-managers/) the block about package managers could have taken the whole lecture due to their variety, but today the situation has stabilized, and now to work with JS we have 2 leaders:
 
 <div class="columns">
   <div class="column col-6 col-xs-12">
@@ -833,7 +833,7 @@ node express.js
 
 Everything works! If we try to send requests to routes that aren't described in the code (for example **GET**: _/ users_), we will receive a 404 response. In order to write something like this on nodes, we would need about 200 lines of code. Impressive, right? Let's move on.
 
-**Express.js** extends common Node objects [request] (https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_clientrequest) and [response] (https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_serverresponse), adding a lot of useful features right out of the box. For example, it parses _query-parameters_ into an object and can take parts of a URL as parameters. In _response_ there are convenient methods to format response data:
+**Express.js** extends common Node objects [request](https://nodejs.org/docs/latest-v18.x/api/http.html#class-httpclientrequest) and [response](https://nodejs.org/docs/latest-v18.x/api/http.html#class-httpserverresponse), adding a lot of useful features right out of the box. For example, it parses _query-parameters_ into an object and can take parts of a URL as parameters. In _response_ there are convenient methods to format response data:
 ```js
 app.get('/:param', function (req, res) {
   console.log(req.query); // query-params object
@@ -916,7 +916,7 @@ We explored enough basic **express** functionality to start with, so now we can 
   <iframe src="https://www.youtube.com/embed/wyxUw25CG1k?start=1308&end=2165" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </VideoWrapper>
 
-And the best part 🍎. Here we will talk about the structure of the project, what, where, and why. For a quick start of a project, we can use [express-generator] (https://www.npmjs.com/package/express-generator), which is created by the Express team and generates a default starter on ** Express.js * *. It should be installed globally to be accessible anywhere from any project. To do this, add the `-g` flag to the installation command: 
+And the best part 🍎. Here we will talk about the structure of the project, what, where, and why. For a quick start of a project, we can use [express-generator](https://www.npmjs.com/package/express-generator), which is created by the Express team and generates a default starter on **Express.js**. It should be installed globally to be accessible anywhere from any project. To do this, add the `-g` flag to the installation command: 
 
 ```shell
 npm i express-generator -g
