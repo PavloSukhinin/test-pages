@@ -1,6 +1,5 @@
 ```csharp
-private IUsersService _usersService;
-public UsersController(IUsersService service) {
-  _usersService = service;
-}
+[ApiController]
+[Route("[controller]")]
+public class BinaryStudentsController : ControllerBase
 ```

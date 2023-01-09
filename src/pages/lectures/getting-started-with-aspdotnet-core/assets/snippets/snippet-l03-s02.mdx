@@ -1,32 +1,11 @@
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASP.NET_Core_Lecture.Services;
-using Microsoft.AspNetCore.Mvc;
+namespace BSA_ASP.NET.Business.Models;
 
-namespace ASP.NET_Core_Lecture.Controllers {
-  [Route("api/[controller]")]
-  [ApiController]
-  public class UsersController: ControllerBase {
-    private UsersService usersService;
-    
-    public UsersController() {
-      usersService = new UsersService();
-    }
-
-    // GET api/users
-    [HttpGet]
-    public ActionResult<IEnumerable<string>> Get() {
-      return Ok(usersService.GetUsers());
-    }
-
-    // GET api/users/5
-    [HttpGet("{id}")]
-    public ActionResult<string> Get(int id) {
-      return Ok(usersService.GetUser(id));
-    }
-  }
+public class BinaryStudent
+{
+  public int Id { get; set; }
+  public string? FirstName { get; set; }
+  public string? LastName { get; set; }
+  public int Age { get; set; }
 }
 ```

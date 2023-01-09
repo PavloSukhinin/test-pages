@@ -1,0 +1,40 @@
+```csharp
+using BSA_ASP.NET.Business.Interfaces;
+using BSA_ASP.NET.Business.Services;
+
+namespace BSA_ASP.NET;
+
+public class Program
+{
+  public static void Main(string[] args)
+  {
+    var builder = WebApplication.CreateBuilder(args);
+
+    // Add services to the container.
+    ConfigureServices(builder.Services);
+
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    ConfigurePipeline(app);
+
+    app.Run();
+  }
+
+  private static void ConfigureServices(IServiceCollection services)
+  {
+    services.AddControllers();
+    services.AddSingleton<IBinaryStudentService, BinaryStudentService>();
+  }
+
+  private static void ConfigurePipeline(WebApplication app)
+  {
+    app.UseHttpsRedirection();
+
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    app.MapControllers();
+  }
+}
+```
