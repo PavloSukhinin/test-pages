@@ -1,7 +1,3 @@
 ```csharp
-app.Use(async(context, next) = >{
-  Console.WriteLine("Started handling request");
-  await next.Invoke();
-  Console.WriteLine("Finished handling request");
-});
+app.MapGet("/binarystudents", (IBinaryStudentService studentService) => studentService.Get(string.Empty));
 ```

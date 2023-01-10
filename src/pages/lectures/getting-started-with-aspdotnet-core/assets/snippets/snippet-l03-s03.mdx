@@ -1,19 +1,14 @@
 ```csharp
-using System.Collections.Generic;
+using BSA_ASP.NET.Business.Models;
 
-namespace ASP.NET_Core_Lecture.Services
+namespace BSA_ASP.NET.Business.Interfaces;
+
+public interface IBinaryStudentService
 {
-  public class UsersService
-  {
-    public IEnumerable<string> GetUsers()
-    {
-      return new string[] { "user1", "user2" };
-    }
-
-    public string GetUser(int id)
-    {
-      return $"user{id}";
-    }
-  }
+  public List<BinaryStudent> Get(string? filter);
+  public BinaryStudent GetById(int id);
+  public BinaryStudent Add(BinaryStudent student);
+  public BinaryStudent Update(BinaryStudent student);
+  public void Delete(int id);
 }
 ```

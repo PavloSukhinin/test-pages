@@ -1,0 +1,321 @@
+import { Lecture, SlackMessage, TimelineOfContents, Level, ThatsAllFolks, VideoWrapper, Language } from "../../../../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
+import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { nikitaKrasnov2018Avatar } from "../../../../assets/images/avatars/intro-rounded";
+import SnippetL02S01 from "../assets/snippets/snippet-l02-s01.mdx";
+import SnippetL02S02 from "../assets/snippets/snippet-l02-s02.mdx";
+import SnippetL02S03 from "../assets/snippets/snippet-l02-s03.mdx";
+import SnippetL03S01 from "../assets/snippets/snippet-l03-s01.mdx";
+import SnippetL03S02 from "../assets/snippets/snippet-l03-s02.mdx";
+import SnippetL03S03 from "../assets/snippets/snippet-l03-s03.mdx";
+import SnippetL03S04 from "../assets/snippets/snippet-l03-s04.mdx";
+import SnippetL03S05 from "../assets/snippets/snippet-l03-s05.mdx";
+import SnippetL04S01 from "../assets/snippets/snippet-l04-s01.mdx";
+import SnippetL04S02 from "../assets/snippets/snippet-l04-s02.mdx";
+import SnippetL04S03 from "../assets/snippets/snippet-l04-s03.mdx";
+import SnippetL04S04 from "../assets/snippets/snippet-l04-s04.mdx";
+import SnippetL04S05 from "../assets/snippets/snippet-l04-s05.mdx";
+import SnippetL04S06 from "../assets/snippets/snippet-l04-s06.mdx";
+import '../styles.css';
+
+<div><h1><strong>Getting started with ASP.NET Core</strong></h1></div>
+
+<Language
+  currentLanguage="en"
+  languages={{
+    "en": "lectures/getting-started-with-aspdotnet-core/en"
+  }}
+/>
+
+<VideoWrapper duration="26 min 32 sec">
+  <iframe src="https://www.youtube.com/embed/Fa9RPd1tL30" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+</VideoWrapper>
+
+<div>
+  <div class="author">
+    <div class="avatar-wrapper">
+      <object class="avatar-object" data={nikitaKrasnov2018Avatar} role="img" aria-label="My profile picture"></object>
+    </div>
+    <div class="profile">
+      <h3 class="name">Serhii Yanchuk</h3>
+      <ul class="contacts">
+        <li><a href="https://www.linkedin.com/in/serhii-yanchuk-b304331a6/" rel="author" class="linkedin"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" class="svg-inline--fa fa-linkedin fa-w-14 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><span>serhii-yanchuk</span></a></li>
+      </ul>
+      <p class="about">
+        Serhii works at <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> as backend developer. He enjoys coding and making three-point shots in basketball. Therefore, if you are from Kyiv and want to combine a conversation about code with a game in basketball, contact him :D
+      </p>
+    </div>
+  </div>
+  <div class="bubble" style="margin: -0.5em 1em 1em;">
+    <strong>Hello!</strong> 👋<br />
+    I'll give you tips and tricks to better understand how our tech stack works. You'll have an ASP.NET Core web application by the end of this lesson. This is an introductory lecture, so:
+    <ol class="compact inverted">
+      <li>some things may have to be googled yourself;</li>
+      <li>maybe you already know all this (repetition won't hurt anyway).</li>
+    </ol>
+    Let's go!
+  </div>
+</div>
+
+<div id="table-of-contents" class="table-of-contents" style="margin-top: 1em;">
+  <TimelineOfContents timeline={[{
+    linkTo: "#intro-to-dotnet-core",
+    title: "Intro to .NET Core"
+  }, {
+    linkTo: "#creating-an-app",
+    title: "Creating an app"
+  }, {
+    linkTo: "#controllers-and-services",
+    title: "Controllers and services"
+  }, {
+    linkTo: "#additional-features",
+    title: "Additional Features"
+  }]} />
+</div>
+
+
+<Level id="intro-to-dotnet-core" number="1" name={<span>Intro to <a href="https://dotnet.microsoft.com/download">.NET</a></span>} difficulty="No worries." objectives="Familiarize yourself with .NET Core fundamentals because you are going to be buddies." />
+
+<h5>How Microsoft came up with .NET</h5>
+
+There were times when the term ".NET" meant Windows platform only. This platforms is called .NET Framework. It imposed some restrictions for deploying because most machines have Linux as an operating system. So the guys in Microsoft gathered for a meeting and came up with .NET Core. The main idea of the framework is cross-platform apps, which means you can host your app on a variety of OS. Starting with .NET 5, the platform version became known as .NET (without the use of "Core" in the name). Furthermore, it’s open-source, hence it has great community support.
+
+<h5>.NET advantages</h5>
+
+1. **Cross-platform**  
+   Runs on Windows, Linux, macOS
+2. **Flexible deployment**  
+   The framework can be included in your app or installed side-by-side user-or machine-wide
+3. **Command-line tools**  
+   .NET has great CLI, therefore all product scenarios can be executed using command-line
+4. **Compatibility**  
+   .NET is compatible with .NET Framework, Xamarin, and Mono, via the .NET Standard Library
+5. **Open-source**  
+   The .NET platform is open source, using MIT and Apache 2 licenses. You are welcome to contribute
+6. **Supported by Microsoft**  
+   Huge corporation forces .NET to develop and gain new features
+
+<h5>What you can build with .NET</h5>
+
+<div class="columns">
+  <div class="column col-6">
+    <div class="panel">
+      <div class="panel-header">
+        <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/overview"><strong>ASP.NET Core MVC</strong></a>
+      </div>
+      <div class="panel-body">
+        Web apps which implement Model-View-Controller pattern and use Razor for HTML markdown with C# snippets
+      </div>
+    </div>
+  </div>
+  <div class="column col-6">
+    <div class="panel">
+      <div class="panel-header">
+        <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/"><strong>ASP.NET Core Web API</strong></a>
+      </div>
+      <div class="panel-body">
+        Backend app which implements business logic and can be used by any client <em>(whether it’s Angular-, React-, or WhateverFramework-based frontend, mobile apps, etc.)</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h5>What you need to start</h5>
+
+* **.NET SDK** includes everything you need to build and run .NET applications. Since you are not limited to Windows only, you can choose whatever IDE or text editor you want (<a href="https://visualstudio.microsoft.com/"><strong>Visual Studio</strong></a>, <a href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong></a>, <a href="https://www.jetbrains.com/rider/"><strong>JetBrains Rider</strong></a>, <a href="https://www.sublimetext.com/"><strong>Sublime</strong></a>, <a href="https://atom.io/"><strong>Atom</strong></a>, and so on). You are able to write code using your favorite tool and execute needed actions using the CLI. Some useful CLI commands are:
+
+  * `dotnet new` — initializes a sample console C# project
+  * `dotnet restore` — restores the dependencies for a given application
+  * `dotnet build` — builds a .NET Core application
+  * `dotnet publish` — publishes a .NET portable or self-contained application
+  * `dotnet run` — runs the application from source
+  * `dotnet test` — runs tests using a test runner specified in the project.json
+  * `dotnet pack` — creates a NuGet package of your code
+
+* **.NET Core Runtime** includes just the resources required to run existing .NET Core applications (this runtime is included in the SDK)
+
+<Level id="creating-an-app" number="2" name="Creating an app" difficulty="Gets warmer, typing is required." objectives={<span>Learn <code>dotnet new</code>, understand the anatomy of ASP.NET Core app.</span>} />
+
+<h5>What is ASP.NET Core <sup><strong><a href="https://dotnet.microsoft.com/learn/web/what-is-aspnet-core">[1]</a> <a href="https://docs.microsoft.com/en-us/aspnet/core/">[2]</a></strong></sup></h5>
+
+**ASP.NET** is a popular web-development framework for building web apps on the .NET platform. **ASP.NET Core** is the open-source version of ASP.NET, that runs on macOS, Linux, and Windows. It was first released in 2016 and is a re-design of earlier Windows-only versions of ASP.NET. In comparison to ASP.NET, Core version provides:
+
+* Cleaner and modular architecture
+* Tighter security
+* Reduced servicing
+* Improved performance
+
+<h5>Why use it</h5>
+
+* Integration of modern client-side frameworks and development workflows
+* A cloud-ready environment-based configuration system
+* Built-in dependency injection
+* New light-weight and modular HTTP request pipeline
+* Ability to host on IIS or self-host in your own process
+* Built on .NET Core, which supports true side-by-side app versioning
+* Ships entirely as NuGet packages
+* New tooling that simplifies modern web development
+* Build and run cross-platform ASP.NET apps on Windows, Linux, and macOS
+* Open-source and community focused
+
+<h5>Create a new app by running <code>dotnet new webapi</code> or using features of your IDE <sup><strong><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/startup">[1]</a></strong></sup></h5>
+
+<ul>
+  <li class="details">
+    <input type="checkbox" id="accordion-2-1" />
+    <label class="summary" for="accordion-2-1">
+      <strong>Program.cs</strong>
+    </label>
+    <div class="details-body">
+      This is how the entry point looks like:
+      <SnippetL02S01 />
+      Here we can configure services that are used by your application and define how the application will respond to individual HTTP requests (you can setup pipelines which will process requests).
+    </div>
+  </li>
+</ul>
+
+<Level id="controllers-and-services" number="3" name="Controllers and services" difficulty="No kidding." objectives="Learn that services are no joke and business logic shouldn't live in controllers." />
+
+I’m going to show you how we can write API using **ASP.NET Core Web API**.
+
+1.  First, let’s create the simple application that retrives all binary students. Create new files called **BinaryStudentsController.cs** in the **Controllers** folder and **BinaryStudent.cs** where you want
+    <ul>
+      <li class="details">
+        <input type="checkbox" id="accordion-3-1" />
+        <label class="summary" for="accordion-3-1">
+          <strong>BinaryStudentsController.cs</strong>
+        </label>
+        <div class="details-body">
+          <SnippetL03S01 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-3-2" />
+        <label class="summary" for="accordion-3-2">
+          <strong>BinaryStudent.cs</strong>
+        </label>
+        <div class="details-body">
+          <SnippetL03S02 />
+        </div>
+      </li>
+    </ul>
+
+2.  You can use `dotnet run` command to start the server. To make sure that our API is working, we should send a request to the `BinaryStudentsController` that was created by default. Open [**https://localhost:7088/binarystudents**](https://localhost:7088/binarystudents) — you should receive students in JSON format as a response (you can find your port number in launchSettings.json file).
+    <div class="bubble small subtle">
+      You can use Postman to test your API or, for example, use an extension for VSCode ― <a href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client"><strong>REST Client</strong></a>
+    </div>
+
+3. Let’s practice a bit more and complicate our application, add more endpoints and dependencies. The modified controller will be a complete CRUD (C - create, R - read, U - update, D - delete) controller.
+  Writing business logic in controllers isn’t the best idea, so it would be better if we created a separate service for this purpose.
+    <ul>
+      <li class="details">
+        <input type="checkbox" id="accordion-3-3" />
+        <label class="summary" for="accordion-3-3">
+          <strong>IBinaryStudentService.cs</strong>
+        </label>
+        <div class="details-body">
+          <SnippetL03S03 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-3-4" />
+        <label class="summary" for="accordion-3-4">
+          <strong>BinaryStudentService.cs</strong>
+        </label>
+        <div class="details-body">
+          <SnippetL03S04 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-3-5" />
+        <label class="summary" for="accordion-3-5">
+          <strong>BinaryStudentsController.cs</strong>
+        </label>
+        <div class="details-body">
+          <SnippetL03S05 />
+        </div>
+      </li>
+      <li class="details">
+        <input type="checkbox" id="accordion-3-6" />
+        <label class="summary" for="accordion-3-6">
+          <strong>Program.cs</strong>
+        </label>
+        <div class="details-body">
+          We need to register our service. Read more about this in [**Dependency Injection**](#dependency-injection) paragraph 
+          <SnippetL03S06 />
+        </div>
+      </li>
+    </ul>
+4. Run the application and test three endpoints to make sure everything works.
+  * [**https://localhost:7088/binarystudents?filter=yan**](https://localhost:7088/binarystudents?filter=yan) - GET request, retrieving  those students whose last names contain the filter string;
+  * [**https://localhost:7088/binarystudents/1**](https://localhost:7088/binarystudents/1) - GET request, retrieving the student by their id; 
+  * [**https://localhost:7088/binarystudents**](https://localhost:7088/binarystudents) - POST request, adding the new student that you define in the body of request in JSON format.
+
+
+<Level id="additional-features" number="4" name="Additional features" difficulty="Like the first one times five?" objectives="Troubleshoot, debug, extend, and wire up your app better." />
+
+<h5 id="dependency-injection">A short review of Dependency Injection (Singleton, Scoped, Transient)</h5>
+
+How can we pass dependencies? The answer is DI or Dependency injection.
+[**Dependency injection (DI)**](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) — software design pattern, which is a technique for achieving <a href="https://docs.microsoft.com/en-us/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion"><strong>Inversion of Control (IoC)</strong></a> between classes and their dependencies. In our case `BinaryStudentsController` depends on `BinaryStudentService`. There might be a case when we want to use another implementation. In this case, we would need to go through our app and change class name manually in all places where it’s used. With DI we can do it easily in one place (in **Program.cs**). Moreover, in .NET Core DI container can create instances of dependencies. Otherwise, we would need to do it manually in every service. In addition to that, .NET Core DI container takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed. There are a few service lifetime options:
+
+1. **Singleton** — services are created the first time they're requested (or when an instance is specified with the service registration during web app configuration). Every subsequent request uses the same instance.
+2. **Scoped** — services are created once per client request (connection).
+3. **Transient** — services are created each time they're requested from the service container. This lifetime works best for lightweight, stateless services. 
+
+Let’s apply **Singleton** to our `BinaryStudentService` so that we use the same collection of students:
+   1. It can be done using IServiceCollection in **Program.cs**:
+      <SnippetL04S01 />
+   2. Going further, we can create an interface for `BinaryStudentService` and bind it to implementation. It will let us switch services in one place. Change the previous version of service registration to the next one:
+      <SnippetL04S02 />
+
+<h5>Middleware</h5>
+
+Middleware is software that's assembled into an app pipeline to handle requests and responses. Long story short: the app applies all middlewares one by one for each request.
+
+![php-fpm_nginx](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/index/_static/request-delegate-pipeline.png?view=aspnetcore-2.2)
+
+For example, if you want to log all the requests, you can add a pipeline (in the example below `Console.WriteLine` is used for simplicity, you can use any logging framework there). So, add the next code into the configuration of pipeline in **Program.cs**:
+<SnippetL04S03 />
+Now start the app, send a request and see the console output.
+
+<h5>Routing</h5>
+
+Routing is responsible for mapping request URIs to endpoint selectors and dispatching incoming requests to endpoints. Routes are defined in the app and configured when the app starts. A route can optionally extract values from the URL contained in the request, and these values can then be used for request processing. Basically, routing is a middleware. Using the picture above, imagine how request comes to the server, then it’s being processed by a chain of middlewares and then routing middleware matches URL to controller and method names. In WebAPI we define route using the `Route` attribute:
+<SnippetL04S04 />
+You can set a specific string, or you can use **[controller]** placeholder. And if you follow the naming convention and your class name has the **"Controller"** prefix at the end, then instead of the placeholder the name without the prefix will be substituted
+There is same attribute for methods in the controller.
+
+<h5>Minimal API</h5>
+
+The Minimal API is a new way to build APIs without a lot of controller-based API code. You can define endpoints using these extension methods in the configuration of pipeline:
+
+* MapGet;
+* MapPost;
+* MapPut;
+* MapDelete;
+* MapMethods.
+
+<SnippetL04S05 />
+The first parameter is path which the endpoint handles and the second is handler of delegate type.
+This is convenient if creating an entire controller is pointless. It's also handy if you need to quickly test an endpoint.
+
+
+<ThatsAllFolks />
+<div class="bubble">
+  That's it in brief about ASP.NET Core. That's all, thank you very much for your attention🎩! Ask questions and leave feedback on the lecture on the academy's website. Good luck with homework, see you soon, bye!
+</div>
+
+export const metadata = {
+  orderId: 5,
+  author: "Serhii Yanchuk",
+  title: "Getting started with ASP.NET Core",
+  description: "After a short introduction about the advantages of <strong>.NET</strong>, Serhii will demonstrate how to create an application on <strong>ASP.NET Core</strong> using <strong>ASP.NET Core Web API</strong> strong>, will code services and controllers, and then explain what dependency injection, routing, middleware and minimal API.",
+  keywords: ["hola", "guapa"],
+  duration: "30 хв",
+  publishedAt: "2022-01-02T00:00:00",
+  hiddenFromMainPage: true,
+}
+
+export default Lecture;

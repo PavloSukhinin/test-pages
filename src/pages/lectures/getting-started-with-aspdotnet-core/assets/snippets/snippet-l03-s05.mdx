@@ -1,38 +1,34 @@
 ```csharp
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+using BSA_ASP.NET.Business.Interfaces;
+using BSA_ASP.NET.Business.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace ASP.NET_Core_Lecture.Services {
-  public class UsersService {
-    private HttpClient _client;
+namespace BSA_ASP.NET.Controllers;
 
-    public UsersService() {
-      _client = new HttpClient();
-    }
-
-    public async Task<List<User>> GetUsers() {
-      var users = await _client.GetStringAsync("https://jsonplaceholder.typicode.com/users");
-      return JsonConvert.DeserializeObject<List<User>> (users);
-    }
-
-    public async Task<User> GetUser(int id) {
-      var user = await _client.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
-      return JsonConvert.DeserializeObject<User> (user);
-    }
-  }
-
-  public class User
+[ApiController]
+[Route("[controller]")]
+public class BinaryStudentsController : ControllerBase
+{
+  public BinaryStudentsController(IBinaryStudentService studentService) 
   {
-    [JsonProperty("id")]
-    public int Id { get; set; }
-    [JsonProperty("username")]
-    public string Username { get; set; }
-    [JsonProperty("email")]
-    public string Email { get; set; }
-    [JsonProperty("website")]
-    public string Website { get; set; }
+    _studentService = studentService;
   }
+
+  [HttpGet] // https://localhost:7088/binarystudents?filter=yan
+  public IEnumerable<BinaryStudent> GetStudents([FromQuery] string? filter = default) => _studentService.Get(filter);
+
+  [HttpGet("{id}")] // https://localhost:7088/binarystudents/1
+  public BinaryStudent GetStudent(int id) => _studentService.GetById(id);
+
+  [HttpPost] // https://localhost:7088/binarystudents
+  public BinaryStudent AddStudent([FromBody] BinaryStudent student) => _studentService.Add(student);
+
+  [HttpPut] // https://localhost:7088/binarystudents
+  public BinaryStudent UpdateStudent([FromBody] BinaryStudent student) => _studentService.Update(student);
+
+  [HttpDelete("{id}")] // https://localhost:7088/binarystudents/3
+  public void DeleteStudent(int id) => _studentService.Delete(id);
+
+  private IBinaryStudentService _studentService;
 }
 ```

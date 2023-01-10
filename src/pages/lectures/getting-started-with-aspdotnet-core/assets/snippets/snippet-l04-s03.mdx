@@ -1,3 +1,8 @@
 ```csharp
-services.AddTransient<IUsersService, UsersService>();
+app.Use(async(context, next) => 
+{
+  Console.WriteLine("Started handling request");
+  await next.Invoke();
+  Console.WriteLine("Finished handling request");
+});
 ```
