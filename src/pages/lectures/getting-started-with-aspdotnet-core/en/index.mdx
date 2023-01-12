@@ -1,7 +1,8 @@
 import { Lecture, SlackMessage, TimelineOfContents, Level, ThatsAllFolks, VideoWrapper, Language } from "../../../../components";
+import { serhiiYanchuk2023Avatar } from "../../../../assets/images/avatars/intro-rounded";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
-import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import SnippetL02S01 from "../assets/snippets/snippet-l02-s01.mdx";
 import SnippetL03S01 from "../assets/snippets/snippet-l03-s01.mdx";
 import SnippetL03S02 from "../assets/snippets/snippet-l03-s02.mdx";
@@ -14,6 +15,7 @@ import SnippetL04S02 from "../assets/snippets/snippet-l04-s02.mdx";
 import SnippetL04S03 from "../assets/snippets/snippet-l04-s03.mdx";
 import SnippetL04S04 from "../assets/snippets/snippet-l04-s04.mdx";
 import SnippetL04S05 from "../assets/snippets/snippet-l04-s05.mdx";
+import SnippetL04S06 from "../assets/snippets/snippet-l04-s06.mdx";
 import '../styles.css';
 
 <div><h1><strong>Getting started with ASP.NET Core</strong></h1></div>
@@ -32,10 +34,14 @@ import '../styles.css';
 
 <div>
   <div class="author">
+    <div class="avatar-wrapper">
+      <object class="avatar-object" data={serhiiYanchuk2023Avatar} role="img" aria-label="Serhii Yanchuk"></object>
+    </div>
     <div class="profile">
       <h3 class="name">Serhii Yanchuk</h3>
       <ul class="contacts">
-        <li><a href="https://www.linkedin.com/in/serhii-yanchuk-b304331a6/" rel="author" class="linkedin"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" class="svg-inline--fa fa-linkedin fa-w-14 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><span>serhii-yanchuk</span></a></li>
+        <li><a href="https://www.linkedin.com/in/serhii-yanchuk-b304331a6/" rel="author" class="linkedin"><FontAwesomeIcon icon={faLinkedin} className="icon" /><span>serhii-yanchuk</span></a></li>
+        <li><a href="https://www.instagram.com/serhii._.yanchuk/" rel="author" class="instagram"><FontAwesomeIcon icon={faInstagram} className="icon" /><span>serhii._.yanchuk</span></a></li>
       </ul>
       <p class="about">
         Serhii works at <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> as backend developer. He enjoys coding and making three-point shots in basketball. Therefore, if you are from Kyiv and want to combine a conversation about code with a game in basketball, contact him :D
@@ -237,7 +243,7 @@ I’m going to show you how we can write API using **ASP.NET Core Web API**.
           <strong>Program.cs</strong>
         </label>
         <div class="details-body">
-          We need to register our service. Read more about this in **Dependency Injection** paragraph 
+          We need to register our service. Read more about this in Dependency Injection paragraph 
           <SnippetL03S06 />
         </div>
       </li>
@@ -296,6 +302,20 @@ The Minimal API is a new way to build APIs without a lot of controller-based API
 The first parameter is path which the endpoint handles and the second is handler of delegate type.
 This is convenient if creating an entire controller is pointless. It's also handy if you need to quickly test an endpoint.
 
+<h5>Status codes</h5>
+
+Of course, returning only codes 200 or 500 is cool. But there are a lot of informative codes, so why not use them?
+One of the ways to specify status codes for the responses to the client is using the methods of the `ControllerBase` class, from which the API controller inherits. For example, the following methods:
+
+* Ok - 200;
+* Created - 201;
+* BadRequest - 400;
+* NotFound - 404;
+* Forbid - 403;
+* StatusCode - any code.
+
+In order to use them, we have to wrap the return value type in the `ActionResult` class:
+<SnippetL04S06 />
 
 <ThatsAllFolks />
 <div class="bubble">
@@ -306,7 +326,7 @@ export const metadata = {
   orderId: 5,
   author: "Serhii Yanchuk",
   title: "Getting started with ASP.NET Core",
-  description: "After a short introduction about the advantages of <strong>.NET</strong>, Serhii will demonstrate how to create an application on <strong>ASP.NET Core</strong> using <strong>ASP.NET Core Web API</strong> strong>, will code services and controllers, and then explain what dependency injection, routing, middleware and minimal API.",
+  description: "After a short introduction about the advantages of <strong>.NET</strong>, Serhii will demonstrate how to create an application on <strong>ASP.NET Core</strong> using <strong>ASP.NET Core Web API</strong>, will code services and controllers, and then explain what dependency injection, routing, middleware and minimal API.",
   keywords: ["hola", "guapa"],
   duration: "30 хв",
   publishedAt: "2022-01-02T00:00:00",

@@ -1,7 +1,8 @@
 import { Lecture, SlackMessage, TimelineOfContents, Level, ThatsAllFolks, VideoWrapper, Language } from "../../../../components";
+import { serhiiYanchuk2023Avatar } from "../../../../assets/images/avatars/intro-rounded";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
-import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import SnippetL02S01 from "../assets/snippets/snippet-l02-s01.mdx";
 import SnippetL03S01 from "../assets/snippets/snippet-l03-s01.mdx";
 import SnippetL03S02 from "../assets/snippets/snippet-l03-s02.mdx";
@@ -14,6 +15,7 @@ import SnippetL04S02 from "../assets/snippets/snippet-l04-s02.mdx";
 import SnippetL04S03 from "../assets/snippets/snippet-l04-s03.mdx";
 import SnippetL04S04 from "../assets/snippets/snippet-l04-s04.mdx";
 import SnippetL04S05 from "../assets/snippets/snippet-l04-s05.mdx";
+import SnippetL04S06 from "../assets/snippets/snippet-l04-s06.mdx";
 import '../styles.css';
 
 <div><h1><strong>Getting started with ASP.NET Core</strong></h1></div>
@@ -32,10 +34,14 @@ import '../styles.css';
 
 <div>
   <div class="author">
+    <div class="avatar-wrapper">
+      <object class="avatar-object" data={serhiiYanchuk2023Avatar} role="img" aria-label="Serhii Yanchuk"></object>
+    </div>
     <div class="profile">
       <h3 class="name">Сергій Янчук</h3>
       <ul class="contacts">
-        <li><a href="https://www.linkedin.com/in/serhii-yanchuk-b304331a6/" rel="author" class="linkedin"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" class="svg-inline--fa fa-linkedin fa-w-14 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><span>serhii-yanchuk</span></a></li>
+        <li><a href="https://www.linkedin.com/in/serhii-yanchuk-b304331a6/" rel="author" class="linkedin"><FontAwesomeIcon icon={faLinkedin} className="icon" /><span>serhii-yanchuk</span></a></li>
+        <li><a href="https://www.instagram.com/serhii._.yanchuk/" rel="author" class="instagram"><FontAwesomeIcon icon={faInstagram} className="icon" /><span>serhii._.yanchuk</span></a></li>
       </ul>
       <p class="about">
         Сергій працює в <a href="https://binary-studio.com"><strong>Binary Studio</strong></a> backend розробником. Він полюбляє кодити та закидувати триочкові в баскетболі. Тому, якщо ти з Києва та хочеш поєднати розмову про програмування з грою у баскетбол, звертайся до нього :D
@@ -235,7 +241,7 @@ import '../styles.css';
           <strong>Program.cs</strong>
         </label>
         <div class="details-body">
-          Нам потрібно зареєструвати наш сервіс. Докладніше про це в параграфі **Dependency Injection**. 
+          Нам потрібно зареєструвати наш сервіс. Докладніше про це в параграфі Dependency Injection. 
           <SnippetL03S06 />
         </div>
       </li>
@@ -294,6 +300,20 @@ Minimal API - це новий спосіб створення API без вел�
 Перший параметр — шлях, який обробляє кінцева точка, а другий — обробник типу делегату.
 Це зручно, якщо створення цілого контролера безглуздо. Це також зручно, якщо вам потрібно швидко перевірити кінцеву точку.
 
+<h5>Коди стану</h5>
+
+Повертати тільки коди 200 або 500 звісно круто. Але є велика кількість інформативних кодів, тому чого їх не використовувати?
+Одним із способів, щоб задавати конкретні коди стану при відправленні відповіді клієнту, є використання методів класу `ControllerBase`, від якого наслідується створений нами контролер. Наприклад, наступні методи:
+
+* Ok - 200;
+* Created - 201;
+* BadRequest - 400;
+* NotFound - 404;
+* Forbid - 403;
+* StatusCode - будь-який код.
+
+Для того, щоб використати їх, ми повинні обернути тип значення, що повертається, класом `ActionResult`:
+<SnippetL04S06 />
 
 <ThatsAllFolks />
 <div class="bubble">
@@ -304,7 +324,7 @@ export const metadata = {
   orderId: 5,
   author: "Сергій Янчук",
   title: "Getting started with ASP.NET Core",
-  description: "Після невеликого вступу, де мова піде про переваги <strong>.NET</strong>, Сергій продемонструє, як створити додаток на <strong>ASP.NET Core</strong> з використанням <strong>ASP.NET Core Web API</strong> strong>, закодить сервіси та контроллери, а потім пояснить, що таке dependency injection, маршрутизацію, middleware та minimal API.",
+  description: "Після невеликого вступу, де мова піде про переваги <strong>.NET</strong>, Сергій продемонструє, як створити додаток на <strong>ASP.NET Core</strong> з використанням <strong>ASP.NET Core Web API</strong>, закодить сервіси та контроллери, а потім пояснить, що таке dependency injection, маршрутизацію, middleware та minimal API.",
   keywords: ["hola", "guapa"],
   duration: "30 хв",
   publishedAt: "2022-01-02T00:00:00"
