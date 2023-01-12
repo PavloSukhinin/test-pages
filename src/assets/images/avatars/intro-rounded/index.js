@@ -14,4 +14,4 @@ export { default as oleksandrDanylchenko2021Avatar } from "./oleksandr-danylchen
 export { default as LenchVolodymyr2021Avatar } from "./lench-volodymyr-2021.svg";
 export { default as ulianaLobanova2021Avatar } from "./uliana-lobanova-2021.svg";
 export { default as viktoriiaVasylenko2021Avatar } from "./viktoriia-vasylenko-2021.svg";
-export { default as serhiiYanchuk2023Avatar } from "./serhii-yanchuk-2023.png";
+export { default as serhiiYanchuk2023Avatar } from "./serhii-yanchuk-2023.svg";
