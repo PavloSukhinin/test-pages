@@ -1,0 +1,11 @@
+```csharp
+[HttpGet("{id}")] // https://localhost:7088/binarystudents/1
+public ActionResult<BinaryStudent> GetStudent(int id) => Ok(_studentService.GetById(id));
+
+[HttpPost] // https://localhost:7088/binarystudents
+public ActionResult<BinaryStudent> AddStudent([FromBody] BinaryStudent student)
+{
+    var addedStudent = _studentService.Add(student);
+    return Created($"~binarystudents/{addedStudent.Id}", addedStudent);
+}
+```
