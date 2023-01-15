@@ -6,6 +6,7 @@ export { default as pavelNemchenko2019Avatar } from "./pavel-nemchenko-2019.svg"
 export { default as romanSahan2017Avatar } from "./roman-sahan-2017.svg";
 export { default as romanSahan2019Avatar } from "./roman-sahan-2019.svg";
 export { default as rostyslavDiakiv2018Avatar } from "./rostyslav-diakiv-2018.svg";
+export { default as ivanHedz2023Avatar} from "./ivan-hedz-2023.svg";
 export { default as rostyslavDiakiv2019Avatar } from "./rostyslav-diakiv-2019.svg";
 export { default as volodymyrKushnir2017Avatar } from "./volodymyr-kushnir-2017.svg";
 export { default as volodymyrKushnir2019Avatar } from "./volodymyr-kushnir-2019.svg";
