@@ -1,7 +1,7 @@
 name: Build and Deploy to GitHub Pages
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
           node-version: '17'
 
       - run: yarn
-      - run: yarn build
+      - run: yarn predeploy
 
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
