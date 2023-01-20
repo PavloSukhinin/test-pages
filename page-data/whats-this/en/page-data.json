@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-pages-whats-this-en-index-mdx","path":"/whats-this/en/","result":{"pageContext":{"frontmatter":{}}},"staticQueryHashes":["3170294461"]}
+{
+    "componentChunkName": "component---src-pages-whats-this-en-index-mdx",
+    "path": "/whats-this/en/",
+    "result": {"pageContext":{"frontmatter":{}}},
+    "staticQueryHashes": ["3170294461"]}
