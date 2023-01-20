@@ -1,24 +1,24 @@
 module.exports = {
-  pathPrefix: `/stage-2`,
+  pathPrefix: `/test-pages`,
   siteMetadata: {
     title: `Binary Studio Academy 2022`,
     description: `Lectures for the 2nd stage of the Binary Studio Academy 2022`,
-    author: ``
+    author: ``,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-135348958-2"
+        trackingId: "UA-135348958-2",
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets`
-      }
+        path: `${__dirname}/src/assets`,
+      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -57,11 +57,11 @@ module.exports = {
               showLineNumbers: false,
               // If setting this to true, the parser won't handle and highlight inline
               // code used in markdown i.e. single backtick code like `this`.
-              noInlineHighlight: false
-            }
-          }
-        ]
-      }
+              noInlineHighlight: false,
+            },
+          },
+        ],
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
@@ -76,17 +76,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `stage-2`,
-        short_name: `stage-2`,
+        name: `test-pages`,
+        short_name: `test-pages`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/icon-48x48.png`
-      }
-    }
+        icon: `src/assets/icon-48x48.png`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ]
+  ],
 };
